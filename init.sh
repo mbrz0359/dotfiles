@@ -13,6 +13,7 @@ brew_apps=(
     zsh-autosuggestions
     kubecolor
     git
+    yq
 )
 
 flatpak_apps=(
