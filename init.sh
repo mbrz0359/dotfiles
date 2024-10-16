@@ -28,40 +28,40 @@ username=$(whoami)
 init_brew() {
     brew --version
     if [ $? -ne 0 ]; then
-	echo "Homebrew not found, installing"
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      echo "Homebrew not found, installing"
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
     installed=$(brew list)
 
     for brew_app in ${brew_apps[@]}; do
-	if [ "$(echo "$installed" | grep $brew_app)" = "" ]; then
-	    brew install $brew_app
-	fi
+      if [ "$(echo "$installed" | grep $brew_app)" = "" ]; then
+          brew install $brew_app
+      fi
     done
 }
 
 init_flatpak() {
     output=$(flatpak remotes | grep flathub | grep system)
     if [ "$output" = "" ]; then
-	echo "Flathub not found, adding remote"
-	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+      echo "Flathub not found, adding remote"
+      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     fi
 
     installed=$(flatpak list --app)
 
     for flatpak_app in ${flatpak_apps[@]}; do
-	if [ "$(echo "$installed" | grep $flatpak_app)" = "" ]; then
-	    flatpak install flathub $flatpak_app
-	fi
+      if [ "$(echo "$installed" | grep $flatpak_app)" = "" ]; then
+          flatpak install flathub $flatpak_app
+      fi
     done
 }
 
 
 init_zsh() {
     if [ ! -d ~/.oh-my-zsh ]; then
-	echo "Installing oh-my-zsh"
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      echo "Installing oh-my-zsh"
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
 
     zshrc_file=/home/"$username"/.zshrc
