@@ -65,6 +65,7 @@ init_zsh() {
     fi
 
     zshrc_file=/home/"$username"/.zshrc
+    cp .zshrc "$zshrc_file"
 }
 
 init_brew
