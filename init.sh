@@ -66,6 +66,9 @@ init_zsh() {
 
     zshrc_file=/home/"$username"/.zshrc
     cp .zshrc "$zshrc_file"
+
+    echo -e "\n" >> "$zshrc_file"
+    cat .zshrc-custom-additions >> "$zshrc_file"
 }
 
 init_brew
