@@ -35,9 +35,9 @@ init_brew() {
 
     installed=$(brew list)
 
-    for brew_app in ${brew_apps[@]}; do
-      if [ "$(echo "$installed" | grep $brew_app)" = "" ]; then
-          brew install $brew_app
+    for brew_app in "${brew_apps[@]}"; do
+      if [ "$(echo "$installed" | grep "$brew_app")" = "" ]; then
+          brew install "$brew_app"
       fi
     done
 }
@@ -51,9 +51,9 @@ init_flatpak() {
 
     installed=$(flatpak list --app)
 
-    for flatpak_app in ${flatpak_apps[@]}; do
-      if [ "$(echo "$installed" | grep $flatpak_app)" = "" ]; then
-          flatpak install flathub $flatpak_app
+    for flatpak_app in "${flatpak_apps[@]}"; do
+      if [ "$(echo "$installed" | grep "$flatpak_app")" = "" ]; then
+          flatpak install flathub "$flatpak_app"
       fi
     done
 }
