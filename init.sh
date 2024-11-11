@@ -21,6 +21,7 @@ flatpak_apps=(
     org.gnome.TextEditor
     com.plexamp.Plexamp
     net.nokyan.Resources
+    io.appflowy.AppFlowy
 )
 
 username=$(whoami)
