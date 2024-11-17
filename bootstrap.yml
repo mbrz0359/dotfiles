@@ -1,0 +1,23 @@
+- hosts: localhost
+  tasks:
+    - name: Add the flathub flatpak repository remote
+      community.general.flatpak_remote:
+        name: flathub
+        flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+    - name: Remove unneeded dnf packages
+      ansible.builtin.dnf:
+        name:
+          - gnome-calculator
+        state: absent
+      become: true
+
+    - name: Install flatpaks
+      community.general.flatpak:
+        name:
+          - app.devsuite.Ptyxis
+          - org.gnome.TextEditor
+          - com.plexamp.Plexamp
+          - net.nokyan.Resources
+          - io.appflowy.AppFlowy
+        state: latest
