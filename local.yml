@@ -5,3 +5,7 @@
 - hosts: desktop
   roles:
     - home-apps
+
+- hosts: work
+  roles:
+    - work-apps

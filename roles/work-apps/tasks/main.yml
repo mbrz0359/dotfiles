@@ -1,0 +1,4 @@
+- name: Install work flatpaks
+  community.general.flatpak:
+    name:
+      - com.mongodb.Compass
