@@ -16,14 +16,6 @@ brew_apps=(
     yq
 )
 
-flatpak_apps=(
-    app.devsuite.Ptyxis
-    org.gnome.TextEditor
-    com.plexamp.Plexamp
-    net.nokyan.Resources
-    io.appflowy.AppFlowy
-)
-
 username=$(whoami)
 
 init_brew() {
@@ -42,23 +34,6 @@ init_brew() {
     done
 }
 
-init_flatpak() {
-    output=$(flatpak remotes | grep flathub | grep system)
-    if [ "$output" = "" ]; then
-      echo "Flathub not found, adding remote"
-      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    fi
-
-    installed=$(flatpak list --app)
-
-    for flatpak_app in "${flatpak_apps[@]}"; do
-      if [ "$(echo "$installed" | grep "$flatpak_app")" = "" ]; then
-          flatpak install flathub "$flatpak_app"
-      fi
-    done
-}
-
-
 init_zsh() {
     if [ ! -d ~/.oh-my-zsh ]; then
       echo "Installing oh-my-zsh"
@@ -73,6 +48,5 @@ init_zsh() {
 }
 
 init_brew
-init_flatpak
 init_zsh
 echo "Init Done"
