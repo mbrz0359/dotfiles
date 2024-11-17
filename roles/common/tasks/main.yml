@@ -1,0 +1,72 @@
+- name: Add the flathub flatpak repository remote
+  community.general.flatpak_remote:
+    name: flathub
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+- name: Install dnf packages
+  ansible.builtin.dnf:
+    name:
+      - rsms-inter-fonts
+      - python3-psutil # Needed for community.general.dconf
+  become: true
+
+- name: Remove unneeded dnf packages
+  ansible.builtin.dnf:
+    name:
+      - gnome-calculator
+    state: absent
+  become: true
+
+- name: Install flatpaks
+  community.general.flatpak:
+    name:
+      - app.devsuite.Ptyxis
+      - org.gnome.TextEditor
+      - com.plexamp.Plexamp
+      - net.nokyan.Resources
+      - io.appflowy.AppFlowy
+
+- name: Set keyboard shortcut for switching to workspace 1
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-1"
+    value: "['<Super>1']"
+
+- name: Set keyboard shortcut for switching to workspace 2
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-2"
+    value: "['<Super>2']"
+
+- name: Set keyboard shortcut for switching to workspace 3
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-3"
+    value: "['<Super>3']"
+
+- name: Set keyboard shortcut for switching to workspace 4
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-4"
+    value: "['<Super>4']"
+
+- name: Set keyboard shortcut for switching to workspace 5
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-5"
+    value: "['<Super>5']"
+
+- name: Set keyboard shortcut for switching to workspace 6
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-6"
+    value: "['<Super>6']"
+
+- name: Set keyboard shortcut for switching to workspace 7
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-7"
+    value: "['<Super>7']"
+
+- name: Set keyboard shortcut for switching to workspace 8
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-8"
+    value: "['<Super>8']"
+
+- name: Set keyboard shortcut for switching to workspace 9
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-9"
+    value: "['<Super>9']"
