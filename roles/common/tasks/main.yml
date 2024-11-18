@@ -21,6 +21,7 @@
       - libreoffice-core
       - snapshot
       - loupe
+      - rhythmbox
     state: absent
   become: true
 
