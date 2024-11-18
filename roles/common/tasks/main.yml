@@ -45,21 +45,8 @@
       - org.libreoffice.LibreOffice
       - io.podman_desktop.PodmanDesktop
 
-- name: Install homebrew packages
-  community.general.homebrew:
-    name:
-      - helm
-      - htop
-      - k9s
-      - kind
-      - kubernetes-cli
-      - tree
-      - zsh
-      - kube-ps1
-      - zsh-syntax-highlighting
-      - zsh-autosuggestions
-      - kubecolor
-      - yq
+- name: homebrew
+  ansible.builtin.include_tasks: homebrew.yml
 
 - name: oh-my-zsh
   ansible.builtin.include_tasks: oh-my-zsh.yml
