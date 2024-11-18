@@ -1,0 +1,5 @@
+- name: Install work flatpaks
+  community.general.flatpak:
+    name:
+      - com.mongodb.Compass
+      - com.getpostman.Postman
