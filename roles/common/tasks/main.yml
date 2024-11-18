@@ -17,7 +17,7 @@
       - gnome-calendar
       - gnome-clocks
       - gnome-text-editor
-      - libreoffice
+      - libreoffice-core
     state: absent
   become: true
 
