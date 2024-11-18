@@ -56,12 +56,12 @@
 - name: Disable switch to workspace up shortcut
   community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-up"
-    value: "[]"
+    value: "['']"
 
 - name: Disable switch to workspace down shortcut
   community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-down"
-    value: "[]"
+    value: "['']"
 
 - name: Set keyboard shortcut for switching to left workspace
   community.general.dconf:
