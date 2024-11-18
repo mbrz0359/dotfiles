@@ -3,6 +3,11 @@
     key: "/org/gnome/desktop/interface/enable-hot-corners"
     value: "false"
 
+- name: Set app switcher to current workspace only
+  community.general.dconf:
+    key: "/org/gnome/shell/app-switcher/current-workspace-only"
+    value: "true"
+
 - name: Set interface font to Inter
   community.general.dconf:
     key: "/org/gnome/desktop/interface/font-name"
