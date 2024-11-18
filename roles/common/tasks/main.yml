@@ -3,12 +3,6 @@
     name: flathub
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
 
-- name: Install dnf packages
-  ansible.builtin.dnf:
-    name:
-      - python3-psutil # Needed for community.general.dconf
-  become: true
-
 - name: Remove unneeded dnf packages
   ansible.builtin.dnf:
     name:
