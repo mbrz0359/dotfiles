@@ -2,3 +2,73 @@
   community.general.dconf:
     key: "/org/gnome/desktop/interface/enable-hot-corners"
     value: "false"
+
+- name: Set interface font to Inter
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/font-name"
+    value: "Inter Display Medium 12"
+
+- name: Set keyboard shortcut for switching to workspace 1
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-1"
+    value: "['<Super>1']"
+
+- name: Set keyboard shortcut for switching to workspace 2
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-2"
+    value: "['<Super>2']"
+
+- name: Set keyboard shortcut for switching to workspace 3
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-3"
+    value: "['<Super>3']"
+
+- name: Set keyboard shortcut for switching to workspace 4
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-4"
+    value: "['<Super>4']"
+
+- name: Set keyboard shortcut for switching to workspace 5
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-5"
+    value: "['<Super>5']"
+
+- name: Set keyboard shortcut for switching to workspace 6
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-6"
+    value: "['<Super>6']"
+
+- name: Set keyboard shortcut for switching to workspace 7
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-7"
+    value: "['<Super>7']"
+
+- name: Set keyboard shortcut for switching to workspace 8
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-8"
+    value: "['<Super>8']"
+
+- name: Set keyboard shortcut for switching to workspace 9
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-9"
+    value: "['<Super>9']"
+
+- name: Disable switch to workspace up shortcut
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-up"
+    value: "[]"
+
+- name: Disable switch to workspace down shortcut
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-down"
+    value: "[]"
+
+- name: Set keyboard shortcut for switching to left workspace
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-left"
+    value: "['<Control><Alt>Up']"
+
+- name: Set keyboard shortcut for switching to right workspace
+  community.general.dconf:
+    key: "org.gnome.desktop.wm.keybindings switch-to-workspace-right"
+    value: "['<Control><Alt>Down']"
