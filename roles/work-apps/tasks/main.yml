@@ -3,3 +3,25 @@
     name:
       - com.mongodb.Compass
       - com.getpostman.Postman
+      -
+- name: Install docker dependencies
+  ansible.builtin.dnf:
+    name:
+      - dnf-plugins-core
+  become: true
+
+- name: Add docker repository
+  ansible.builtin.yum_repository:
+    name: docker-ce
+    description: Docker CE Repo
+    baseurl: https://download.docker.com/linux/fedora/docker-ce.repo
+
+- name: Install docker
+  ansible.builtin.dnf:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+  become: true
