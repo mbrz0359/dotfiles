@@ -25,6 +25,9 @@
       - com.plexamp.Plexamp
       - net.nokyan.Resources
       - io.appflowy.AppFlowy
+      - ca.desrt.dconf-editor
+      - com.mattjakeman.ExtensionManager
+      - org.mozilla.Thunderbird
 
 - name: Set keyboard shortcut for switching to workspace 1
   community.general.dconf:
