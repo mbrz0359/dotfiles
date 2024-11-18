@@ -10,3 +10,4 @@
 - hosts: work
   roles:
     - work-apps
+    - gnome-work
