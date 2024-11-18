@@ -8,6 +8,21 @@
     key: "/org/gnome/desktop/interface/font-name"
     value: "'Inter Display Medium 12'"
 
+- name: Set dark style preference
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/color-scheme"
+    value: "'prefer-dark'"
+
+- name: Set font antialiasing
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/font-antialiasing"
+    value: "'rgba'"
+
+- name: Set font hinting
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/font-hinting"
+    value: "'full'"
+
 - name: Set keyboard shortcut for switching to workspace 1
   community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-1"
