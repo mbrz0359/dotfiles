@@ -1,0 +1,14 @@
+- name: Remove unneeded dnf packages
+  ansible.builtin.dnf:
+    name:
+      - gnome-calculator
+      - gnome-calendar
+      - gnome-clocks
+      - gnome-contacts
+      - gnome-text-editor
+      - libreoffice-core
+      - snapshot
+      - loupe
+      - rhythmbox
+    state: absent
+  become: true

@@ -19,3 +19,11 @@
       - docker-buildx-plugin
       - docker-compose-plugin
   become: true
+
+- name: Add docker group
+  ansible.builtin.command: sudo groupadd docker
+  become: true
+
+- name: Add user to docker group
+  ansible.builtin.command: sudo usermod -aG docker {{ lookup('env', 'USER') }}
+  become: true
