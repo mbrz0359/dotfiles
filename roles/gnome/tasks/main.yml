@@ -1,37 +1,8 @@
-- name: Set keyboard shortcuts for switching to given workspace
-  community.general.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-{{ item }}"
-    value: "['<Super>{{ item }}']"
-  with_sequence: start=1 end=9
-
-- name: Disable switch to workspace up shortcut
-  community.general.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-up"
-    value: "['']"
-
-- name: Disable switch to workspace down shortcut
-  community.general.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-down"
-    value: "['']"
-
-- name: Set keyboard shortcut for switching to left workspace
-  community.general.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-left"
-    value: "['<Control><Alt>Up']"
-
-- name: Set keyboard shortcut for switching to right workspace
-  community.general.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-right"
-    value: "['<Control><Alt>Down']"
-
-- name: Disable keyboard shortcuts for switching applications
-  community.general.dconf:
-    key: "/org/gnome/shell/keybindings/switch-to-application-{{ item }}"
-    value: "['']"
-  with_sequence: start=1 end=9
-
 - name: preferences
   ansible.builtin.include_tasks: preferences.yml
 
 - name: fonts
   ansible.builtin.include_tasks: fonts.yml
+
+- name: kinesis 360 keyboard shortcuts
+  ansible.builtin.include_tasks: keyboard-shortcuts-kinesis.yml
