@@ -60,3 +60,6 @@
       - zsh-autosuggestions
       - kubecolor
       - yq
+
+- name: oh-my-zsh
+  ansible.builtin.include_tasks: oh-my-zsh.yml
