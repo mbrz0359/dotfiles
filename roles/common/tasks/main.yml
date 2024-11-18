@@ -14,6 +14,9 @@
   ansible.builtin.dnf:
     name:
       - gnome-calculator
+      - gnome-calendar
+      - gnome-clocks
+      - gnome-text-editor
     state: absent
   become: true
 
@@ -21,6 +24,8 @@
   community.general.flatpak:
     name:
       - app.devsuite.Ptyxis
+      - org.gnome.Calendar
+      - org.gnome.clocks
       - org.gnome.TextEditor
       - com.plexamp.Plexamp
       - net.nokyan.Resources
