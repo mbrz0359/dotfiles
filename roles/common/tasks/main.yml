@@ -42,3 +42,19 @@
       - org.gnome.gitlab.cheywood.Buffer
       - com.github.tchx84.Flatseal
       - org.libreoffice.LibreOffice
+
+- name: Install homebrew packages
+  community.general.homebrew:
+    name:
+      - helm
+      - htop
+      - k9s
+      - kind
+      - kubernetes-cli
+      - tree
+      - zsh
+      - kube-ps1
+      - zsh-syntax-highlighting
+      - zsh-autosuggestions
+      - kubecolor
+      - yq
