@@ -1,21 +1,5 @@
 #!/usr/bin/env bash
 
-brew_apps=(
-    helm
-    htop
-    k9s
-    kind
-    kubernetes-cli
-    tree
-    zsh
-    kube-ps1
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-    kubecolor
-    git
-    yq
-)
-
 username=$(whoami)
 
 init_brew() {
@@ -24,14 +8,6 @@ init_brew() {
       echo "Homebrew not found, installing"
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
-
-    installed=$(brew list)
-
-    for brew_app in "${brew_apps[@]}"; do
-      if [ "$(echo "$installed" | grep "$brew_app")" = "" ]; then
-          brew install "$brew_app"
-      fi
-    done
 }
 
 init_zsh() {
