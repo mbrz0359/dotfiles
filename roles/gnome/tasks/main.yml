@@ -1,18 +1,3 @@
-- name: Disable hot corner
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface/enable-hot-corners"
-    value: "false"
-
-- name: Set app switcher to current workspace only
-  community.general.dconf:
-    key: "/org/gnome/shell/app-switcher/current-workspace-only"
-    value: "true"
-
-- name: Set dark style preference
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface/color-scheme"
-    value: "'prefer-dark'"
-
 - name: Set keyboard shortcuts for switching to given workspace
   community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-{{ item }}"
@@ -44,6 +29,9 @@
     key: "/org/gnome/shell/keybindings/switch-to-application-{{ item }}"
     value: "['']"
   with_sequence: start=1 end=9
+
+- name: preferences
+  ansible.builtin.include_tasks: preferences.yml
 
 - name: fonts
   ansible.builtin.include_tasks: fonts.yml

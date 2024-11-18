@@ -1,0 +1,19 @@
+- name: Disable hot corner
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/enable-hot-corners"
+    value: "false"
+
+- name: Set app switcher to current workspace only
+  community.general.dconf:
+    key: "/org/gnome/shell/app-switcher/current-workspace-only"
+    value: "true"
+
+- name: Set dark style preference
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/color-scheme"
+    value: "'prefer-dark'"
+
+- name: Set accent color
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/accent-color"
+    value: "'purple'"
