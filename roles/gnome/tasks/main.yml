@@ -8,25 +8,10 @@
     key: "/org/gnome/shell/app-switcher/current-workspace-only"
     value: "true"
 
-- name: Set interface font to Inter
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface/font-name"
-    value: "'Inter Display Medium 12'"
-
 - name: Set dark style preference
   community.general.dconf:
     key: "/org/gnome/desktop/interface/color-scheme"
     value: "'prefer-dark'"
-
-- name: Set font antialiasing
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface/font-antialiasing"
-    value: "'rgba'"
-
-- name: Set font hinting
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface/font-hinting"
-    value: "'full'"
 
 - name: Set keyboard shortcuts for switching to given workspace
   community.general.dconf:
@@ -59,3 +44,6 @@
     key: "/org/gnome/shell/keybindings/switch-to-application-{{ item }}"
     value: "['']"
   with_sequence: start=1 end=9
+
+- name: fonts
+  ansible.builtin.include_tasks: fonts.yml

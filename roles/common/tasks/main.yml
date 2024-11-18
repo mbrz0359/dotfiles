@@ -6,7 +6,6 @@
 - name: Install dnf packages
   ansible.builtin.dnf:
     name:
-      - rsms-inter-fonts
       - python3-psutil # Needed for community.general.dconf
   become: true
 

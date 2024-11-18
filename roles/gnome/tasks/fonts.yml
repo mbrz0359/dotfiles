@@ -1,0 +1,20 @@
+- name: Install Inter fonts
+  ansible.builtin.dnf:
+    name:
+      - rsms-inter-fonts
+  become: true
+
+- name: Set interface font to Inter
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/font-name"
+    value: "'Inter Display Medium 12'"
+
+- name: Set font antialiasing
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/font-antialiasing"
+    value: "'rgba'"
+
+- name: Set font hinting
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/font-hinting"
+    value: "'full'"
