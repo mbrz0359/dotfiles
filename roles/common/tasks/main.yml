@@ -43,6 +43,7 @@
       - org.gnome.gitlab.cheywood.Buffer
       - com.github.tchx84.Flatseal
       - org.libreoffice.LibreOffice
+      - io.podman_desktop.PodmanDesktop
 
 - name: Install homebrew packages
   community.general.homebrew:
