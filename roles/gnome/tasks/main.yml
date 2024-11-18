@@ -6,7 +6,7 @@
 - name: Set interface font to Inter
   community.general.dconf:
     key: "/org/gnome/desktop/interface/font-name"
-    value: "Inter Display Medium 12"
+    value: "'Inter Display Medium 12'"
 
 - name: Set keyboard shortcut for switching to workspace 1
   community.general.dconf:
