@@ -5,9 +5,9 @@
 
 - hosts: desktop
   roles:
-    - home-apps
+    - apps-desktop
 
 - hosts: work
   roles:
-    - work-apps
+    - apps-work
     - gnome-work
