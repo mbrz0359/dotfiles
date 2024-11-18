@@ -3,7 +3,7 @@
     name:
       - com.mongodb.Compass
       - com.getpostman.Postman
-      -
+
 - name: Install docker dependencies
   ansible.builtin.dnf:
     name:
