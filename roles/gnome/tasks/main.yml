@@ -87,3 +87,9 @@
   community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-right"
     value: "['<Control><Alt>Down']"
+
+- name: Disable keyboard shortcuts for switching applications
+  community.general.dconf:
+    key: "/org/gnome/shell/keybindings/switch-to-application-{{ item }}"
+    value: "['']"
+  with_sequence: start=1 end=9
