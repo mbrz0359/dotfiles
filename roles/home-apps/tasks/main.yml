@@ -2,4 +2,3 @@
   community.general.flatpak:
     name:
       - tv.plex.PlexDesktop
-      - net.krafting.HexColordle
