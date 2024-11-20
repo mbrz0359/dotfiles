@@ -17,9 +17,6 @@
       - kind
       - kubernetes-cli
       - tree
-      - zsh
       - kube-ps1
-      - zsh-syntax-highlighting
-      - zsh-autosuggestions
       - kubecolor
       - yq
