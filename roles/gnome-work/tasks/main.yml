@@ -1,4 +1,4 @@
-- name: Disable static workspaces
+- name: Disable dynamic workspaces
   community.general.dconf:
     key: "/org/gnome/mutter/dynamic-workspaces"
     value: "false"

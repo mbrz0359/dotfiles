@@ -4,8 +4,13 @@
     - gnome
 
 - hosts: desktop
+  vars:
+    context: desktop
+  vars_files:
+    - git-desktop.yml
   roles:
     - apps-desktop
+    - config-dev
 
 - hosts: work
   roles:
