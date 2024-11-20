@@ -1,0 +1,2 @@
+- name: git config
+  ansible.builtin.include_tasks: git.yml
