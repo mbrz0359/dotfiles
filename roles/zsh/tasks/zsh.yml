@@ -1,0 +1,11 @@
+- name: Install zsh
+  community.general.homebrew:
+    name:
+      - zsh
+      - zsh-syntax-highlighting
+      - zsh-autosuggestions
+
+- name: "Copy .zshrc"
+  ansible.builtin.copy:
+    src: ".zshrc"
+    dest: "{{ ansible_user_dir }}/.zshrc"

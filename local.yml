@@ -11,6 +11,7 @@
   roles:
     - apps-desktop
     - config-dev
+    - zsh
 
 - hosts: work
   roles:

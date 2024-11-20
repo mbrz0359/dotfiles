@@ -1,0 +1,5 @@
+- name: zsh
+  ansible.builtin.include_tasks: zsh.yml
+
+- name: oh-my-zsh
+  ansible.builtin.include_tasks: oh-my-zsh.yml
