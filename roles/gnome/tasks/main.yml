@@ -4,6 +4,10 @@
 - name: preferences
   ansible.builtin.include_tasks: preferences.yml
 
+- name: preferences-work
+  ansible.builtin.include_tasks: preferences-work.yml
+  when: context == "work"
+
 - name: fonts
   ansible.builtin.include_tasks: fonts.yml
 
