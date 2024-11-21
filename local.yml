@@ -21,7 +21,6 @@
     context: work
   roles:
     - apps-work
-    - gnome-work
     - morewaita
     - warp
     - vim
