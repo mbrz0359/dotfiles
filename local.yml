@@ -13,9 +13,11 @@
     - config-dev
     - zsh
     - morewaita
+    - warp
 
 - hosts: work
   roles:
     - apps-work
     - gnome-work
     - morewaita
+    - warp
