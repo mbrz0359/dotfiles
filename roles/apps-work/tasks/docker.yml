@@ -9,6 +9,7 @@
     name: docker-ce
     description: Docker CE Repo
     baseurl: https://download.docker.com/linux/fedora/docker-ce.repo
+  become: true
 
 - name: Install docker
   ansible.builtin.dnf:
