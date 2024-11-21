@@ -12,8 +12,10 @@
     - apps-desktop
     - config-dev
     - zsh
+    - morewaita
 
 - hosts: work
   roles:
     - apps-work
     - gnome-work
+    - morewaita
