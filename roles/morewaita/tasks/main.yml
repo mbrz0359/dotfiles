@@ -5,7 +5,9 @@
     dest: "{{ ansible_user_dir }}/.morewaita"
 
 - name: Install MoreWaita
-  ansible.builtin.command: "sudo {{ ansible_user_dir }}/.morewaita/install.sh"
+  ansible.builtin.command: ./install.sh
+  args:
+    chdir: "{{ ansible_user_dir }}/.morewaita"
   become: true
 
 - name: Set MoreWaita as current icon theme
