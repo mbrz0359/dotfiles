@@ -5,7 +5,13 @@
       - zsh-syntax-highlighting
       - zsh-autosuggestions
 
-- name: "Copy .zshrc"
+- name: Copy .zshrc
   ansible.builtin.copy:
     src: ".zshrc"
     dest: "{{ ansible_user_dir }}/.zshrc"
+
+- name: Copy custom work config
+  ansible.builtin.copy:
+    src: "zsh/work/"
+    dest: "{{ ansible_user_dir }}/.config/zsh/"
+  when: context == "work"
