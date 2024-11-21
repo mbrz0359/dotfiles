@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Warp
+Comment=Warp is the terminal reimagined with AI and collaborative tools for better productivity.
+Exec=WARP_DIRECTORY/Warp.AppImage
+Icon=WARP_DIRECTORY/icon.png
+Terminal=false
+Type=Application
