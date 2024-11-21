@@ -14,6 +14,7 @@
     - zsh
     - morewaita
     - warp
+    - vim
 
 - hosts: work
   roles:
@@ -21,3 +22,4 @@
     - gnome-work
     - morewaita
     - warp
+    - vim

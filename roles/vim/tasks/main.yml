@@ -1,0 +1,15 @@
+- name: Install nvim
+  ansible.builtin.dnf:
+    name:
+      - nvim
+  become: true
+
+- name: Copy .ideavimrc
+  ansible.builtin.copy:
+    src: ".ideavimrc"
+    dest: "{{ ansible_user_dir }}/.ideavimrc"
+
+- name: Copy .vimrc
+  ansible.builtin.copy:
+    src: ".vimrc"
+    dest: "{{ ansible_user_dir }}/.vimrc"
