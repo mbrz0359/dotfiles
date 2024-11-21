@@ -17,9 +17,12 @@
     - vim
 
 - hosts: work
+  vars:
+    context: work
   roles:
     - apps-work
     - gnome-work
     - morewaita
     - warp
     - vim
+    - zsh

@@ -25,3 +25,8 @@ compdef kubecolor=kubectl
 
 # Env variables
 EDITOR=vim
+
+# All custom functions
+for file in $HOME/.config/zsh/*.zsh; do
+  source "$file"
+done
