@@ -1,0 +1,14 @@
+- name: clone MoreWaita
+  ansible.builtin.git:
+    repo: https://github.com/somepaulo/MoreWaita.git
+    depth: 1
+    dest: "{{ ansible_user_dir }}/.morewaita"
+
+- name: Install MoreWaita
+  ansible.builtin.command: "sudo {{ ansible_user_dir }}/.morewaita/install.sh"
+  become: true
+
+- name: Set MoreWaita as current icon theme
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/icon-theme"
+    value: "'MoreWaita'"
