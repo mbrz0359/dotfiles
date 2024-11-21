@@ -1,7 +1,6 @@
 - hosts: all
   roles:
     - common
-    - gnome
 
 - hosts: desktop
   vars:
@@ -10,6 +9,7 @@
     - git-desktop.yml
   roles:
     - apps-desktop
+    - gnome
     - config-dev
     - zsh
     - morewaita
@@ -21,6 +21,7 @@
     context: work
   roles:
     - apps-work
+    - gnome
     - morewaita
     - warp
     - vim
