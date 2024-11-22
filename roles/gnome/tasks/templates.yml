@@ -1,0 +1,4 @@
+- name: Copy templates
+  ansible.builtin.copy:
+    src: "Templates/"
+    dest: "{{ ansible_user_dir }}/Templates/"
