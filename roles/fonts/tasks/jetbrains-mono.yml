@@ -1,0 +1,18 @@
+- name: Create JetBrains Mono directory
+  file:
+    path: "{{ ansible_user_dir }}/Ansible/JetBrainsMono"
+    state: directory
+
+- name: Download and extract JetBrains Mono
+  ansible.builtin.unarchive:
+    src: https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
+    dest: "{{ ansible_user_dir }}/Ansible/JetBrainsMono"
+    remote_src: yes
+  run_once: true
+
+- name: Copy font
+  ansible.builtin.copy:
+    src: "{{ ansible_user_dir }}/Ansible/JetBrainsMono/fonts/ttf/JetBrainsMono-Regular.ttf"
+    dest: "{{ ansible_user_dir }}/.local/share/fonts/"
+    owner: "{{ ansible_env['USER'] }}"
+  become: true
