@@ -17,6 +17,7 @@ source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.
 
 # Aliases
 alias vim=nvim
+alias vi=nvim
 alias k=kubecolor
 alias kubectl=kubecolor
 
@@ -24,7 +25,7 @@ compdef k=kubectl
 compdef kubecolor=kubectl
 
 # Env variables
-EDITOR=vim
+EDITOR=/home/linuxbrew/.linuxbrew/bin/nvim
 
 # All custom functions
 for file in $HOME/.config/zsh/*.zsh; do
