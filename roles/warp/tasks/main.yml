@@ -20,14 +20,7 @@
   become: true
 
 - name: Add desktop file
-  ansible.builtin.copy:
-    src: "Warp.desktop"
+  ansible.builtin.template:
+    src: "Warp.desktop.j2"
     dest: "/usr/share/applications/Warp.desktop"
-  become: true
-
-- name: Set Warp directory in desktop file
-  ansible.builtin.replace:
-    path: "/usr/share/applications/Warp.desktop"
-    regexp: 'WARP_DIRECTORY'
-    replace: '{{ ansible_user_dir }}/Ansible/Warp'
   become: true
