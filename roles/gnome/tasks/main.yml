@@ -13,3 +13,6 @@
 
 - name: kinesis 360 keyboard shortcuts
   ansible.builtin.include_tasks: keyboard-shortcuts-kinesis.yml
+
+- name: templates
+  ansible.builtin.include_tasks: templates.yml
