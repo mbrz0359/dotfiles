@@ -1,5 +1,0 @@
-- name: dnf
-  ansible.builtin.include_tasks: dnf.yml
-
-- name: flatpak
-  ansible.builtin.include_tasks: flatpak.yml

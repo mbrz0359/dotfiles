@@ -1,2 +1,0 @@
-- name: flatpak
-  ansible.builtin.include_tasks: flatpak.yml
