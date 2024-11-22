@@ -9,27 +9,27 @@
     - git-desktop.yml
   roles:
     - apps-desktop
-    - gnome
-    - config-dev
-    - zsh
-    - morewaita
-    - warp
-    - vim
-    - fonts
     - cli-tools
+    - config-dev
+    - fonts
+    - gnome
     - k8s-cli-tools
+    - morewaita
+    - vim
+    - warp
+    - zsh
 
 - hosts: work
   vars:
     context: work
   roles:
     - apps-work
+    - cli-tools
+    - docker
+    - fonts
     - gnome
+    - k8s-cli-tools
     - morewaita
+    - vim
     - warp
     - zsh
-    - vim
-    - fonts
-    - docker
-    - cli-tools
-    - k8s-cli-tools
