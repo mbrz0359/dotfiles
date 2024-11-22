@@ -1,8 +1,7 @@
 - name: Install nvim
-  ansible.builtin.dnf:
+  community.general.homebrew:
     name:
       - nvim
-  become: true
 
 - name: Copy .ideavimrc
   ansible.builtin.copy:
