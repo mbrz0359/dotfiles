@@ -20,3 +20,4 @@
       - kube-ps1
       - kubecolor
       - yq
+      - minikube
