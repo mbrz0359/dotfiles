@@ -1,0 +1,6 @@
+- name: Install cli tools
+  community.general.homebrew:
+    name:
+      - htop
+      - tree
+      - yq

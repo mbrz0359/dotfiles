@@ -1,13 +1,10 @@
-- name: Install homebrew packages
+- name: Install k8s cli tools
   community.general.homebrew:
     name:
       - helm
-      - htop
       - k9s
       - kind
-      - kubernetes-cli
-      - tree
       - kube-ps1
       - kubecolor
-      - yq
+      - kubernetes-cli
       - minikube
