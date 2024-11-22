@@ -1,5 +1,2 @@
 - name: flatpak
   ansible.builtin.include_tasks: flatpak.yml
-
-- name: docker
-  ansible.builtin.include_tasks: docker.yml
