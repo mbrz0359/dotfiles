@@ -8,9 +8,6 @@
   ansible.builtin.include_tasks: preferences-work.yml
   when: context == "work"
 
-- name: fonts
-  ansible.builtin.include_tasks: fonts.yml
-
 - name: kinesis 360 keyboard shortcuts
   ansible.builtin.include_tasks: keyboard-shortcuts-kinesis.yml
 
