@@ -16,6 +16,8 @@
     - warp
     - vim
     - fonts
+    - cli-tools
+    - k8s-cli-tools
 
 - hosts: work
   vars:
@@ -29,3 +31,5 @@
     - vim
     - fonts
     - docker
+    - cli-tools
+    - k8s-cli-tools

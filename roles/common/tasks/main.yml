@@ -3,6 +3,3 @@
 
 - name: flatpak
   ansible.builtin.include_tasks: flatpak.yml
-
-- name: homebrew
-  ansible.builtin.include_tasks: homebrew.yml
