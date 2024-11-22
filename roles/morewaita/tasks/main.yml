@@ -2,12 +2,12 @@
   ansible.builtin.git:
     repo: https://github.com/somepaulo/MoreWaita.git
     depth: 1
-    dest: "{{ ansible_user_dir }}/.morewaita"
+    dest: "{{ ansible_user_dir }}/Ansible/MoreWaita"
 
 - name: Install MoreWaita
   ansible.builtin.command: ./install.sh
   args:
-    chdir: "{{ ansible_user_dir }}/.morewaita"
+    chdir: "{{ ansible_user_dir }}/Ansible/MoreWaita"
   become: true
 
 - name: Set MoreWaita as current icon theme
