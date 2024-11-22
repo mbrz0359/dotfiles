@@ -26,6 +26,9 @@ if has('ide')
 	set idearefactormode=keep
 	set NERDTree
 
+	sethandler <C-C> a:ide
+	sethandler <C-V> a:ide
+
 	map <Leader>o <Action>(OptimizeImports)
 	map <Leader>r <Action>(ReformatCode)
 	map <Leader>/ <Action>(FindInPath)
