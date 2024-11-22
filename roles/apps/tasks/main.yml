@@ -1,0 +1,16 @@
+- name: dnf-common
+  ansible.builtin.include_tasks: dnf-common.yml
+
+- name: flathub
+  ansible.builtin.include_tasks: flathub.yml
+
+- name: flatpak-common
+  ansible.builtin.include_tasks: flatpak-common.yml
+
+- name: flatpak-desktop
+  ansible.builtin.include_tasks: flatpak-desktop.yml
+  when: context == "desktop"
+
+- name: flatpak-work
+  ansible.builtin.include_tasks: flatpak-work.yml
+  when: context == "work"

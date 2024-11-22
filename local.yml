@@ -1,14 +1,10 @@
-- hosts: all
-  roles:
-    - common
-
 - hosts: desktop
   vars:
     context: desktop
   vars_files:
     - git-desktop.yml
   roles:
-    - apps-desktop
+    - apps
     - cli-tools
     - config-dev
     - fonts
@@ -23,7 +19,7 @@
   vars:
     context: work
   roles:
-    - apps-work
+    - apps
     - cli-tools
     - docker
     - fonts

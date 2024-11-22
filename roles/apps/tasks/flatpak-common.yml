@@ -1,0 +1,20 @@
+- name: Install common flatpaks
+  community.general.flatpak:
+    name:
+      - app.devsuite.Ptyxis
+      - ca.desrt.dconf-editor
+      - com.github.tchx84.Flatseal
+      - com.mattjakeman.ExtensionManager
+      - com.plexamp.Plexamp
+      - io.appflowy.AppFlowy
+      - io.podman_desktop.PodmanDesktop
+      - net.nokyan.Resources
+      - org.gnome.Calendar
+      - org.gnome.Loupe
+      - org.gnome.Showtime
+      - org.gnome.Snapshot
+      - org.gnome.TextEditor
+      - org.gnome.clocks
+      - org.gnome.gitlab.cheywood.Buffer
+      - org.libreoffice.LibreOffice
+      - org.mozilla.Thunderbird
