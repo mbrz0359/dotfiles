@@ -15,6 +15,7 @@
     - morewaita
     - warp
     - vim
+    - fonts
 
 - hosts: work
   vars:
@@ -26,3 +27,4 @@
     - warp
     - zsh
     - vim
+    - fonts
