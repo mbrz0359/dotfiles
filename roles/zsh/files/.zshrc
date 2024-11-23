@@ -21,6 +21,11 @@ alias vi=nvim
 alias k=kubecolor
 alias kubectl=kubecolor
 
+alias ls=lsd
+alias la='ls -a'
+alias ll='ls -ltrh'
+alias lt='ls --tree'
+
 compdef k=kubectl
 compdef kubecolor=kubectl
 
