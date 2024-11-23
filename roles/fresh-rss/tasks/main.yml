@@ -1,0 +1,14 @@
+- name: Deploy FreshRSS
+  community.docker.docker_container:
+    name: fresh-rss
+    image: freshrss/freshrss:1.24.3
+    ports:
+      - "8112:80"
+    volumes:
+      - /volume1/docker/FreshRSS/data:/var/www/FreshRSS/data
+      - /volume1/docker/FreshRSS/extensions:/var/www/FreshRSS/extensions
+    env:
+      TZ: "Europe/Warsaw"
+      CRON_MIN: "1,31"
+    restart_policy: unless-stopped
+  become: true
