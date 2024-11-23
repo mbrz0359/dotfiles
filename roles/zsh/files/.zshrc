@@ -15,6 +15,9 @@ PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
 source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# fzf
+source <(fzf --zsh)
+
 # Aliases
 alias vim=nvim
 alias vi=nvim

@@ -1,6 +1,7 @@
 - name: Install cli tools
   community.general.homebrew:
     name:
+      - fzf
       - htop
       - lsd
       - tree
