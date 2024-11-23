@@ -13,7 +13,7 @@
     key: "/org/gnome/desktop/interface/font-name"
     value: "'Inter Display Medium 12'"
 
-- name: Set monospace font to JetBrains Mono
+- name: Set monospace font to JetBrains Mono NF
   community.general.dconf:
     key: "/org/gnome/desktop/interface/monospace-font-name"
-    value: "'JetBrains Mono 14'"
+    value: "'JetBrainsMonoNL Nerd Font 14'"
