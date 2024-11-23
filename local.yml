@@ -35,4 +35,5 @@
 - hosts: nas
   roles:
     - fresh-rss
+    - portainer
     - transmission
