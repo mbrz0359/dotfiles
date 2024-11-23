@@ -1,0 +1,13 @@
+- name: Deploy papermc
+  community.docker.docker_container:
+    name: papermc
+    image: marctv/minecraft-papermc-server:1.21.3
+    ports:
+      - "25565:25565/tcp"
+      - "25565:25565/udp"
+    volumes:
+      - /volume1/docker/Minecraft/data:/data:rw
+    env:
+      MEMORYSIZE: "3G"
+    restart_policy: unless-stopped
+  become: true
