@@ -13,6 +13,7 @@
     - morewaita
     - vim
     - warp
+    - zellij
     - zsh
 
 - hosts: work
@@ -28,4 +29,5 @@
     - morewaita
     - vim
     - warp
+    - zellij
     - zsh
