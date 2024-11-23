@@ -1,0 +1,7 @@
+- name: Deploy Cloudflared
+  community.docker.docker_container:
+    name: cloudflared
+    image: cloudflare/cloudflared:latest
+    command: "tunnel --no-autoupdate run --token {{ cloudflared.token }}"
+    restart_policy: unless-stopped
+  become: true
