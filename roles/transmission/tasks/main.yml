@@ -1,0 +1,20 @@
+- name: Deploy Transmission
+  community.docker.docker_container:
+    name: transmission
+    image: linuxserver/transmission:4.0.6
+    ports:
+      - "9091:9091"
+      - "51413:51413"
+      - "51413:51413/udp"
+    volumes:
+      - /volume1/docker/transmission/data:/config
+      - /volume1/docker/transmission/downloads:/downloads
+      - /volume1/docker/transmission/watch:/watch
+    env:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "Europe/Warsaw"
+      USER: "{{ transmission.user }}"
+      PASS: "{{ transmission.pass }}"
+    restart_policy: unless-stopped
+  become: true
