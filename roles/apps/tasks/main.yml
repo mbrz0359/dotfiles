@@ -1,5 +1,6 @@
 - name: dnf-common
   ansible.builtin.include_tasks: dnf-common.yml
+  when: ansible_facts['os_family'] == "RedHat"
 
 - name: flathub
   ansible.builtin.include_tasks: flathub.yml
