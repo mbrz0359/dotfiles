@@ -1,0 +1,9 @@
+- name: Install zellij
+  community.general.homebrew:
+    name:
+      - zellij
+
+- name: Copy zellij configuration
+  ansible.builtin.copy:
+    src: "config.kdl"
+    dest: "{{ ansible_user_dir }}/.config/zellij/"
