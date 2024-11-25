@@ -1,0 +1,5 @@
+- name: Install work cli tools
+  community.general.homebrew:
+    name:
+      - chart-testing
+      - trivy
