@@ -3,12 +3,14 @@
     repo: https://github.com/somepaulo/MoreWaita.git
     depth: 1
     dest: "{{ ansible_user_dir }}/Ansible/MoreWaita"
+  register: clone_result
 
 - name: Install MoreWaita
   ansible.builtin.command: ./install.sh
   args:
     chdir: "{{ ansible_user_dir }}/Ansible/MoreWaita"
   become: true
+  when: clone_result.changed
 
 - name: Set MoreWaita as current icon theme
   community.general.dconf:
