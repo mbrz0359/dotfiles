@@ -1,0 +1,8 @@
+- name: Install common cli tools
+  community.general.homebrew:
+    name:
+      - fzf
+      - htop
+      - lsd
+      - tree
+      - yq

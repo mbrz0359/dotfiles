@@ -1,10 +1,12 @@
 - name: Remove unneeded dnf packages
   ansible.builtin.dnf:
     name:
+      - evince
       - gnome-calculator
       - gnome-calendar
       - gnome-clocks
       - gnome-contacts
+      - gnome-font-viewer
       - gnome-text-editor
       - libreoffice-core
       - snapshot

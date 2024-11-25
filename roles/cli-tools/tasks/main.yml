@@ -1,8 +1,6 @@
-- name: Install cli tools
-  community.general.homebrew:
-    name:
-      - fzf
-      - htop
-      - lsd
-      - tree
-      - yq
+- name: cli tools common
+  ansible.builtin.include_tasks: cli-tools-common.yml
+
+- name: cli tools work
+  ansible.builtin.include_tasks: cli-tools-work.yml
+  when: context == "work"
