@@ -1,2 +1,5 @@
 - name: git config
   ansible.builtin.include_tasks: git.yml
+
+- name: ssh keys
+  ansible.builtin.include_tasks: ssh.yml

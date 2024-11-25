@@ -6,8 +6,8 @@
   roles:
     - apps
     - cli-tools
-    - config-dev
     - fonts
+    - git
     - gnome
     - k8s-cli-tools
     - morewaita
