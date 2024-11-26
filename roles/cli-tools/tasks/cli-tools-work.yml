@@ -1,5 +1,6 @@
 - name: Install work cli tools
   community.general.homebrew:
     name:
+      - awscli
       - chart-testing
       - trivy
