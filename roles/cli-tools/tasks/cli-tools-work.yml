@@ -3,4 +3,5 @@
     name:
       - awscli
       - chart-testing
+      - mise
       - trivy
