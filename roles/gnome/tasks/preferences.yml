@@ -17,3 +17,8 @@
   community.general.dconf:
     key: "/org/gnome/desktop/interface/accent-color"
     value: "'purple'"
+
+- name: Disable event sounds
+  community.general.dconf:
+    key: "/org/gnome/desktop/sound/event-sounds"
+    value: "false"
