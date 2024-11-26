@@ -23,6 +23,7 @@ alias vim=nvim
 alias vi=nvim
 alias k=kubecolor
 alias kubectl=kubecolor
+alias k8s=k9s
 
 alias ls=lsd
 alias la='ls -a'
