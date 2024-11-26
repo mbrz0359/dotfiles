@@ -34,10 +34,13 @@
     - zsh
 
 - hosts: nas
+  vars:
+    context: nas
   roles:
     - appflowy-cloud
     - cloudflared
     - fresh-rss
     - papermc
     - portainer
+    - syncthing
     - transmission
