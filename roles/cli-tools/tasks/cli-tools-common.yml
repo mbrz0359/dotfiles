@@ -1,6 +1,7 @@
 - name: Install common cli tools
   community.general.homebrew:
     name:
+      - bat
       - fzf
       - htop
       - lsd
