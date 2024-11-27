@@ -1,0 +1,5 @@
+- name: Install wl-clipboard
+  ansible.builtin.dnf:
+    name:
+      - wl-clipboard # required for the clipboard to work on Wayland
+  become: true
