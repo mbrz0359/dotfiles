@@ -29,6 +29,13 @@ if has('ide')
     sethandler <C-C> a:ide
     sethandler <C-V> a:ide
     sethandler <C-X> a:ide
+    sethandler <C-S> a:ide
+
+    sethandler <C-P> a:ide
+    sethandler <C-T> a:ide
+
+    sethandler <C-D> a:vim
+    sethandler <C-U> a:vim
 
     map <Leader>o <Action>(OptimizeImports)
     map <Leader>r <Action>(ReformatCode)
