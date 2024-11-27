@@ -28,6 +28,7 @@ if has('ide')
 
     sethandler <C-C> a:ide
     sethandler <C-V> a:ide
+    sethandler <C-X> a:ide
 
     map <Leader>o <Action>(OptimizeImports)
     map <Leader>r <Action>(ReformatCode)
