@@ -2,6 +2,7 @@
   ansible.builtin.dnf:
     name:
       - evince
+      - firefox
       - gnome-calculator
       - gnome-calendar
       - gnome-clocks
