@@ -4,6 +4,7 @@
   vars_files:
     - git-desktop.yml
   roles:
+    - adw-gtk3
     - apps
     - cli-tools
     - fonts
@@ -21,6 +22,7 @@
   vars:
     context: work
   roles:
+    - adw-gtk3
     - apps
     - cli-tools
     - docker
