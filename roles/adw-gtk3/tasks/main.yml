@@ -1,0 +1,15 @@
+- name: Install adw-gtk3-theme
+  ansible.builtin.dnf:
+    name:
+      - adw-gtk3-theme
+  become: true
+
+- name: Install adw-gtk3-theme for flatpak
+  community.general.flatpak:
+    name:
+      - org.gtk.Gtk3theme.adw-gtk3-dark
+
+- name: Set the current theme
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'adw-gtk3-dark'"
