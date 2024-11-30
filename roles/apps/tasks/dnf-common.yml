@@ -8,11 +8,12 @@
       - gnome-clocks
       - gnome-contacts
       - gnome-font-viewer
+      - gnome-system-monitor
       - gnome-text-editor
       - libreoffice-core
-      - snapshot
       - loupe
-      - rhythmbox
       - mediawriter
+      - rhythmbox
+      - snapshot
     state: absent
   become: true
