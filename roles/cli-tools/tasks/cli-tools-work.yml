@@ -3,5 +3,6 @@
     name:
       - awscli
       - chart-testing
+      - jetbrains/utils/qodana
       - mise
       - trivy
