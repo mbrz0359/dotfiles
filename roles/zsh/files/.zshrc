@@ -18,6 +18,9 @@ source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.
 # fzf
 source <(fzf --zsh)
 
+# zoxide
+eval "$(zoxide init zsh)"
+
 # Aliases
 alias vim=nvim
 alias vi=nvim
