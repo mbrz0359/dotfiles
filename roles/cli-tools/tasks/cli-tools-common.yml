@@ -4,6 +4,7 @@
       - bat
       - fzf
       - htop
+      - just
       - lsd
       - tree
       - yq
