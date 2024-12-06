@@ -6,8 +6,8 @@
       - com.github.tchx84.Flatseal
       - com.mattjakeman.ExtensionManager
       - com.plexamp.Plexamp
-      - io.appflowy.AppFlowy
       - io.podman_desktop.PodmanDesktop
+      - md.obsidian.Obsidian
       - net.nokyan.Resources
       - org.gnome.Calendar
       - org.gnome.clocks
