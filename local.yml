@@ -39,7 +39,6 @@
   vars:
     context: nas
   roles:
-    - appflowy-cloud
     - cloudflared
     - fresh-rss
     - papermc
