@@ -9,7 +9,10 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6E686A"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# Prompt
 PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
+KUBE_PS1_NS_ENABLE=false
 
 # Homebrew
 source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
