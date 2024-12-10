@@ -7,7 +7,6 @@ source $ZSH/oh-my-zsh.sh
 # ZSH
 bindkey -v
 bindkey '^R' history-incremental-search-backward
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6E686A"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Prompt
