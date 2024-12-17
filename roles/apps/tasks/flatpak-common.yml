@@ -9,6 +9,7 @@
       - io.podman_desktop.PodmanDesktop
       - md.obsidian.Obsidian
       - net.nokyan.Resources
+      - org.gnome.Calculator
       - org.gnome.Calendar
       - org.gnome.clocks
       - org.gnome.font-viewer
