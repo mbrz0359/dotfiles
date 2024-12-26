@@ -1,7 +1,12 @@
 - name: Install zellij
-  community.general.homebrew:
-    name:
-      - zellij
+  ansible.builtin.copy:
+    src: "zellij.toml"
+    dest: "{{ ansible_user_dir }}/.config/mise/conf.d/"
+  register: mise_result
+
+- name: Run mise upgrade
+  ansible.builtin.command: mise upgrade
+  changed_when: mise_result.changed
 
 - name: Copy zellij configuration
   ansible.builtin.copy:
