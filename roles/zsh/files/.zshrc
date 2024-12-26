@@ -43,7 +43,7 @@ compdef k=kubectl
 compdef kubecolor=kubectl
 
 # Env variables
-EDITOR=/home/linuxbrew/.linuxbrew/bin/nvim
+EDITOR=nvim
 
 # All custom functions
 for file in $HOME/.config/zsh/*.zsh; do
