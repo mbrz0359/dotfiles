@@ -3,3 +3,6 @@
 
 - name: oh-my-zsh
   ansible.builtin.include_tasks: oh-my-zsh.yml
+
+- name: zsh plugins
+  ansible.builtin.include_tasks: zsh-plugins.yml

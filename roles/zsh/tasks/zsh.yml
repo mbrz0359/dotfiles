@@ -1,9 +1,9 @@
 - name: Install zsh
-  community.general.homebrew:
+  ansible.builtin.dnf:
     name:
       - zsh
-      - zsh-syntax-highlighting
-      - zsh-autosuggestions
+  become: true
+  when: ansible_facts['os_family'] == "RedHat"
 
 - name: Copy .zshrc
   ansible.builtin.copy:
