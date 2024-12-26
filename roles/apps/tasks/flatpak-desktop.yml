@@ -9,4 +9,4 @@
     - io.gitlab.news_flash.NewsFlash
     - org.musicbrainz.Picard
     - tv.plex.PlexDesktop
-  ignore_errors: true
+  ignore_errors: true # Not every flatpak is available on aarch64
