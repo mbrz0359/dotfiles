@@ -1,7 +1,12 @@
 # Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(git kube-ps1)
+plugins=(
+    git
+    kube-ps1
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
 source $ZSH/oh-my-zsh.sh
 
 # ZSH
@@ -12,10 +17,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # Prompt
 PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
 KUBE_PS1_NS_ENABLE=false
-
-# Homebrew
-source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # mise
 eval "$(~/.local/bin/mise activate zsh)"
