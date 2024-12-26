@@ -1,13 +1,8 @@
-- name: Install common cli tools
-  community.general.homebrew:
+- name: Install common cli tools dnf
+  ansible.builtin.dnf:
     name:
-      - bat
-      - fzf
       - htop
-      - just
-      - lsd
-      - tree
-      - yq
+  become: true
 
 - name: Install common cli tools mise
   ansible.builtin.copy:
