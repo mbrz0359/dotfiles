@@ -17,6 +17,9 @@ KUBE_PS1_NS_ENABLE=false
 source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# mise
+eval "$(~/.local/bin/mise activate zsh)"
+
 # fzf
 source <(fzf --zsh)
 
