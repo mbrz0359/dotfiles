@@ -4,7 +4,6 @@
       - helm
       - k9s
       - kind
-      - kube-ps1
       - kubecolor
       - kubernetes-cli
       - minikube
