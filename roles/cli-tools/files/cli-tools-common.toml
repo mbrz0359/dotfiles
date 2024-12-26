@@ -1,2 +1,7 @@
 [tools]
+bat = 'latest'
+fzf = 'latest'
+just = 'latest'
+lsd = 'latest'
+yq = 'latest'
 zoxide = 'latest'
