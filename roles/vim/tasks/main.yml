@@ -1,7 +1,8 @@
 - name: Install nvim
-  community.general.homebrew:
+  ansible.builtin.dnf:
     name:
-      - nvim
+      - neovim
+  when: ansible_facts['os_family'] == "RedHat"
 
 - name: Copy .ideavimrc
   ansible.builtin.copy:
