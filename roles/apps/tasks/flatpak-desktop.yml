@@ -1,11 +1,12 @@
 - name: Install desktop flatpaks
   community.general.flatpak:
-    name:
-      - ch.protonmail.protonmail-bridge
-      - com.protonvpn.www
-      - com.synology.SynologyDrive
-      - de.haeckerfelix.Fragments
-      - io.gitlab.librewolf-community
-      - io.gitlab.news_flash.NewsFlash
-      - org.musicbrainz.Picard
-      - tv.plex.PlexDesktop
+    name: "{{ item }}"
+  loop:
+    - ch.protonmail.protonmail-bridge
+    - com.protonvpn.www
+    - de.haeckerfelix.Fragments
+    - io.gitlab.librewolf-community
+    - io.gitlab.news_flash.NewsFlash
+    - org.musicbrainz.Picard
+    - tv.plex.PlexDesktop
+  ignore_errors: true

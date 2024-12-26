@@ -1,22 +1,24 @@
 - name: Install common flatpaks
   community.general.flatpak:
-    name:
-      - ca.desrt.dconf-editor
-      - com.github.tchx84.Flatseal
-      - com.mattjakeman.ExtensionManager
-      - com.plexamp.Plexamp
-      - io.podman_desktop.PodmanDesktop
-      - md.obsidian.Obsidian
-      - net.nokyan.Resources
-      - org.gnome.Calculator
-      - org.gnome.Calendar
-      - org.gnome.clocks
-      - org.gnome.font-viewer
-      - org.gnome.gitlab.cheywood.Buffer
-      - org.gnome.Loupe
-      - org.gnome.Papers
-      - org.gnome.Showtime
-      - org.gnome.Snapshot
-      - org.gnome.TextEditor
-      - org.libreoffice.LibreOffice
-      - org.mozilla.Thunderbird
+    name: "{{ item }}"
+  loop:
+    - ca.desrt.dconf-editor
+    - com.github.tchx84.Flatseal
+    - com.mattjakeman.ExtensionManager
+    - com.plexamp.Plexamp
+    - io.podman_desktop.PodmanDesktop
+    - md.obsidian.Obsidian
+    - net.nokyan.Resources
+    - org.gnome.Calculator
+    - org.gnome.Calendar
+    - org.gnome.clocks
+    - org.gnome.font-viewer
+    - org.gnome.gitlab.cheywood.Buffer
+    - org.gnome.Loupe
+    - org.gnome.Papers
+    - org.gnome.Showtime
+    - org.gnome.Snapshot
+    - org.gnome.TextEditor
+    - org.libreoffice.LibreOffice
+    - org.mozilla.Thunderbird
+  ignore_errors: true
