@@ -4,7 +4,7 @@
       - firefox
     state: absent
   become: true
-  when: ansible_architecture == "x86" # there is no firefox flatpak for aarch64
+  when: ansible_architecture == "x86_64" # there is no firefox flatpak for aarch64
 
 - name: Remove unneeded dnf packages
   ansible.builtin.dnf:

@@ -1,3 +1,7 @@
+- name: Include warp config
+  include_vars:
+    file: "warp_config.yml"
+
 - name: Create Warp directory
   file:
     path: "{{ ansible_user_dir }}/Ansible/Warp"
@@ -5,7 +9,7 @@
 
 - name: Download Warp
   ansible.builtin.get_url:
-    url: https://app.warp.dev/download?package=appimage
+    url: "{{ warp.url[ansible_architecture] }}"
     dest: "{{ ansible_user_dir }}/Ansible/Warp/Warp.AppImage"
     mode: "+x"
     owner: "{{ ansible_env['USER'] }}"
