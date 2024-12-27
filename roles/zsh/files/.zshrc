@@ -39,6 +39,7 @@ alias la='ls -a'
 alias ll='ls -ltrh'
 alias lt='ls --tree'
 
+source <(kubectl completion zsh)
 compdef k=kubectl
 compdef kubecolor=kubectl
 
