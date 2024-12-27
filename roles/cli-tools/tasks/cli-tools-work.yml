@@ -1,7 +1,11 @@
 - name: Install work cli tools
   community.general.homebrew:
     name:
-      - awscli
       - chart-testing
       - jetbrains/utils/qodana
-      - trivy
+
+- name: Install work cli tools mise
+  ansible.builtin.copy:
+    src: "cli-tools-work.toml"
+    dest: "{{ ansible_user_dir }}/.config/mise/conf.d/"
+  notify: mise upgrade

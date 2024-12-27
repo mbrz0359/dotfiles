@@ -1,3 +1,7 @@
 [tools]
+helm = 'latest'
+k9s = 'latest'
+kind = 'latest'
 kubecolor = 'latest'
 kubectl = 'latest'
+minikube = 'latest'
