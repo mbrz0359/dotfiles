@@ -1,0 +1,4 @@
+warp:
+  url:
+    x86_64: https://app.warp.dev/download?package=appimage
+    aarch64: https://app.warp.dev/download?package=appimage_arm64
