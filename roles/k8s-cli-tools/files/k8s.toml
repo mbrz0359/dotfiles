@@ -1,0 +1,3 @@
+[tools]
+kubecolor = 'latest'
+kubectl = 'latest'
