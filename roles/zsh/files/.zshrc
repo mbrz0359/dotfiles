@@ -2,6 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(
+    fzf
     git
     kube-ps1
     mise
@@ -12,15 +13,11 @@ source $ZSH/oh-my-zsh.sh
 
 # ZSH
 bindkey -v
-bindkey '^R' history-incremental-search-backward
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Prompt
 PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
 KUBE_PS1_NS_ENABLE=false
-
-# fzf
-source <(fzf --zsh)
 
 # zoxide
 eval "$(zoxide init zsh)"
