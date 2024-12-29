@@ -7,6 +7,7 @@ plugins=(
     git
     kube-ps1
     mise
+    zoxide
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -19,9 +20,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # Prompt
 PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
 KUBE_PS1_NS_ENABLE=false
-
-# zoxide
-eval "$(zoxide init zsh)"
 
 # Aliases
 alias vim=nvim
