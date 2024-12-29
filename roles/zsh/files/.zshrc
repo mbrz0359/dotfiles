@@ -2,6 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(
+    colored-man-pages
     fzf
     git
     kube-ps1
