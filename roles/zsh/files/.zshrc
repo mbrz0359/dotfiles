@@ -9,6 +9,7 @@ plugins=(
     mise
     zoxide
     zsh-autosuggestions
+    zsh-kubecolor
     zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
@@ -24,18 +25,12 @@ KUBE_PS1_NS_ENABLE=false
 # Aliases
 alias vim=nvim
 alias vi=nvim
-alias k=kubecolor
-alias kubectl=kubecolor
 alias k8s=k9s
 
 alias ls=lsd
 alias la='ls -a'
 alias ll='ls -ltrh'
 alias lt='ls --tree'
-
-source <(kubectl completion zsh)
-compdef k=kubectl
-compdef kubecolor=kubectl
 
 # Env variables
 EDITOR=nvim
