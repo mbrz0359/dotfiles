@@ -22,3 +22,4 @@
     - org.libreoffice.LibreOffice
     - org.mozilla.Thunderbird
   ignore_errors: true # Not every flatpak is available on aarch64
+  become: true
