@@ -16,6 +16,7 @@
       - gnome-contacts
       - gnome-font-viewer
       - gnome-system-monitor
+      - gnome-terminal
       - gnome-text-editor
       - libreoffice-core
       - loupe
@@ -23,4 +24,10 @@
       - rhythmbox
       - snapshot
     state: absent
+  become: true
+
+- name: Install dnf packages
+  ansible.builtin.dnf:
+    name:
+      - ptyxis
   become: true
