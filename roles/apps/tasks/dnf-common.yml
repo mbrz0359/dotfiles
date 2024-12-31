@@ -10,6 +10,7 @@
   ansible.builtin.dnf:
     name:
       - evince
+      - gnome-boxes
       - gnome-calculator
       - gnome-calendar
       - gnome-clocks
