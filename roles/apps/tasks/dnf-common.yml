@@ -14,6 +14,7 @@
       - gnome-calculator
       - gnome-calendar
       - gnome-clocks
+      - gnome-connections
       - gnome-contacts
       - gnome-font-viewer
       - gnome-system-monitor
