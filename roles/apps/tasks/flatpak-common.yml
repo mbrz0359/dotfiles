@@ -9,6 +9,7 @@
     - io.podman_desktop.PodmanDesktop
     - md.obsidian.Obsidian
     - net.nokyan.Resources
+    - org.gnome.baobab
     - org.gnome.Boxes
     - org.gnome.Calculator
     - org.gnome.Calendar

@@ -9,6 +9,7 @@
 - name: Remove unneeded dnf packages
   ansible.builtin.dnf:
     name:
+      - baobab
       - evince
       - gnome-boxes
       - gnome-calculator
