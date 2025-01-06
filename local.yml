@@ -43,6 +43,7 @@
   roles:
     - cloudflared
     - fresh-rss
+    - mealie
     - portainer
     - syncthing
     - transmission

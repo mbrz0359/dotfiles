@@ -1,0 +1,17 @@
+- name: Deploy Mealie
+  community.docker.docker_container:
+    name: mealie
+    image: ghcr.io/mealie-recipes/mealie:v2.4.1
+    ports:
+      - "9925:9000"
+    volumes:
+      - /volume1/docker/Mealie/app/data:/app/data
+    memory: 1G
+    env:
+      TZ: "Europe/Warsaw"
+      PUID: "1000"
+      PGID: "1000"
+      ALLOW_SIGNUP: "false"
+      BASE_URL: "{{ mealie.base_url }}"
+    restart_policy: unless-stopped
+  become: true
