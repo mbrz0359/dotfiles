@@ -21,6 +21,7 @@
       - gnome-system-monitor
       - gnome-terminal
       - gnome-text-editor
+      - gnome-weather
       - libreoffice-core
       - loupe
       - mediawriter
