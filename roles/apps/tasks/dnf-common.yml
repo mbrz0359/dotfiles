@@ -18,6 +18,7 @@
       - gnome-connections
       - gnome-contacts
       - gnome-font-viewer
+      - gnome-logs
       - gnome-system-monitor
       - gnome-terminal
       - gnome-text-editor
