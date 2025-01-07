@@ -18,6 +18,9 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+# Init
+eval "$(just --completions zsh)"
+
 # Prompt
 PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
 KUBE_PS1_NS_ENABLE=false
