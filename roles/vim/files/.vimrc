@@ -11,7 +11,6 @@ map mc <A-n>
 map mx <A-x>
 map mp <A-p>
 
- 
 set incsearch
 set nu
 set rnu
@@ -72,7 +71,7 @@ if has('ide')
     map [[ <Action>(MethodUp)
     map ]] <Action>(MethodDown)
     map <C-s> <Action>(SaveAll)
-    map <C-w> :tabc<CR>
+    map <C-w> <Action>(CloseContent)
 endif
 
 nmap S diw"0P
