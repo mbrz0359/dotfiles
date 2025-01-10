@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+hostname=$(hostname)
+
+rsync -av --delete "$HOME"/{Documents,Downloads,Pictures,Sync} maciej@vault:/volume1/Backup/"$hostname""$HOME"
+rsync -av --delete --exclude={'.idea','.git','target','build','.angular','node_modules','.mvn','.gradle'} "$HOME"/Workspace maciej@vault:/volume1/Backup/"$hostname""$HOME"
+rsync -av --delete --exclude={'.Trash*','@eaDir'} /mnt/storage maciej@vault:/volume1/Backup/"$hostname"/mnt
