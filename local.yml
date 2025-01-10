@@ -6,6 +6,7 @@
   roles:
     - adw-gtk3
     - apps
+    - backup
     - cli-tools
     - fonts
     - git
