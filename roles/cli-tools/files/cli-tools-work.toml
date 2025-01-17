@@ -1,3 +1,4 @@
 [tools]
 aws-cli = 'latest'
+maven = 'latest'
 trivy = 'latest'
