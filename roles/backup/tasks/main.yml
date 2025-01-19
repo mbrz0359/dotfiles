@@ -18,5 +18,4 @@
     name: "backup"
     hour: "18"
     minute: "0"
-    weekday: "0,6"
     job: "{{ ansible_user_dir }}/.local/bin/rsync-backup"
