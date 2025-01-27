@@ -6,6 +6,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tommcdo/vim-exchange'
     Plug 'NoahTheDuke/vim-just'
+    Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 map mc <A-n>
@@ -19,8 +20,6 @@ set scrolloff=5
 set ignorecase
 
 if has('ide')
-    Plug 'machakann/vim-highlightedyank'
-
     set ideajoin
     set ideamarks=true
     set idearefactormode=keep
