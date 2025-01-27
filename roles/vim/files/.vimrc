@@ -23,6 +23,7 @@ if has('ide')
     set ideamarks=true
     set idearefactormode=keep
     set NERDTree
+    set quickscope
 
     sethandler <C-C> a:ide
     sethandler <C-V> a:ide
