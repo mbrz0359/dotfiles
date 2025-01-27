@@ -1,5 +1,6 @@
 [tools]
 helm = 'latest'
+helm-ct = 'latest'
 k9s = 'latest'
 kind = 'latest'
 kubecolor = 'latest'

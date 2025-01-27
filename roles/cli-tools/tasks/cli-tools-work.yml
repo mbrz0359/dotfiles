@@ -1,7 +1,6 @@
 - name: Install work cli tools
   community.general.homebrew:
     name:
-      - chart-testing
       - jetbrains/utils/qodana
 
 - name: Install work cli tools mise
