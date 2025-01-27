@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tommcdo/vim-exchange'
+    Plug 'NoahTheDuke/vim-just'
 call plug#end()
 
 map mc <A-n>
