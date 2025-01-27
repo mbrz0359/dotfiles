@@ -3,7 +3,6 @@ let mapleader=" "
 call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
-    Plug 'terryma/vim-multiple-cursors'
     Plug 'tommcdo/vim-exchange'
     Plug 'NoahTheDuke/vim-just'
     Plug 'machakann/vim-highlightedyank'
