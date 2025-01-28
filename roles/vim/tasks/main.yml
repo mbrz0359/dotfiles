@@ -10,10 +10,10 @@
     src: ".ideavimrc"
     dest: "{{ ansible_user_dir }}/.ideavimrc"
 
-- name: Copy .vimrc
+- name: Copy init.vim
   ansible.builtin.copy:
-    src: ".vimrc"
-    dest: "{{ ansible_user_dir }}/.vimrc"
+    src: "init.vim"
+    dest: "{{ ansible_user_dir }}/.config/nvim/"
 
 - name: Create autoload directory
   file:
