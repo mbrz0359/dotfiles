@@ -36,6 +36,9 @@ if has('ide')
     sethandler <C-D> a:vim
     sethandler <C-U> a:vim
 
+    sethandler <C-I> a:vim
+    sethandler <C-O> a:vim
+
     map <Leader>o <Action>(OptimizeImports)
     map <Leader>r <Action>(ReformatCode)
     map <Leader>/ <Action>(FindInPath)
