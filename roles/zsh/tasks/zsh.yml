@@ -5,6 +5,11 @@
   become: true
   when: ansible_facts['os_family'] == "RedHat"
 
+- name: Create zsh directory in .local/share
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/zsh"
+    state: directory
+
 - name: Copy .zshrc
   ansible.builtin.copy:
     src: ".zshrc"
