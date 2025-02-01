@@ -1,0 +1,1 @@
+ansible_workspace_dir: "{{ ansible_user_dir }}/Workspace/Ansible"

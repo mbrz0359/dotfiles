@@ -4,13 +4,13 @@
 
 - name: Create Warp directory
   file:
-    path: "{{ ansible_user_dir }}/Ansible/Warp"
+    path: "{{ ansible_workspace_dir }}/Warp"
     state: directory
 
 - name: Download Warp
   ansible.builtin.get_url:
     url: "{{ warp.url[ansible_architecture] }}"
-    dest: "{{ ansible_user_dir }}/Ansible/Warp/Warp.AppImage"
+    dest: "{{ ansible_workspace_dir }}/Warp/Warp.AppImage"
     mode: "+x"
     owner: "{{ ansible_env['USER'] }}"
   become: true
@@ -18,7 +18,7 @@
 - name: Copy icon
   ansible.builtin.copy:
     src: "icon.png"
-    dest: "{{ ansible_user_dir }}/Ansible/Warp/icon.png"
+    dest: "{{ ansible_workspace_dir }}/Warp/icon.png"
     owner: "{{ ansible_env['USER'] }}"
   become: true
 

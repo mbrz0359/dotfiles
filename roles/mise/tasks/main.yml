@@ -6,18 +6,18 @@
 
 - name: Create mise directory
   file:
-    path: "{{ ansible_user_dir }}/Ansible/mise"
+    path: "{{ ansible_workspace_dir }}/mise"
     state: directory
   when: result is failed
 
 - name: Download mise install script
   ansible.builtin.get_url:
     url: https://mise.run
-    dest: "{{ ansible_user_dir }}/Ansible/mise/install.sh"
+    dest: "{{ ansible_workspace_dir }}/mise/install.sh"
     mode: "+x"
     owner: "{{ ansible_env['USER'] }}"
   when: result is failed
 
 - name: Install mise
-  command: "{{ ansible_user_dir }}/Ansible/mise/install.sh"
+  command: "{{ ansible_workspace_dir }}/mise/install.sh"
   when: result is failed
