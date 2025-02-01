@@ -2,13 +2,13 @@
   ansible.builtin.git:
     repo: https://github.com/somepaulo/MoreWaita.git
     depth: 1
-    dest: "{{ ansible_user_dir }}/Ansible/MoreWaita"
+    dest: "{{ ansible_workspace_dir }}/MoreWaita"
   register: clone_result
 
 - name: Install MoreWaita
   ansible.builtin.command: ./install.sh
   args:
-    chdir: "{{ ansible_user_dir }}/Ansible/MoreWaita"
+    chdir: "{{ ansible_workspace_dir }}/MoreWaita"
   become: true
   when: clone_result.changed
 
