@@ -1,0 +1,5 @@
+- name: Install desktop cli tools mise
+  ansible.builtin.copy:
+    src: "cli-tools-desktop.toml"
+    dest: "{{ ansible_user_dir }}/.config/mise/conf.d/"
+  notify: mise upgrade
