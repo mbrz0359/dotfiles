@@ -1,6 +1,10 @@
 - name: cli tools common
   ansible.builtin.include_tasks: cli-tools-common.yml
 
+- name: cli tools desktop
+  ansible.builtin.include_tasks: cli-tools-desktop.yml
+  when: context == "desktop"
+
 - name: cli tools work
   ansible.builtin.include_tasks: cli-tools-work.yml
   when: context == "work"
