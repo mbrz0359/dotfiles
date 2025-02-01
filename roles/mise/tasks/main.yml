@@ -21,3 +21,7 @@
 - name: Install mise
   command: "{{ ansible_workspace_dir }}/mise/install.sh"
   when: result is failed
+
+- name: Update mise
+  command: mise self-update -y
+  changed_when: false
