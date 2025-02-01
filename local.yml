@@ -12,7 +12,6 @@
     - git
     - gnome
     - k8s-cli-tools
-    - mise
     - morewaita
     - syncthing
     - vim
@@ -31,7 +30,6 @@
     - fonts
     - gnome
     - k8s-cli-tools
-    - mise
     - morewaita
     - vim
     - warp
