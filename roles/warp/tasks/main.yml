@@ -13,7 +13,6 @@
     dest: "{{ ansible_user_dir }}/Ansible/Warp/Warp.AppImage"
     mode: "+x"
     owner: "{{ ansible_env['USER'] }}"
-  run_once: true
   become: true
 
 - name: Copy icon
