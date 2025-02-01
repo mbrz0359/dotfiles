@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-echo "TODO"
+hostname=$(hostname)
+
+rsync -av --delete "$HOME"/{Documents,Downloads,Pictures,Sync} maciej@vault:/volume1/Backup/"$hostname""$HOME"
