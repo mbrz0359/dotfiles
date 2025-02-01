@@ -1,6 +1,8 @@
 # Oh My Zsh
 export ZSH="$HOME/.local/share/oh-my-zsh"
 export HISTFILE="$HOME/.local/share/zsh/zsh_history"
+export ZSH_COMPDUMP="$ZSH/cache/.zcompdump-$HOST"
+
 ZSH_THEME="robbyrussell"
 plugins=(
     colored-man-pages
