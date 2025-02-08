@@ -8,6 +8,8 @@
       - /volume1/docker/FreshRSS/data:/var/www/FreshRSS/data
       - /volume1/docker/FreshRSS/extensions:/var/www/FreshRSS/extensions
     env:
+      PUID: "1000"
+      PGID: "1000"
       TZ: "Europe/Warsaw"
       CRON_MIN: "1,31"
     restart_policy: unless-stopped
