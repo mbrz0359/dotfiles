@@ -3,3 +3,4 @@
     name:
       - rsms-inter-fonts
   become: true
+  when: ansible_distribution == "Fedora" and ansible_distribution_major_version|int <= 41
