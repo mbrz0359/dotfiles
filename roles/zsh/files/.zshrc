@@ -4,6 +4,8 @@ export HISTFILE="$HOME/.local/share/zsh/zsh_history"
 export ZSH_COMPDUMP="$ZSH/cache/.zcompdump-$HOST"
 
 ZSH_THEME="robbyrussell"
+FZF_ALT_C_COMMAND="" # conflicts with vi-mode
+
 plugins=(
     colored-man-pages
     fzf
@@ -14,11 +16,11 @@ plugins=(
     zsh-autosuggestions
     zsh-kubecolor
     zsh-syntax-highlighting
+    zsh-vi-mode
 )
 source $ZSH/oh-my-zsh.sh
 
 # ZSH
-bindkey -v
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Init
