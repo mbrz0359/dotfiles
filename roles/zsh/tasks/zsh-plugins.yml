@@ -15,3 +15,9 @@
     repo: https://github.com/devopstales/zsh-kubecolor.git
     depth: 1
     dest: "{{ zsh_plugin_path }}/zsh-kubecolor"
+
+- name: Install zsh-vi-mode
+  ansible.builtin.git:
+    repo: https://github.com/jeffreytse/zsh-vi-mode
+    depth: 1
+    dest: "{{ zsh_plugin_path }}/zsh-vi-mode"
