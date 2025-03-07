@@ -5,10 +5,9 @@
   become: true
 
 - name: Add docker repository
-  ansible.builtin.yum_repository:
-    name: docker-ce
-    description: Docker CE Repo
-    baseurl: https://download.docker.com/linux/fedora/docker-ce.repo
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/fedora/docker-ce.repo
+    dest: "/etc/yum.repos.d/docker-ce.repo"
   become: true
 
 - name: Install docker
