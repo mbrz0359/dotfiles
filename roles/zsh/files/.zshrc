@@ -4,11 +4,11 @@ export HISTFILE="$HOME/.local/share/zsh/zsh_history"
 export ZSH_COMPDUMP="$ZSH/cache/.zcompdump-$HOST"
 
 ZSH_THEME="robbyrussell"
+ZVM_INIT_MODE=sourcing # fzf has to be loaded after zsh-vi-mode for it to work
 FZF_ALT_C_COMMAND="" # conflicts with vi-mode
 
 plugins=(
     colored-man-pages
-    fzf
     git
     kube-ps1
     mise
@@ -17,6 +17,7 @@ plugins=(
     zsh-kubecolor
     zsh-syntax-highlighting
     zsh-vi-mode
+    fzf
 )
 source $ZSH/oh-my-zsh.sh
 
