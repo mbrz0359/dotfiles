@@ -1,8 +1,3 @@
-- name: Install work cli tools
-  community.general.homebrew:
-    name:
-      - jetbrains/utils/qodana
-
 - name: Install work cli tools mise
   ansible.builtin.copy:
     src: "cli-tools-work.toml"
