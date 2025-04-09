@@ -9,6 +9,7 @@
     - io.gitlab.librewolf-community
     - io.gitlab.news_flash.NewsFlash
     - org.musicbrainz.Picard
+    - org.nickvision.tubeconverter
     - tv.plex.PlexDesktop
   ignore_errors: true # Not every flatpak is available on aarch64
   become: true
