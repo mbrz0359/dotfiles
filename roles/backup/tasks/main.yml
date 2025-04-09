@@ -1,7 +1,7 @@
 - name: Install crontab
   ansible.builtin.dnf:
     name:
-      - crontab
+      - cronie
   become: true
   when: ansible_facts['os_family'] == "RedHat"
 
