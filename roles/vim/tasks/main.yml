@@ -5,10 +5,15 @@
   become: true
   when: ansible_facts['os_family'] == "RedHat"
 
-- name: Copy .ideavimrc
+- name: Create ideavim directory
+  file:
+    path: "{{ ansible_user_dir }}/.config/ideavim"
+    state: directory
+
+- name: Copy ideavimrc
   ansible.builtin.copy:
-    src: ".ideavimrc"
-    dest: "{{ ansible_user_dir }}/.ideavimrc"
+    src: "ideavimrc"
+    dest: "{{ ansible_user_dir }}/.config/ideavim/"
 
 - name: Copy init.vim
   ansible.builtin.copy:
