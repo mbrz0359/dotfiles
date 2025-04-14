@@ -13,6 +13,7 @@
     - org.gnome.Calculator
     - org.gnome.Calendar
     - org.gnome.clocks
+    - org.gnome.Decibels
     - org.gnome.font-viewer
     - org.gnome.gitlab.cheywood.Buffer
     - org.gnome.Loupe
