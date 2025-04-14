@@ -1,4 +1,4 @@
-- name: Install crontab
+- name: Install cronie
   ansible.builtin.dnf:
     name:
       - cronie
