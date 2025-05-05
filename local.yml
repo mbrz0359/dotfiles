@@ -15,7 +15,6 @@
     - morewaita
     - syncthing
     - vim
-    - warp
     - zellij
     - zsh
 
@@ -32,7 +31,6 @@
     - k8s-cli-tools
     - morewaita
     - vim
-    - warp
     - zellij
     - zsh
 
