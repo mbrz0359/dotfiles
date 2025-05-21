@@ -1,3 +1,2 @@
 [tools]
 java = ['zulu-11', 'zulu-21']
-ollama = 'latest'
