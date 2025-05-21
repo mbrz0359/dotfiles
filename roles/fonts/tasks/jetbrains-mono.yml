@@ -6,7 +6,7 @@
 
 - name: Download and extract JetBrains Mono Nerd Font
   ansible.builtin.unarchive:
-    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
     dest: "{{ ansible_workspace_dir }}/JetBrainsMonoNF"
     remote_src: yes
   when: create_dir_result.changed
