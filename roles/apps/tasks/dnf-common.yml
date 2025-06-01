@@ -36,4 +36,5 @@
   ansible.builtin.dnf:
     name:
       - ptyxis
+      - moreutils
   become: true
