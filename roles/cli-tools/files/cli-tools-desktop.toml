@@ -1,2 +1,2 @@
 [tools]
-java = ['zulu-11', 'zulu-21']
+java = ['zulu-11', 'zulu-17', 'zulu-21']
