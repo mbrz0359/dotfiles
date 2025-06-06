@@ -1,5 +1,5 @@
 - name: Install adw-gtk3-theme
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name:
       - adw-gtk3-theme
   become: true

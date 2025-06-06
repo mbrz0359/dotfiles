@@ -1,13 +1,13 @@
 - name: Remove firefox
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name:
       - firefox
     state: absent
   become: true
   when: ansible_architecture == "x86_64" # there is no firefox flatpak for aarch64
 
-- name: Remove unneeded dnf packages
-  ansible.builtin.dnf:
+- name: Remove unneeded packages
+  ansible.builtin.package:
     name:
       - baobab
       - evince
@@ -32,8 +32,8 @@
     state: absent
   become: true
 
-- name: Install dnf packages
-  ansible.builtin.dnf:
+- name: Install packages
+  ansible.builtin.package:
     name:
       - ptyxis
       - moreutils

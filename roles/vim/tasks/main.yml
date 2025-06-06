@@ -1,9 +1,8 @@
 - name: Install nvim
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name:
       - neovim
   become: true
-  when: ansible_facts['os_family'] == "RedHat"
 
 - name: Create ideavim directory
   file:

@@ -1,7 +1,6 @@
-- name: Install - RedHat
-  ansible.builtin.include_tasks: install-redhat.yml
+- name: Install - Linux
+  ansible.builtin.include_tasks: install-linux-package.yml
   when:
-    - ansible_facts['os_family'] == "RedHat"
     - context == "desktop"
 
 - name: Install - Docker

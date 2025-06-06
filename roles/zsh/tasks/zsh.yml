@@ -1,9 +1,8 @@
 - name: Install zsh
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name:
       - zsh
   become: true
-  when: ansible_facts['os_family'] == "RedHat"
 
 - name: Create zsh directory in .local/share
   file:
