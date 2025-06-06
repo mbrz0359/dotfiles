@@ -1,7 +1,6 @@
 - name: Install common cli tools dnf
   ansible.builtin.dnf:
     name:
-      - fzf
       - htop
       - zoxide
   become: true
