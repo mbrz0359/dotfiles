@@ -1,5 +1,5 @@
-- name: Install dconf dependencies
-  ansible.builtin.dnf:
+- name: Install dependencies
+  ansible.builtin.package:
     name:
       - python3-psutil # Needed for community.general.dconf
   become: true

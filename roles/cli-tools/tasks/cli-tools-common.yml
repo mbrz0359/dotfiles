@@ -1,10 +1,9 @@
-- name: Install common cli tools dnf
-  ansible.builtin.dnf:
+- name: Install common cli tools
+  ansible.builtin.package:
     name:
       - htop
       - zoxide
   become: true
-  when: ansible_facts['os_family'] == "RedHat"
 
 - name: Install common cli tools mise
   ansible.builtin.copy:

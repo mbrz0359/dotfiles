@@ -1,5 +1,5 @@
-- name: Install desktop dnf packages
-  ansible.builtin.dnf:
+- name: Install desktop package
+  ansible.builtin.package:
     name:
       - syncthing
   become: true

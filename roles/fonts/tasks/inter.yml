@@ -1,5 +1,5 @@
 - name: Install Inter fonts
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name:
       - rsms-inter-fonts
   become: true
