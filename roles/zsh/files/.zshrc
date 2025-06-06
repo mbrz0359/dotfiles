@@ -18,6 +18,7 @@ plugins=(
     zsh-syntax-highlighting
     zsh-vi-mode
     fzf
+    zsh-interactive-cd
 )
 source $ZSH/oh-my-zsh.sh
 
