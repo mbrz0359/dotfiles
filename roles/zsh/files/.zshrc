@@ -9,6 +9,7 @@ FZF_ALT_C_COMMAND="" # conflicts with vi-mode
 
 plugins=(
     colored-man-pages
+    copyfile
     git
     kube-ps1
     mise
