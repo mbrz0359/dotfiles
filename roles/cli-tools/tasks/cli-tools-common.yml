@@ -2,7 +2,6 @@
   ansible.builtin.package:
     name:
       - htop
-      - zoxide
   become: true
 
 - name: Install common cli tools mise
