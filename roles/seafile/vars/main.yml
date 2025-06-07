@@ -1,0 +1,7 @@
+seafile:
+  admin:
+    user:  "{{ lookup('viczem.keepass.keepass', 'seafile/admin', 'username') }}"
+    pass:  "{{ lookup('viczem.keepass.keepass', 'seafile/admin', 'password') }}"
+    url:  "{{ lookup('viczem.keepass.keepass', 'seafile/admin', 'url') }}"
+  db:
+    pass: "{{ lookup('viczem.keepass.keepass', 'seafile/db', 'password') }}"
