@@ -1,0 +1,10 @@
+- name: Copy compose file
+  ansible.builtin.template:
+    src: "compose.yml.j2"
+    dest: "/tmp/seafile/compose.yml"
+
+- name: Run docker compose
+  community.docker.docker_compose_v2:
+    project_src: "/tmp/seafile"
+    docker_cli: /usr/local/bin/docker
+  become: true
