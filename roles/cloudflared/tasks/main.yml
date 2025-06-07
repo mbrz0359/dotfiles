@@ -4,4 +4,5 @@
     image: cloudflare/cloudflared:latest
     command: "tunnel --no-autoupdate run --token {{ cloudflared.token }}"
     restart_policy: unless-stopped
+    pull: always
   become: true
