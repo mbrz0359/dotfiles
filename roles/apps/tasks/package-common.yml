@@ -36,5 +36,4 @@
   ansible.builtin.package:
     name:
       - ptyxis
-      - moreutils
   become: true
