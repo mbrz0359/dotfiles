@@ -78,3 +78,4 @@ if has('ide')
 endif
 
 nmap S diw"0P
+noremap Y "+y
