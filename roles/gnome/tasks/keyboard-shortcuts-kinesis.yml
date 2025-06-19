@@ -24,6 +24,16 @@
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-right"
     value: "['<Control><Alt>Down']"
 
+- name: Set keyboard shortcut for moving window one workspace to the left
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-left"
+    value: "['<Super>Page_Up']"
+
+- name: Set keyboard shortcut for moving window one workspace to the right
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-right"
+    value: "['<Super>Page_Down']"
+
 - name: Disable keyboard shortcuts for switching applications
   community.general.dconf:
     key: "/org/gnome/shell/keybindings/switch-to-application-{{ item }}"
