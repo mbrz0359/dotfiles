@@ -11,6 +11,7 @@ plugins=(
     colored-man-pages
     copyfile
     git
+    gh
     kube-ps1
     mise
     zoxide
