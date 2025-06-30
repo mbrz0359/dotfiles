@@ -39,6 +39,7 @@ if has('ide')
     sethandler <C-I> a:vim
     sethandler <C-O> a:vim
 
+    map <leader>a <Action>(Annotate)
     map <Leader>o <Action>(OptimizeImports)
     map <Leader>r <Action>(ReformatCode)
     map <Leader>/ <Action>(FindInPath)
