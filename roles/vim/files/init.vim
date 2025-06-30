@@ -79,3 +79,5 @@ endif
 
 nmap S diw"0P
 noremap Y "+y
+vnoremap < <gv
+vnoremap > >gv
