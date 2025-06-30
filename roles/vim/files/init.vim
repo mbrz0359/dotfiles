@@ -8,10 +8,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
-map mc <A-n>
-map mx <A-x>
-map mp <A-p>
-
 set incsearch
 set nu
 set rnu
