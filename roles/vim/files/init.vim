@@ -25,9 +25,9 @@ if has('ide')
     set NERDTree
     set quickscope
 
-    sethandler <C-C> a:ide
-    sethandler <C-V> a:ide
-    sethandler <C-X> a:ide
+    sethandler <C-C> a:vim
+    sethandler <C-V> a:vim
+    sethandler <C-X> a:vim
     sethandler <C-S> a:ide
 
     sethandler <C-P> a:ide
