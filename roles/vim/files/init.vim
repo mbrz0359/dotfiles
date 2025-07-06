@@ -72,6 +72,8 @@ if has('ide')
     map ]] <Action>(MethodDown)
     map <C-s> <Action>(SaveAll)
     map <C-w> <Action>(CloseContent)
+    map <C-I> <Action>(Forward)
+    map <C-O> <Action>(Back)
 endif
 
 nmap S diw"0P
