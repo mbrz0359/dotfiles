@@ -13,6 +13,7 @@ plugins=(
     git
     gh
     kube-ps1
+    minikube
     mise
     zoxide
     zsh-autosuggestions
