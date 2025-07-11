@@ -12,6 +12,7 @@ plugins=(
     copyfile
     git
     gh
+    kind
     kube-ps1
     minikube
     mise
