@@ -1,7 +1,7 @@
 - name: Deploy Portainer
   community.docker.docker_container:
     name: portainer-ce
-    image: portainer/portainer-ce:2.27.6
+    image: portainer/portainer-ce:2.27.9
     ports:
       - "8000:8000"
       - "9000:9000"
