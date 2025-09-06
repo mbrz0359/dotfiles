@@ -416,3 +416,6 @@ copy_command "wl-copy"
 // Default: true (if the host terminal supports it)
 // 
 // support_kitty_keyboard_protocol false
+
+// to disable mouse hover effects
+advanced_mouse_actions false
