@@ -38,6 +38,7 @@
   vars:
     context: nas
   roles:
+    - audiobookshelf
     - cloudflared
     - fresh-rss
     - mealie

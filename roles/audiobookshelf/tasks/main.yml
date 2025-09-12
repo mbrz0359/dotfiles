@@ -1,0 +1,15 @@
+- name: Deploy Audiobookshelf
+  community.docker.docker_container:
+    name: audiobookshelf
+    image: ghcr.io/advplyr/audiobookshelf:2.29.0
+    ports:
+      - "13378:80"
+    volumes:
+      - /volume1/docker/audiobookshelf/podcasts:/podcasts
+      - /volume1/docker/audiobookshelf/config:/config
+      - /volume1/docker/audiobookshelf/metadata:/metadata
+      - /volume1/Backup/maciej-pc/mnt/storage/Books/Audiobooks:/audiobooks
+    env:
+      TZ: "Europe/Warsaw"
+    restart_policy: unless-stopped
+  become: true
