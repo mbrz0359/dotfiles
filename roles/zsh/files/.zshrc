@@ -12,6 +12,7 @@ plugins=(
     copyfile
     git
     gh
+    helm
     kind
     kube-ps1
     minikube
