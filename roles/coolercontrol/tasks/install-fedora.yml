@@ -1,0 +1,17 @@
+- name: Add CoolerControl repository
+  community.general.copr:
+    name: codifryed/CoolerControl
+  become: true
+
+- name: Install CoolerControl
+  ansible.builtin.package:
+    name:
+      - coolercontrol
+  become: true
+
+- name: Enable CoolerControl service
+  ansible.builtin.systemd_service:
+    name: coolercontrold
+    state: started
+    enabled: true
+  become: true
