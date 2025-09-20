@@ -1,0 +1,3 @@
+- name: Install - Fedora
+  ansible.builtin.include_tasks: install-fedora.yml
+  when: ansible_facts['distribution'] == "Fedora"
