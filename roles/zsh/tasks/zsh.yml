@@ -23,4 +23,4 @@
   ansible.builtin.copy:
     src: "zsh/work/"
     dest: "{{ ansible_user_dir }}/.config/zsh/"
-  when: context == "work"
+  when: "'work' in group_names"

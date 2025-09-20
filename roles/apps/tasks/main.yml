@@ -9,8 +9,8 @@
 
 - name: flatpak-desktop
   ansible.builtin.include_tasks: flatpak-desktop.yml
-  when: context == "desktop"
+  when: "'desktop' in group_names"
 
 - name: flatpak-work
   ansible.builtin.include_tasks: flatpak-work.yml
-  when: context == "work"
+  when: "'work' in group_names"
