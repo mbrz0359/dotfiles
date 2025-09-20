@@ -3,8 +3,8 @@
 
 - name: cli tools desktop
   ansible.builtin.include_tasks: cli-tools-desktop.yml
-  when: context == "desktop"
+  when: "'desktop' in group_names"
 
 - name: cli tools work
   ansible.builtin.include_tasks: cli-tools-work.yml
-  when: context == "work"
+  when: "'work' in group_names"

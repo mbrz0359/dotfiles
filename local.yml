@@ -1,6 +1,4 @@
 - hosts: desktop
-  vars:
-    context: desktop
   vars_files:
     - git-desktop.yml
   roles:
@@ -20,8 +18,6 @@
     - zsh
 
 - hosts: work
-  vars:
-    context: work
   roles:
     - adw-gtk3
     - apps
@@ -36,8 +32,6 @@
     - zsh
 
 - hosts: nas
-  vars:
-    context: nas
   roles:
     - audiobookshelf
     - cloudflared

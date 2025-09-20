@@ -1,9 +1,7 @@
 - name: Install - Linux
   ansible.builtin.include_tasks: install-linux-package.yml
-  when:
-    - context == "desktop"
+  when: "'desktop' in group_names"
 
 - name: Install - Docker
   ansible.builtin.include_tasks: install-docker.yml
-  when:
-    - context == "nas"
+  when: "'nas' in group_names"
