@@ -1,7 +1,7 @@
 - name: Deploy Mealie
   community.docker.docker_container:
     name: mealie
-    image: ghcr.io/mealie-recipes/mealie:v3.1.2
+    image: ghcr.io/mealie-recipes/mealie:v3.2.1
     ports:
       - "9925:9000"
     volumes:
