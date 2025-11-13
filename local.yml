@@ -43,4 +43,5 @@
 - hosts: pi2
   roles:
     - audiobookshelf
+    - syncthing
     - portainer
