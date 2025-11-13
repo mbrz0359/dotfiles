@@ -4,4 +4,4 @@
 
 - name: Install - Docker
   ansible.builtin.include_tasks: install-docker.yml
-  when: "'nas' in group_names"
+  when: "'nas' in group_names or 'pi2' in group_names"
