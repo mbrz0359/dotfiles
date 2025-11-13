@@ -1,16 +1,16 @@
 - name: Deploy Syncthing
   community.docker.docker_container:
     name: syncthing
-    image: linuxserver/syncthing:2.0.9
+    image: linuxserver/syncthing:2.0.11
     ports:
       - "8384:8384"
       - "22000:22000/tcp"
       - "22000:22000/udp"
       - "21027:21027/udp"
     volumes:
-      - /volume1/docker/syncthing/config:/config
-      - /volume1/docker/syncthing/data1:/data1
-      - /volume1/docker/syncthing/data2:/data2
+      - "{{ ansible_docker_dir }}/syncthing/config:/config"
+      - "{{ ansible_docker_dir }}/syncthing/data1:/data1"
+      - "{{ ansible_docker_dir }}/syncthing/data2:/data2"
     env:
       PUID: "1000"
       PGID: "1000"
