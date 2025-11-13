@@ -1,0 +1,25 @@
+- name: Create music directory
+  file:
+    path: "{{ ansible_docker_dir }}/plex/music"
+    state: directory
+    owner: "{{ ansible_env['USER'] }}"
+  become: true
+
+- name: Deploy Plex
+  community.docker.docker_container:
+    name: plex
+    image: lscr.io/linuxserver/plex:1.42.2
+    network_mode: host
+    volumes:
+      - "{{ ansible_docker_dir }}/plex/config:/config"
+      - "{{ ansible_docker_dir }}/plex/music:/music"
+    devices:
+      - "/dev/dri:/dev/dri"
+    env:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "Europe/Warsaw"
+      VERSION: "docker"
+    restart_policy: unless-stopped
+  become: true
+
