@@ -1,3 +1,10 @@
+- name: Create audiobooks directory
+  file:
+    path: "{{ ansible_docker_dir }}/audiobookshelf/audiobooks"
+    state: directory
+    owner: "{{ ansible_env['USER'] }}"
+  become: true
+
 - name: Deploy Audiobookshelf
   community.docker.docker_container:
     name: audiobookshelf
