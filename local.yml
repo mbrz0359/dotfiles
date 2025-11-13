@@ -40,3 +40,7 @@
     - portainer
     - syncthing
     - transmission
+
+- hosts: pi2
+  roles:
+    - portainer
