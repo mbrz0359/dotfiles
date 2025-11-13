@@ -33,7 +33,6 @@
 
 - hosts: nas
   roles:
-    - audiobookshelf
     - cloudflared
     - fresh-rss
     - mealie
@@ -43,4 +42,5 @@
 
 - hosts: pi2
   roles:
+    - audiobookshelf
     - portainer

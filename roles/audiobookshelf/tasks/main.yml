@@ -5,11 +5,12 @@
     ports:
       - "13378:80"
     volumes:
-      - /volume1/docker/audiobookshelf/podcasts:/podcasts
-      - /volume1/docker/audiobookshelf/config:/config
-      - /volume1/docker/audiobookshelf/metadata:/metadata
-      - /volume1/Backup/maciej-pc/mnt/storage/Books/Audiobooks:/audiobooks
+      - "{{ ansible_docker_dir }}/audiobookshelf/podcasts:/podcasts"
+      - "{{ ansible_docker_dir }}/audiobookshelf/config:/config"
+      - "{{ ansible_docker_dir }}/audiobookshelf/metadata:/metadata"
+      - "{{ ansible_docker_dir }}/audiobookshelf/audiobooks:/audiobooks"
     env:
       TZ: "Europe/Warsaw"
+      REFRESH_TOKEN_EXPIRY: "2592000"
     restart_policy: unless-stopped
   become: true
