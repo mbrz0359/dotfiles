@@ -33,7 +33,6 @@
 
 - hosts: nas
   roles:
-    - cloudflared
     - mealie
     - portainer
     - syncthing
@@ -42,6 +41,7 @@
 - hosts: pi2
   roles:
     - audiobookshelf
+    - cloudflared
     - fresh-rss
     - plex
     - portainer
