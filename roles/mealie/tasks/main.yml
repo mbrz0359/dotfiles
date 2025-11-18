@@ -1,11 +1,11 @@
 - name: Deploy Mealie
   community.docker.docker_container:
     name: mealie
-    image: ghcr.io/mealie-recipes/mealie:v3.2.1
+    image: ghcr.io/mealie-recipes/mealie:v3.5.0
     ports:
       - "9925:9000"
     volumes:
-      - /volume1/docker/Mealie/app/data:/app/data
+      - "{{ ansible_docker_dir }}/Mealie/app/data:/app/data"
     memory: 1G
     env:
       TZ: "Europe/Warsaw"
