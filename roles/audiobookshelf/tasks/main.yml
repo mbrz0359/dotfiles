@@ -8,7 +8,7 @@
 - name: Deploy Audiobookshelf
   community.docker.docker_container:
     name: audiobookshelf
-    image: ghcr.io/advplyr/audiobookshelf:2.30.0
+    image: ghcr.io/advplyr/audiobookshelf:2.32.1
     ports:
       - "13378:80"
     volumes:
