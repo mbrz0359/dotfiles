@@ -1,5 +1,4 @@
 [tools]
-aws-cli = 'latest'
 github-cli = 'latest'
 maven = 'latest'
 terraform = 'latest'
