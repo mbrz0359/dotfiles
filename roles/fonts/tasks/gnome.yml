@@ -8,17 +8,10 @@
     key: "/org/gnome/desktop/interface/font-hinting"
     value: "'full'"
 
-- name: Set interface font to Inter
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface/font-name"
-    value: "'Inter Display Medium 12'"
-  when: ansible_distribution == "Fedora" and ansible_distribution_major_version|int <= 41
-
 - name: Set interface font to Adwaita Sans
   community.general.dconf:
     key: "/org/gnome/desktop/interface/font-name"
     value: "'Adwaita Sans 12'"
-  when: ansible_distribution == "Fedora" and ansible_distribution_major_version|int >= 42
 
 - name: Set monospace font to JetBrains Mono NF
   community.general.dconf:
