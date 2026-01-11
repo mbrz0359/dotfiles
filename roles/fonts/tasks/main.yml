@@ -1,6 +1,3 @@
-- name: inter
-  ansible.builtin.include_tasks: inter.yml
-
 - name: jetbrains-mono
   ansible.builtin.include_tasks: jetbrains-mono.yml
 
