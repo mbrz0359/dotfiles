@@ -5,8 +5,8 @@
     ports:
       - "8112:80"
     volumes:
-      - /volume1/docker/FreshRSS/data:/var/www/FreshRSS/data
-      - /volume1/docker/FreshRSS/extensions:/var/www/FreshRSS/extensions
+      - "{{ ansible_docker_dir }}/fresh-rss/data:/var/www/FreshRSS/data"
+      - "{{ ansible_docker_dir }}/fresh-rss/extensions:/var/www/FreshRSS/extensions"
     env:
       PUID: "1000"
       PGID: "1000"
