@@ -1,3 +1,9 @@
+- name: Install dnf-plugins-core
+  ansible.builtin.package:
+    name:
+      - dnf-plugins-core
+  become: true
+
 - name: Add CoolerControl repository
   community.general.copr:
     name: codifryed/CoolerControl
