@@ -25,3 +25,4 @@
 - name: Update mise
   command: mise self-update -y
   changed_when: false
+  ignore_errors: true # can fail on ARM
