@@ -31,11 +31,6 @@
     - zellij
     - zsh
 
-- hosts: nas
-  roles:
-    - portainer
-    - syncthing
-
 - hosts: pi2
   roles:
     - audiobookshelf
