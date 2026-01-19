@@ -2,12 +2,12 @@
   community.general.flatpak:
     name: "{{ item }}"
   loop:
-    - ch.protonmail.protonmail-bridge
     - com.protonvpn.www
     - de.haeckerfelix.Fragments
     - dev.qwery.AddWater
     - io.gitlab.librewolf-community
     - io.gitlab.news_flash.NewsFlash
+    - me.proton.Mail
     - org.musicbrainz.Picard
     - org.nickvision.tubeconverter
     - tv.plex.PlexDesktop
