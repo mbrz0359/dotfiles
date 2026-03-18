@@ -1,11 +1,3 @@
-- name: Remove firefox
-  ansible.builtin.package:
-    name:
-      - firefox
-    state: absent
-  become: true
-  when: ansible_architecture == "x86_64" # there is no firefox flatpak for aarch64
-
 - name: Remove unneeded packages
   ansible.builtin.package:
     name:
