@@ -13,7 +13,6 @@
       - gnome-logs
       - gnome-maps
       - gnome-system-monitor
-      - gnome-terminal
       - gnome-text-editor
       - gnome-weather
       - libreoffice-core
