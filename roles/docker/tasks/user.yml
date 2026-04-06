@@ -2,5 +2,5 @@
   ansible.builtin.user:
     append: true
     groups: docker
-    name: "{{ ansible_env['USER'] }}"
+    name: "{{ ansible_facts['user_id'] }}"
   become: true

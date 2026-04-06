@@ -15,7 +15,7 @@
     url: https://mise.run
     dest: "{{ ansible_workspace_dir }}/mise/install.sh"
     mode: "+x"
-    owner: "{{ ansible_env['USER'] }}"
+    owner: "{{ ansible_facts['user_id'] }}"
   when: result is failed
 
 - name: Install mise
