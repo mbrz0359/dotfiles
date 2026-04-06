@@ -8,7 +8,7 @@
   ansible.builtin.copy:
     src: "{{ inventory_hostname }}/rsync-backup"
     dest: "{{ ansible_user_dir }}/.local/bin/"
-    owner: "{{ ansible_env['USER'] }}"
+    owner: "{{ ansible_facts['user_id'] }}"
     mode: "+x"
   become: true
 

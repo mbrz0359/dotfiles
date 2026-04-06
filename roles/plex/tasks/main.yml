@@ -2,7 +2,7 @@
   file:
     path: "{{ ansible_docker_dir }}/plex/music"
     state: directory
-    owner: "{{ ansible_env['USER'] }}"
+    owner: "{{ ansible_facts['user_id'] }}"
   become: true
 
 - name: Deploy Plex
