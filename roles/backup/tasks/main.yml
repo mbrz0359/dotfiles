@@ -7,7 +7,7 @@
 - name: Copy backup script
   ansible.builtin.copy:
     src: "{{ inventory_hostname }}/rsync-backup"
-    dest: "{{ ansible_user_dir }}/.local/bin/"
+    dest: "{{ ansible_facts['user_dir'] }}/.local/bin/"
     owner: "{{ ansible_facts['user_id'] }}"
     mode: "+x"
   become: true
@@ -17,4 +17,4 @@
     name: "backup"
     hour: "18"
     minute: "0"
-    job: "{{ ansible_user_dir }}/.local/bin/rsync-backup"
+    job: "{{ ansible_facts['user_dir'] }}/.local/bin/rsync-backup"
