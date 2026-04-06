@@ -22,3 +22,8 @@
   community.general.dconf:
     key: "/org/gnome/desktop/sound/event-sounds"
     value: "false"
+
+- name: Set week start day to Monday
+  community.general.dconf:
+    key: "/org/gnome/desktop/calendar/week-start-day"
+    value: "'monday'"
