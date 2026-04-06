@@ -3,6 +3,7 @@
     name: "{{ item }}"
   loop:
     - ca.desrt.dconf-editor
+    - com.cassidyjames.butler
     - com.github.tchx84.Flatseal
     - com.mattjakeman.ExtensionManager
     - com.plexamp.Plexamp
