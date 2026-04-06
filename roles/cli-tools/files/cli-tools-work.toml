@@ -1,4 +1,6 @@
 [tools]
+act = 'latest'
+crane = 'latest'
 github-cli = 'latest'
 maven = 'latest'
 terraform = 'latest'
