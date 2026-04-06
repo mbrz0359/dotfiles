@@ -14,7 +14,7 @@
 - name: Copy font
   ansible.builtin.copy:
     src: "{{ ansible_workspace_dir }}/JetBrainsMonoNF/JetBrainsMonoNLNerdFont-Regular.ttf"
-    dest: "{{ ansible_user_dir }}/.local/share/fonts/"
+    dest: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/"
     owner: "{{ ansible_facts['user_id'] }}"
   become: true
   when: create_dir_result.changed
