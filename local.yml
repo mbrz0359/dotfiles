@@ -31,7 +31,7 @@
     - zellij
     - zsh
 
-- hosts: pi2
+- hosts: pi
   roles:
     - audiobookshelf
     - cloudflared
