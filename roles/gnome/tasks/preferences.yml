@@ -27,3 +27,8 @@
   community.general.dconf:
     key: "/org/gnome/desktop/calendar/week-start-day"
     value: "'monday'"
+
+- name: Disable donation reminders
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/housekeeping/donation-reminder-enabled"
+    value: "false"
