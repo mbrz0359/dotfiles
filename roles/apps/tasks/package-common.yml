@@ -18,6 +18,7 @@
       - libreoffice-core
       - loupe
       - mediawriter
+      - papers
       - rhythmbox
       - snapshot
     state: absent
