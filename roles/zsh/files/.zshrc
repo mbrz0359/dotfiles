@@ -47,7 +47,7 @@ alias la='ls -a'
 alias ll='ls -ltrh'
 alias lt='ls --tree'
 
-unalias gh # Alias created by git plugin interferes with github-cli
+unalias gh &>/dev/null # Alias created by git plugin interferes with github-cli
 
 # Env variables
 EDITOR=nvim
