@@ -10,6 +10,7 @@ FZF_ALT_C_COMMAND="" # conflicts with vi-mode
 plugins=(
     colored-man-pages
     copyfile
+    docker
     git
     gh
     helm
