@@ -1,5 +1,7 @@
 [tools]
 act = 'latest'
+claude = 'latest'
+copilot = 'latest'
 crane = 'latest'
 github-cli = 'latest'
 maven = 'latest'
