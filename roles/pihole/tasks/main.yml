@@ -1,0 +1,17 @@
+- name: Deploy Pi-hole
+  community.docker.docker_container:
+    name: pihole
+    image: pihole/pihole:2026.05.0
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8098:80/tcp"
+      - "8099:443/tcp"
+    volumes:
+      - "{{ ansible_docker_dir }}/etc-pihole:/etc/pihole"
+    env:
+      TZ: "Europe/Warsaw"
+      FTLCONF_webserver_api_password: "{{ pihole.password }}"
+      FTLCONF_dns_listeningMode: 'ALL'
+    restart_policy: unless-stopped
+  become: true
