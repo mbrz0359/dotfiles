@@ -37,6 +37,7 @@
     - cloudflared
     - fresh-rss
     - mealie
+    - pihole
     - plex
     - portainer
     - syncthing
