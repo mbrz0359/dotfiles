@@ -20,6 +20,8 @@ if has('ide')
     set idearefactormode=keep
     set NERDTree
     set quickscope
+    set VimEverywhere
+    set youcompleteme
 
     sethandler <C-C> a:vim
     sethandler <C-V> a:vim
@@ -34,6 +36,10 @@ if has('ide')
 
     sethandler <C-I> a:vim
     sethandler <C-O> a:vim
+
+    "YouCompleteMe popup
+    sethandler <C-Y> a:vim
+    sethandler <S-tab> a:vim
 
     map <leader>a <Action>(Annotate)
     map <Leader>o <Action>(OptimizeImports)
