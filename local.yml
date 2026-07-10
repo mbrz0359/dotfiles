@@ -24,6 +24,7 @@
     - cli-tools
     - docker
     - fonts
+    - git
     - gnome
     - k8s-cli-tools
     - morewaita
