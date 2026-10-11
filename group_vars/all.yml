@@ -1,5 +1,5 @@
 ansible_workspace_dir: "{{ ansible_facts['user_dir'] }}/Workspace/Ansible"
-keepass_dbx: "~/Sync/KeePass/infra.kdbx"
+keepass_dbx: "/mnt/storage/Sync/Other/infra.kdbx"
 keepass_psw: !vault |
   $ANSIBLE_VAULT;1.1;AES256
   66643134613865353864613336633864346666376434326434393733353364643538636135653063
