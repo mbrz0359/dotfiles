@@ -1,7 +1,7 @@
 - name: Deploy Syncthing
   community.docker.docker_container:
     name: syncthing
-    image: linuxserver/syncthing:2.1.6
+    image: linuxserver/syncthing:2.1.7
     ports:
       - "8384:8384"
       - "22000:22000/tcp"
