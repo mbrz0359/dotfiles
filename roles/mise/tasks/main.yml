@@ -25,3 +25,7 @@
 - name: Enable automatic updates
   command: mise settings self_update.auto=true
   changed_when: false
+
+- name: Add minimum release age excludes
+  command: mise settings minimum_release_age_excludes=claude-code
+  changed_when: false
