@@ -24,3 +24,9 @@
     src: "zsh/work/"
     dest: "{{ ansible_facts['user_dir'] }}/.config/zsh/"
   when: "'work' in group_names"
+
+- name: Copy custom maciej-pc config
+  ansible.builtin.copy:
+    src: "zsh/maciej-pc/"
+    dest: "{{ ansible_facts['user_dir'] }}/.config/zsh/"
+  when: inventory_hostname == 'maciej-pc'
