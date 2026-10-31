@@ -23,6 +23,7 @@
     cmd: systemd-creds encrypt --name=ansible-vault - /etc/credstore.encrypted/ansible-vault
     stdin: "{{ lookup('ansible.builtin.pipe', playbook_dir ~ '/vault-keyring-client.sh') }}"
     stdin_add_newline: false
+  changed_when: true
   when: not vault_credential.stat.exists
   no_log: true
   become: true
@@ -55,6 +56,7 @@
 
 - name: Import GitHub web-flow signing key
   ansible.builtin.command: gpg --batch --import {{ ansible_facts['user_dir'] }}/.config/ansible-pull/github-web-flow.gpg
+  changed_when: true
   when: web_flow_key_file is changed or web_flow_key_listed.rc != 0
 
 - name: Install ansible-pull units

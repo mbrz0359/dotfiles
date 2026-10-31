@@ -1,0 +1,4 @@
+---
+- name: Update nvim plugins
+  ansible.builtin.command: nvim --headless +PlugUpdate +qall
+  changed_when: true

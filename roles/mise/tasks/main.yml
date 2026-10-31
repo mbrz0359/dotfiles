@@ -22,6 +22,7 @@
 
 - name: Install mise
   ansible.builtin.command: "{{ ansible_workspace_dir }}/mise/install.sh"
+  changed_when: true
   when: result is failed
 
 - name: Enable automatic updates

@@ -22,7 +22,7 @@
     src: "init.vim"
     dest: "{{ ansible_facts['user_dir'] }}/.config/nvim/"
     mode: "0644"
-  register: init_vim_result
+  notify: Update nvim plugins
 
 - name: Create autoload directory
   ansible.builtin.file:
@@ -36,7 +36,3 @@
     dest: "{{ ansible_facts['user_dir'] }}/.local/share/nvim/site/autoload/plug.vim"
     mode: "0644"
     owner: "{{ ansible_facts['user_id'] }}"
-
-- name: Update plugins
-  ansible.builtin.command: nvim --headless +PlugUpdate +qall
-  when: init_vim_result.changed

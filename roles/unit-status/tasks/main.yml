@@ -21,11 +21,5 @@
     src: unit-status@.service
     dest: /etc/systemd/system/unit-status@.service
     mode: "0644"
-  register: unit_status_unit
-  become: true
-
-- name: Reload systemd
-  ansible.builtin.systemd_service:
-    daemon_reload: true
-  when: unit_status_unit is changed
+  notify: Reload systemd
   become: true
