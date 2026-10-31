@@ -1,0 +1,8 @@
+[Unit]
+Description=Report %i result to Home Assistant
+After=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/unit-status.env
+ExecStart=/usr/local/bin/unit-status %i

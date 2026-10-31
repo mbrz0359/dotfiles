@@ -2,6 +2,7 @@
 Description=Apply dotfiles playbook with ansible-pull
 Wants=network-online.target
 After=network-online.target docker.service
+OnFailure=unit-status@%n.service
 
 [Service]
 Type=oneshot
