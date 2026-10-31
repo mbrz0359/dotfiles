@@ -1,2 +1,0 @@
-mealie:
-  base_url: "{{ lookup('viczem.keepass.keepass', 'mealie', 'url') }}"
