@@ -1,6 +1,6 @@
 ---
 - name: Create JetBrains Mono directory
-  file:
+  ansible.builtin.file:
     path: "{{ ansible_workspace_dir }}/JetBrainsMonoNF"
     state: directory
   register: create_dir_result

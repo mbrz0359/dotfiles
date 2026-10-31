@@ -1,6 +1,6 @@
 ---
 - name: Create music directory
-  file:
+  ansible.builtin.file:
     path: "{{ ansible_docker_dir }}/plex/music"
     state: directory
     owner: "{{ ansible_facts['user_id'] }}"

@@ -6,7 +6,7 @@
   become: true
 
 - name: Create zsh directory in .local/share
-  file:
+  ansible.builtin.file:
     path: "{{ ansible_facts['user_dir'] }}/.local/share/zsh"
     state: directory
 

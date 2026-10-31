@@ -1,6 +1,6 @@
 ---
 - name: Create audiobooks directory
-  file:
+  ansible.builtin.file:
     path: "{{ ansible_docker_dir }}/audiobookshelf/audiobooks"
     state: directory
     owner: "{{ ansible_facts['user_id'] }}"
