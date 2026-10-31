@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-hostname=$(hostname)
-
-rsync -av --delete "$HOME"/{Documents,Downloads,Pictures,Sync} maciej@vault:/volume1/Backup/"$hostname""$HOME"

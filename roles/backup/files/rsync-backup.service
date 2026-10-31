@@ -1,0 +1,8 @@
+[Unit]
+Description=Back up files with rsync
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/rsync-backup --if-due
+Nice=10
+IOSchedulingClass=idle

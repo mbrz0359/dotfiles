@@ -1,21 +1,46 @@
 ---
-- name: Install cronie
-  ansible.builtin.package:
-    name:
-      - cronie
-  become: true
+- name: Remove backup cron job
+  ansible.builtin.cron:
+    name: backup
+    state: absent
 
 - name: Copy backup script
   ansible.builtin.copy:
-    src: "{{ inventory_hostname }}/rsync-backup"
-    dest: "{{ ansible_facts['user_dir'] }}/.local/bin/"
-    owner: "{{ ansible_facts['user_id'] }}"
-    mode: "+x"
-  become: true
+    src: rsync-backup
+    dest: "{{ ansible_facts['user_dir'] }}/.local/bin/rsync-backup"
+    mode: "0755"
 
-- name: Set cron schedule
-  ansible.builtin.cron:
-    name: "backup"
-    hour: "18"
-    minute: "0"
-    job: "{{ ansible_facts['user_dir'] }}/.local/bin/rsync-backup"
+- name: Create backup config directory
+  ansible.builtin.file:
+    path: "{{ ansible_facts['user_dir'] }}/.config/rsync-backup"
+    state: directory
+    mode: "0700"
+
+- name: Copy backup config
+  ansible.builtin.copy:
+    src: "{{ inventory_hostname }}/config.sh"
+    dest: "{{ ansible_facts['user_dir'] }}/.config/rsync-backup/config.sh"
+    mode: "0600"
+
+- name: Create systemd user unit directory
+  ansible.builtin.file:
+    path: "{{ ansible_facts['user_dir'] }}/.config/systemd/user"
+    state: directory
+    mode: "0755"
+
+- name: Install backup units
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ ansible_facts['user_dir'] }}/.config/systemd/user/{{ item }}"
+    mode: "0644"
+  loop:
+    - rsync-backup.service
+    - rsync-backup.timer
+
+- name: Enable backup timer
+  ansible.builtin.systemd_service:
+    name: rsync-backup.timer
+    enabled: true
+    state: started
+    daemon_reload: true
+    scope: user
