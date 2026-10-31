@@ -8,12 +8,14 @@ OnFailure=unit-status@%n.service
 Type=oneshot
 User={{ ansible_facts['user_id'] }}
 LoadCredentialEncrypted=ansible-vault
-# Debian's bundled collections lag behind; keep them in line with the controller
-ExecStartPre=-/usr/bin/ansible-galaxy collection install --upgrade community.general community.docker
+# Install the collection versions pinned in requirements.yml (Debian's lag behind).
+# Update the checkout first so a version bump applies in the same run.
+ExecStartPre=-/usr/bin/git -C {{ ansible_pull_dir }} pull --quiet --ff-only
+ExecStartPre=-/usr/bin/ansible-galaxy collection install --upgrade -r {{ ansible_pull_dir }}/requirements.yml
 ExecStart=/usr/bin/ansible-pull \
     --url https://github.com/mbrz0359/dotfiles.git \
     --checkout main \
-    --directory {{ ansible_facts['user_dir'] }}/.local/share/ansible-pull \
+    --directory {{ ansible_pull_dir }} \
     --inventory hosts \
     --limit {{ inventory_hostname }} \
     --vault-id default@%d/ansible-vault \
