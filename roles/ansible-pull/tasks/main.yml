@@ -26,6 +26,36 @@
   no_log: true
   become: true
 
+# ansible-pull --verify-commit only runs main if its HEAD is signed by a key in
+# git_allowed_signers or by GitHub (web-flow), which signs Renovate's automerges.
+- name: Trust allowed commit signers
+  ansible.builtin.include_role:
+    name: git
+    tasks_from: allowed-signers
+
+- name: Create ansible-pull config directory
+  ansible.builtin.file:
+    path: "{{ ansible_facts['user_dir'] }}/.config/ansible-pull"
+    state: directory
+    mode: "0755"
+
+- name: Copy GitHub web-flow signing key
+  ansible.builtin.copy:
+    src: github-web-flow.gpg
+    dest: "{{ ansible_facts['user_dir'] }}/.config/ansible-pull/github-web-flow.gpg"
+    mode: "0644"
+  register: web_flow_key_file
+
+- name: Check GitHub web-flow signing key in keyring
+  ansible.builtin.command: gpg --batch --list-keys B5690EEEBB952194
+  register: web_flow_key_listed
+  changed_when: false
+  failed_when: false
+
+- name: Import GitHub web-flow signing key
+  ansible.builtin.command: gpg --batch --import {{ ansible_facts['user_dir'] }}/.config/ansible-pull/github-web-flow.gpg
+  when: web_flow_key_file is changed or web_flow_key_listed.rc != 0
+
 - name: Install ansible-pull units
   ansible.builtin.template:
     src: "{{ item }}.j2"
