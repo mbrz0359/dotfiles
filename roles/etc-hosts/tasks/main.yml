@@ -1,0 +1,7 @@
+- name: Add LAN hosts to /etc/hosts
+  ansible.builtin.blockinfile:
+    path: /etc/hosts
+    marker: "# {mark} ANSIBLE MANAGED LAN HOSTS"
+    block: "{{ lan_hosts }}"
+  diff: false
+  become: true
