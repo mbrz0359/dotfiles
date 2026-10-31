@@ -9,7 +9,7 @@
     memory: 1G
     memory_swap: 2G
     env:
-      TZ: "Europe/Warsaw"
+      TZ: "{{ timezone }}"
       PUID: "1000"
       PGID: "1000"
       ALLOW_SIGNUP: "false"

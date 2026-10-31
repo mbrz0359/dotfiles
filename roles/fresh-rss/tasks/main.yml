@@ -10,7 +10,7 @@
     env:
       PUID: "1000"
       PGID: "1000"
-      TZ: "Europe/Warsaw"
+      TZ: "{{ timezone }}"
       CRON_MIN: "1,31"
     restart_policy: unless-stopped
   become: true
