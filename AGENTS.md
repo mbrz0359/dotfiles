@@ -26,7 +26,9 @@ export ANSIBLE_VAULT_IDENTITY_LIST="default@$PWD/vault-keyring-client.sh"
 - ayem (over SSH, passwordless sudo): `ansible-playbook local.yml -l ayem [--check]`
 - Local desktop: `ansible-playbook local.yml -l maciej-pc -c local -K` needs my sudo
   password. Ask me to run it.
-- There is no CI. Validate with `--syntax-check` and a `--check` run against ayem.
+- CI (`.github/workflows/ci.yml`) runs `--syntax-check`, `ansible-lint` (profile `production`,
+  see `.ansible-lint`) and the Renovate config validator. Run `ansible-lint` locally before
+  committing, plus a `--check` run against ayem for changes to the `pi` play.
 
 ## Secrets
 
