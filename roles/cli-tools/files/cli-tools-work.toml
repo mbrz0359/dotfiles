@@ -1,10 +1,8 @@
 [tools]
 act = 'latest'
-claude = 'latest'
 copilot = 'latest'
 crane = 'latest'
 flux2 = '2.6.4'
-github-cli = 'latest'
 hugo = 'latest'
 loki-logcli = 'latest'
 maven = 'latest'

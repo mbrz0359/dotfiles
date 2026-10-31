@@ -1,7 +1,9 @@
 [tools]
 bat = 'latest'
+claude = 'latest'
 cosign = 'latest'
 fzf = 'latest'
+github-cli = 'latest'
 just = 'latest'
 lsd = 'latest'
 usage = 'latest'
