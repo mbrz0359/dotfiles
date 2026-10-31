@@ -10,6 +10,13 @@
     {
       "matchManagers": ["ansible"],
       "groupName": "Ansible Docker Images"
+    },
+    {
+      "description": "Merge non-major image updates without review; ayem applies them via ansible-pull",
+      "matchManagers": ["ansible"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "ignoreTests": true
     }
   ]
 }
