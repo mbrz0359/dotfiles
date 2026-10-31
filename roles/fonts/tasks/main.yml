@@ -1,6 +1,6 @@
 ---
-- name: jetbrains-mono
+- name: Jetbrains-mono
   ansible.builtin.include_tasks: jetbrains-mono.yml
 
-- name: gnome
+- name: Gnome
   ansible.builtin.include_tasks: gnome.yml

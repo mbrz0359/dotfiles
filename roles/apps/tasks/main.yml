@@ -1,17 +1,17 @@
 ---
-- name: package-common
+- name: Package-common
   ansible.builtin.include_tasks: package-common.yml
 
-- name: flathub
+- name: Flathub
   ansible.builtin.include_tasks: flathub.yml
 
-- name: flatpak-common
+- name: Flatpak-common
   ansible.builtin.include_tasks: flatpak-common.yml
 
-- name: flatpak-desktop
+- name: Flatpak-desktop
   ansible.builtin.include_tasks: flatpak-desktop.yml
   when: "'desktop' in group_names"
 
-- name: flatpak-work
+- name: Flatpak-work
   ansible.builtin.include_tasks: flatpak-work.yml
   when: "'work' in group_names"

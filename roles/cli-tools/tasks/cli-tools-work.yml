@@ -3,4 +3,4 @@
   ansible.builtin.copy:
     src: "cli-tools-work.toml"
     dest: "{{ ansible_facts['user_dir'] }}/.config/mise/conf.d/"
-  notify: mise upgrade
+  notify: Mise upgrade

@@ -1,11 +1,11 @@
 ---
-- name: cli tools common
+- name: Cli tools common
   ansible.builtin.include_tasks: cli-tools-common.yml
 
-- name: cli tools desktop
+- name: Cli tools desktop
   ansible.builtin.include_tasks: cli-tools-desktop.yml
   when: "'desktop' in group_names"
 
-- name: cli tools work
+- name: Cli tools work
   ansible.builtin.include_tasks: cli-tools-work.yml
   when: "'work' in group_names"

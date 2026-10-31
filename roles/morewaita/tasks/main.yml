@@ -1,5 +1,5 @@
 ---
-- name: clone MoreWaita
+- name: Clone MoreWaita
   ansible.builtin.git:
     repo: https://github.com/somepaulo/MoreWaita.git
     depth: 1
