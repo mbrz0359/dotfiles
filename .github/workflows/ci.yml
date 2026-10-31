@@ -1,0 +1,37 @@
+---
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  ansible:
+    name: Ansible lint and syntax check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.14"
+      - name: Install tools
+        run: pip install -r .github/requirements-ci.txt
+      - name: Install collections
+        run: ansible-galaxy collection install -r requirements.yml
+      # Vault values are only decrypted at runtime, so no vault password is needed here.
+      - name: Syntax check
+        run: ansible-playbook --syntax-check local.yml
+      - name: ansible-lint
+        run: ansible-lint
+
+  renovate:
+    name: Renovate config
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Validate renovate.json
+        run: npx --yes --package renovate@44.198.3 -- renovate-config-validator --strict renovate.json
