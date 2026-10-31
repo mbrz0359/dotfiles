@@ -1,3 +1,4 @@
+---
 # Monitored units add:
 #   OnFailure=unit-status@%n.service
 - name: Install unit-status script

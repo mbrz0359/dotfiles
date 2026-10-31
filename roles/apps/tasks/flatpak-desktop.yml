@@ -1,3 +1,4 @@
+---
 - name: Install desktop flatpaks
   community.general.flatpak:
     name: "{{ item }}"

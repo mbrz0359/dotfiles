@@ -1,2 +1,3 @@
+---
 - name: mise upgrade
   ansible.builtin.command: mise upgrade -y

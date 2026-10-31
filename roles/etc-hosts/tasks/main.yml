@@ -1,3 +1,4 @@
+---
 - name: Add LAN hosts to /etc/hosts
   ansible.builtin.blockinfile:
     path: /etc/hosts

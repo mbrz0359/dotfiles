@@ -1,3 +1,4 @@
+---
 - name: Create music directory
   file:
     path: "{{ ansible_docker_dir }}/plex/music"
@@ -23,4 +24,3 @@
     restart_policy: unless-stopped
     pull: always
   become: true
-

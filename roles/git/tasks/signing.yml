@@ -1,3 +1,4 @@
+---
 - name: Check for SSH signing key
   ansible.builtin.stat:
     path: "{{ git_signing_key }}"

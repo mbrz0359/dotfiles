@@ -1,3 +1,4 @@
+---
 - hosts: desktop
   vars_files:
     - git-desktop.yml

@@ -1,3 +1,4 @@
+---
 - name: Check if mise is installed
   ansible.builtin.command: mise --version
   register: result

@@ -1,3 +1,4 @@
+---
 # Public SSH keys trusted to sign commits; used by `git verify-commit`/`git log --show-signature`.
 - name: Create git config directory
   ansible.builtin.file:

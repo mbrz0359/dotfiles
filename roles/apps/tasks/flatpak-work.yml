@@ -1,3 +1,4 @@
+---
 - name: Install work flatpaks
   community.general.flatpak:
     name:

@@ -1,3 +1,4 @@
+---
 - name: Deploy Portainer
   community.docker.docker_container:
     name: portainer-ce

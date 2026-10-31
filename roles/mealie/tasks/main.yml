@@ -1,3 +1,4 @@
+---
 - name: Deploy Mealie
   community.docker.docker_container:
     name: mealie

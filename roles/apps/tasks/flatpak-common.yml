@@ -1,3 +1,4 @@
+---
 - name: Install common flatpaks
   community.general.flatpak:
     name: "{{ item }}"

@@ -1,15 +1,16 @@
+---
 - name: Include git config vars
   include_vars:
-      file: "{{ inventory_hostname }}/git-config.yml"
+    file: "{{ inventory_hostname }}/git-config.yml"
 
 - name: Set git user name
   git_config:
     name: user.name
     scope: global
-    value: '{{ git.username }}'
+    value: "{{ git.username }}"
 
 - name: Set git email
   git_config:
     name: user.email
     scope: global
-    value: '{{ git.email }}'
+    value: "{{ git.email }}"

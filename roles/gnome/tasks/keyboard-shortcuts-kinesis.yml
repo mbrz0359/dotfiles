@@ -1,3 +1,4 @@
+---
 - name: Set keyboard shortcuts for switching to given workspace
   community.general.dconf:
     key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-{{ item }}"
