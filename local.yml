@@ -1,5 +1,6 @@
 ---
-- hosts: desktop
+- name: Desktop
+  hosts: desktop
   vars_files:
     - git-desktop.yml
   roles:
@@ -20,7 +21,8 @@
     - zellij
     - zsh
 
-- hosts: work
+- name: Work
+  hosts: work
   roles:
     - adw-gtk3
     - apps
@@ -36,7 +38,8 @@
     - zellij
     - zsh
 
-- hosts: pi
+- name: Raspberry Pi
+  hosts: pi
   roles:
     - ansible-pull
     - audiobookshelf

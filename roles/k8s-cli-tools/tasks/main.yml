@@ -1,6 +1,6 @@
 ---
-- name: install k8s cli tools
+- name: Install k8s cli tools
   ansible.builtin.copy:
     src: "k8s.toml"
     dest: "{{ ansible_facts['user_dir'] }}/.config/mise/conf.d/"
-  notify: mise upgrade
+  notify: Mise upgrade

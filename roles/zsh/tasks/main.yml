@@ -1,9 +1,9 @@
 ---
-- name: zsh
+- name: Zsh
   ansible.builtin.include_tasks: zsh.yml
 
-- name: oh-my-zsh
+- name: Oh-my-zsh
   ansible.builtin.include_tasks: oh-my-zsh.yml
 
-- name: zsh plugins
+- name: Zsh plugins
   ansible.builtin.include_tasks: zsh-plugins.yml
