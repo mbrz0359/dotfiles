@@ -1,0 +1,10 @@
+# The firmware passes cgroup_disable=memory; a later cgroup_enable=memory wins.
+# Needed for container memory limits (e.g. Mealie).
+- name: Enable memory cgroup
+  ansible.builtin.lineinfile:
+    path: /boot/firmware/cmdline.txt
+    regexp: '^((?!.*\bcgroup_enable=memory\b).*)$'
+    line: '\1 cgroup_enable=memory'
+    backrefs: true
+  become: true
+  notify: Reboot
