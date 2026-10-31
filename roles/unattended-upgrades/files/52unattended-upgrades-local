@@ -1,0 +1,16 @@
+// Managed by Ansible (unattended-upgrades role)
+Unattended-Upgrade::Origins-Pattern {
+    "origin=Debian,codename=${distro_codename},label=Debian";
+    "origin=Debian,codename=${distro_codename}-updates,label=Debian";
+    "origin=Debian,codename=${distro_codename}-security,label=Debian-Security";
+    "origin=Raspberry Pi Foundation,codename=${distro_codename}";
+    "origin=Docker,archive=${distro_codename}";
+};
+
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
+Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
+
+// Reboot right after the upgrade if a package requires it (e.g. kernel),
+// well before ansible-pull runs at 04:00.
+Unattended-Upgrade::Automatic-Reboot "true";
+Unattended-Upgrade::Automatic-Reboot-Time "now";
