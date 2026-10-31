@@ -21,5 +21,18 @@ ansible-playbook --vault-id default@./vault-keyring-client.sh local.yml -K
 ansible ayem -m debug -a 'msg={{ cloudflared_token | length > 0 }}'
 ```
 
+### ansible-pull hosts
+
+The `ansible-pull` role installs a daily systemd timer that applies `main` locally.
+The vault password is stored with `systemd-creds` in
+`/etc/credstore.encrypted/ansible-vault`. It is encrypted on the first run from a
+machine with the keyring entry. To replace it (e.g. after rotating the password),
+delete that file and run the playbook again.
+
+```sh
+systemctl list-timers ansible-pull.timer
+journalctl -u ansible-pull.service
+```
+
 To add another vault ID, store it with `vault-id <id>` and append
 `,<id>@$HOME/Workspace/dotfiles/vault-keyring-client.sh` to `ANSIBLE_VAULT_IDENTITY_LIST`.

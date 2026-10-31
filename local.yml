@@ -34,6 +34,7 @@
 
 - hosts: pi
   roles:
+    - ansible-pull
     - audiobookshelf
     - cloudflared
     - fresh-rss
