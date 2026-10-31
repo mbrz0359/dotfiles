@@ -1,0 +1,11 @@
+---
+profile: production
+
+skip_list:
+  # Roles are named with hyphens (ansible-pull, etc-hosts, ...); renaming them
+  # would churn local.yml and include_role references for no functional gain.
+  - role-name
+  # Follows from hyphenated role names, which can't be used as variable prefixes.
+  - var-naming[no-role-prefix]
+  # oh-my-zsh and the zsh plugins intentionally track their default branch.
+  - latest[git]
