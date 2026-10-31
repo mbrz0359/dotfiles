@@ -27,5 +27,6 @@
     - org.keepassxc.KeePassXC
     - org.libreoffice.LibreOffice
     - org.mozilla.thunderbird_esr
+  register: flatpak_result
   ignore_errors: true # Not every flatpak is available on aarch64
   become: true
