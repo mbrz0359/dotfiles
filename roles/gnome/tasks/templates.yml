@@ -3,3 +3,4 @@
   ansible.builtin.copy:
     src: "Templates/"
     dest: "{{ ansible_facts['user_dir'] }}/Templates/"
+    mode: "0644"

@@ -3,6 +3,7 @@
   ansible.builtin.file:
     path: "{{ ansible_docker_dir }}/audiobookshelf/audiobooks"
     state: directory
+    mode: "0755"
     owner: "{{ ansible_facts['user_id'] }}"
   become: true
 
