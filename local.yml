@@ -48,4 +48,5 @@
     - portainer
     - raspberry-pi
     - syncthing
+    - unattended-upgrades
     - unit-status

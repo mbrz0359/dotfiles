@@ -1,0 +1,43 @@
+- name: Install unattended-upgrades
+  ansible.builtin.apt:
+    name: unattended-upgrades
+  become: true
+
+- name: Configure unattended-upgrades
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "/etc/apt/apt.conf.d/{{ item }}"
+    mode: "0644"
+  loop:
+    - 20auto-upgrades
+    - 52unattended-upgrades-local
+  become: true
+
+- name: Create apt-daily-upgrade drop-in directories
+  ansible.builtin.file:
+    path: "/etc/systemd/system/apt-daily-upgrade.{{ item }}.d"
+    state: directory
+    mode: "0755"
+  loop:
+    - timer
+    - service
+  become: true
+
+- name: Install apt-daily-upgrade drop-ins
+  ansible.builtin.copy:
+    src: "apt-daily-upgrade.{{ item }}.conf"
+    dest: "/etc/systemd/system/apt-daily-upgrade.{{ item }}.d/override.conf"
+    mode: "0644"
+  loop:
+    - timer
+    - service
+  register: apt_daily_upgrade_dropins
+  become: true
+
+- name: Enable apt-daily-upgrade timer
+  ansible.builtin.systemd_service:
+    name: apt-daily-upgrade.timer
+    enabled: true
+    state: started
+    daemon_reload: "{{ apt_daily_upgrade_dropins is changed }}"
+  become: true
