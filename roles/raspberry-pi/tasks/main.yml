@@ -8,3 +8,15 @@
     backrefs: true
   become: true
   notify: Reboot
+
+- name: Point 127.0.1.1 at the inventory hostname
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.1\.1\s'
+    line: "127.0.1.1\t{{ inventory_hostname }}"
+  become: true
+
+- name: Set hostname
+  ansible.builtin.hostname:
+    name: "{{ inventory_hostname }}"
+  become: true
