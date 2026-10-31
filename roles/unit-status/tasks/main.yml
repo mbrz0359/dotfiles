@@ -1,0 +1,30 @@
+# Monitored units add:
+#   OnFailure=unit-status@%n.service
+- name: Install unit-status script
+  ansible.builtin.copy:
+    src: unit-status
+    dest: /usr/local/bin/unit-status
+    mode: "0755"
+  become: true
+
+- name: Configure unit-status webhook
+  ansible.builtin.template:
+    src: unit-status.env.j2
+    dest: /etc/unit-status.env
+    mode: "0600"
+  diff: false
+  become: true
+
+- name: Install unit-status template unit
+  ansible.builtin.copy:
+    src: unit-status@.service
+    dest: /etc/systemd/system/unit-status@.service
+    mode: "0644"
+  register: unit_status_unit
+  become: true
+
+- name: Reload systemd
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+  when: unit_status_unit is changed
+  become: true

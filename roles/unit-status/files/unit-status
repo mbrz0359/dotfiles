@@ -1,0 +1,38 @@
+#!/usr/bin/python3
+"""Report a systemd unit's result to a Home Assistant webhook.
+
+Started by unit-status@.service from a monitored unit's OnFailure=.
+systemd passes the monitored unit's result in MONITOR_* variables.
+"""
+import json
+import os
+import socket
+import subprocess
+import sys
+import urllib.request
+
+unit = os.environ.get("MONITOR_UNIT") or sys.argv[1]
+result = os.environ.get("MONITOR_SERVICE_RESULT", "unknown")
+invocation = os.environ.get("MONITOR_INVOCATION_ID")
+
+log = ""
+if result != "success" and invocation:
+    log = subprocess.run(
+        ["journalctl", f"_SYSTEMD_INVOCATION_ID={invocation}", "-n", "15", "-o", "cat", "--no-pager"],
+        capture_output=True, text=True,
+    ).stdout
+
+payload = {
+    "host": os.environ.get("UNIT_STATUS_HOST") or socket.gethostname(),
+    "unit": unit,
+    "result": result,
+    "exit_status": os.environ.get("MONITOR_EXIT_STATUS", ""),
+    "log": log,
+}
+request = urllib.request.Request(
+    os.environ["UNIT_STATUS_WEBHOOK"],
+    data=json.dumps(payload).encode(),
+    headers={"Content-Type": "application/json"},
+    method="POST",
+)
+urllib.request.urlopen(request, timeout=15)
