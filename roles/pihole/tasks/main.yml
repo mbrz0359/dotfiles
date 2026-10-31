@@ -10,7 +10,7 @@
     volumes:
       - "{{ ansible_docker_dir }}/etc-pihole:/etc/pihole"
     env:
-      TZ: "Europe/Warsaw"
+      TZ: "{{ timezone }}"
       FTLCONF_webserver_api_password: "{{ pihole_password }}"
       FTLCONF_dns_listeningMode: 'ALL'
     restart_policy: unless-stopped

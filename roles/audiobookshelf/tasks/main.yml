@@ -17,7 +17,7 @@
       - "{{ ansible_docker_dir }}/audiobookshelf/metadata:/metadata"
       - "{{ ansible_docker_dir }}/audiobookshelf/audiobooks:/audiobooks"
     env:
-      TZ: "Europe/Warsaw"
+      TZ: "{{ timezone }}"
       REFRESH_TOKEN_EXPIRY: "2592000"
     restart_policy: unless-stopped
   become: true
