@@ -1,0 +1,19 @@
+[Unit]
+Description=Apply dotfiles playbook with ansible-pull
+Wants=network-online.target
+After=network-online.target docker.service
+
+[Service]
+Type=oneshot
+User={{ ansible_facts['user_id'] }}
+LoadCredentialEncrypted=ansible-vault
+# Debian's bundled collections lag behind; keep them in line with the controller
+ExecStartPre=-/usr/bin/ansible-galaxy collection install --upgrade community.general community.docker
+ExecStart=/usr/bin/ansible-pull \
+    --url https://github.com/mbrz0359/dotfiles.git \
+    --checkout main \
+    --directory {{ ansible_facts['user_dir'] }}/.local/share/ansible-pull \
+    --inventory hosts \
+    --limit {{ inventory_hostname }} \
+    --vault-id default@%d/ansible-vault \
+    local.yml

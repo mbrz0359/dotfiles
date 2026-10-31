@@ -1,0 +1,45 @@
+- name: Install Ansible
+  ansible.builtin.apt:
+    name: ansible
+  become: true
+
+- name: Create encrypted credential store
+  ansible.builtin.file:
+    path: /etc/credstore.encrypted
+    state: directory
+    mode: "0700"
+  become: true
+
+- name: Check vault password credential
+  ansible.builtin.stat:
+    path: /etc/credstore.encrypted/ansible-vault
+  register: vault_credential
+  become: true
+
+# Runs only from a machine with the vault password in its keyring
+- name: Encrypt vault password with systemd-creds
+  ansible.builtin.command:
+    cmd: systemd-creds encrypt --name=ansible-vault - /etc/credstore.encrypted/ansible-vault
+    stdin: "{{ lookup('ansible.builtin.pipe', playbook_dir ~ '/vault-keyring-client.sh') }}"
+    stdin_add_newline: false
+  when: not vault_credential.stat.exists
+  no_log: true
+  become: true
+
+- name: Install ansible-pull units
+  ansible.builtin.template:
+    src: "{{ item }}.j2"
+    dest: "/etc/systemd/system/{{ item }}"
+    mode: "0644"
+  loop:
+    - ansible-pull.service
+    - ansible-pull.timer
+  become: true
+
+- name: Enable ansible-pull timer
+  ansible.builtin.systemd_service:
+    name: ansible-pull.timer
+    enabled: true
+    state: started
+    daemon_reload: true
+  become: true
