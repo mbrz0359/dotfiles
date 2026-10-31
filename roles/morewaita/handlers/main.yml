@@ -1,0 +1,7 @@
+---
+- name: Install MoreWaita
+  ansible.builtin.command: ./install.sh
+  args:
+    chdir: "{{ ansible_workspace_dir }}/MoreWaita"
+  changed_when: true
+  become: true
