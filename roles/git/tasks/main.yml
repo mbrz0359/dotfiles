@@ -1,2 +1,7 @@
 - name: git config
   ansible.builtin.include_tasks: git.yml
+- name: git allowed signers
+  ansible.builtin.include_tasks: allowed-signers.yml
+
+- name: git commit signing
+  ansible.builtin.include_tasks: signing.yml

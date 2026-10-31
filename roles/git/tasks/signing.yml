@@ -1,0 +1,16 @@
+- name: Check for SSH signing key
+  ansible.builtin.stat:
+    path: "{{ git_signing_key }}"
+  register: git_signing_key_file
+
+- name: Sign commits and tags with SSH key
+  community.general.git_config:
+    name: "{{ item.name }}"
+    scope: global
+    value: "{{ item.value }}"
+  loop:
+    - { name: gpg.format, value: ssh }
+    - { name: user.signingkey, value: "{{ git_signing_key }}" }
+    - { name: commit.gpgsign, value: "true" }
+    - { name: tag.gpgsign, value: "true" }
+  when: git_signing_key_file.stat.exists
