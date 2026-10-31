@@ -32,3 +32,7 @@ timezone: !vault |
           63356330373565616139623033366238323761643431633933396537343338393761336432313964
           3862323464353865650a383431393961333639323765376333316135306363666430373364613639
           3439
+
+# Public SSH keys trusted to sign commits (gpg.ssh.allowedSignersFile)
+git_allowed_signers:
+  - 'maciej-pc namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN1Wn7CL2351PDmubZAkhPXtMbd4hcmQfurpitqIYmw9'

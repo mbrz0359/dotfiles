@@ -1,0 +1,18 @@
+# Public SSH keys trusted to sign commits; used by `git verify-commit`/`git log --show-signature`.
+- name: Create git config directory
+  ansible.builtin.file:
+    path: "{{ ansible_facts['user_dir'] }}/.config/git"
+    state: directory
+    mode: "0755"
+
+- name: Install allowed signers
+  ansible.builtin.copy:
+    content: "{{ git_allowed_signers | join('\n') }}\n"
+    dest: "{{ ansible_facts['user_dir'] }}/.config/git/allowed_signers"
+    mode: "0644"
+
+- name: Point git at allowed signers
+  community.general.git_config:
+    name: gpg.ssh.allowedSignersFile
+    scope: global
+    value: "{{ ansible_facts['user_dir'] }}/.config/git/allowed_signers"
