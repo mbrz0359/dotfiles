@@ -2,7 +2,7 @@
   community.docker.docker_container:
     name: cloudflared
     image: cloudflare/cloudflared:latest
-    command: "tunnel --no-autoupdate run --token {{ cloudflared.token }}"
+    command: "tunnel --no-autoupdate run --token {{ cloudflared_token }}"
     restart_policy: unless-stopped
     pull: always
   become: true

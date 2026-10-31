@@ -1,2 +1,0 @@
-pihole:
-  password: "{{ lookup('viczem.keepass.keepass', 'pihole/webui', 'password') }}"

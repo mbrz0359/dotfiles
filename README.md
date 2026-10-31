@@ -18,7 +18,7 @@ secret-tool store --label='Ansible vault (default)' service ansible-vault vault-
 ansible-playbook --vault-id default@./vault-keyring-client.sh local.yml -K
 
 # Verify decryption (prints true)
-ansible localhost -m debug -a 'msg={{ keepass_psw | length > 0 }}'
+ansible ayem -m debug -a 'msg={{ cloudflared_token | length > 0 }}'
 ```
 
 To add another vault ID, store it with `vault-id <id>` and append

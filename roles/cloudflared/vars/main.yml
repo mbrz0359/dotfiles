@@ -1,2 +1,0 @@
-cloudflared:
-  token: "{{ lookup('viczem.keepass.keepass', 'cloudflared/token', 'password') }}"
