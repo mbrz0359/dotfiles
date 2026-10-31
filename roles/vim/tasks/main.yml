@@ -9,27 +9,32 @@
   ansible.builtin.file:
     path: "{{ ansible_facts['user_dir'] }}/.config/ideavim"
     state: directory
+    mode: "0755"
 
 - name: Copy ideavimrc
   ansible.builtin.copy:
     src: "ideavimrc"
     dest: "{{ ansible_facts['user_dir'] }}/.config/ideavim/"
+    mode: "0644"
 
 - name: Copy init.vim
   ansible.builtin.copy:
     src: "init.vim"
     dest: "{{ ansible_facts['user_dir'] }}/.config/nvim/"
+    mode: "0644"
   register: init_vim_result
 
 - name: Create autoload directory
   ansible.builtin.file:
     path: "{{ ansible_facts['user_dir'] }}/.local/share/nvim/site/autoload"
     state: directory
+    mode: "0750"
 
 - name: Install vim-plug
   ansible.builtin.get_url:
     url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     dest: "{{ ansible_facts['user_dir'] }}/.local/share/nvim/site/autoload/plug.vim"
+    mode: "0644"
     owner: "{{ ansible_facts['user_id'] }}"
 
 - name: Update plugins

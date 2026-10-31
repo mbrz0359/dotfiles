@@ -3,6 +3,7 @@
   ansible.builtin.file:
     path: "{{ ansible_workspace_dir }}/JetBrainsMonoNF"
     state: directory
+    mode: "0755"
   register: create_dir_result
 
 - name: Download and extract JetBrains Mono Nerd Font
@@ -16,6 +17,7 @@
   ansible.builtin.copy:
     src: "{{ ansible_workspace_dir }}/JetBrainsMonoNF/JetBrainsMonoNLNerdFont-Regular.ttf"
     dest: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/"
+    mode: "0644"
     owner: "{{ ansible_facts['user_id'] }}"
   become: true
   when: create_dir_result.changed

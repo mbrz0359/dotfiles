@@ -9,25 +9,30 @@
   ansible.builtin.file:
     path: "{{ ansible_facts['user_dir'] }}/.local/share/zsh"
     state: directory
+    mode: "0755"
 
 - name: Copy .zshrc
   ansible.builtin.copy:
     src: ".zshrc"
     dest: "{{ ansible_facts['user_dir'] }}/.zshrc"
+    mode: "0644"
 
 - name: Copy custom common config
   ansible.builtin.copy:
     src: "zsh/common/"
     dest: "{{ ansible_facts['user_dir'] }}/.config/zsh/"
+    mode: "0644"
 
 - name: Copy custom work config
   ansible.builtin.copy:
     src: "zsh/work/"
     dest: "{{ ansible_facts['user_dir'] }}/.config/zsh/"
+    mode: "0644"
   when: "'work' in group_names"
 
 - name: Copy custom maciej-pc config
   ansible.builtin.copy:
     src: "zsh/maciej-pc/"
     dest: "{{ ansible_facts['user_dir'] }}/.config/zsh/"
+    mode: "0644"
   when: inventory_hostname == 'maciej-pc'
