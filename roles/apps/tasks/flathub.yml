@@ -1,3 +1,4 @@
+---
 - name: Add the flathub flatpak repository remote
   community.general.flatpak_remote:
     name: flathub

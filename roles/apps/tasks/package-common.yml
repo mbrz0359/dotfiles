@@ -1,3 +1,4 @@
+---
 - name: Remove unneeded packages
   ansible.builtin.package:
     name:

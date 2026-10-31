@@ -1,3 +1,4 @@
+---
 - name: Install desktop package
   ansible.builtin.package:
     name:

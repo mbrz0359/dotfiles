@@ -1,3 +1,4 @@
+---
 # ansible-pull runs with a local connection and can't reboot itself;
 # the change then takes effect on the next reboot.
 - name: Reboot

@@ -1,3 +1,4 @@
+---
 - name: Install nvim
   ansible.builtin.package:
     name:

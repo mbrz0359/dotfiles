@@ -1,3 +1,4 @@
+---
 - name: Deploy Pi-hole
   community.docker.docker_container:
     name: pihole
@@ -12,6 +13,6 @@
     env:
       TZ: "{{ timezone }}"
       FTLCONF_webserver_api_password: "{{ pihole_password }}"
-      FTLCONF_dns_listeningMode: 'ALL'
+      FTLCONF_dns_listeningMode: "ALL"
     restart_policy: unless-stopped
   become: true

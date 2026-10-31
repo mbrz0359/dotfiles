@@ -1,1 +1,2 @@
+---
 git_signing_key: "{{ ansible_facts['user_dir'] }}/.ssh/id_ed25519_signing.pub"

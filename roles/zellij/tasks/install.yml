@@ -1,3 +1,4 @@
+---
 - name: Install zellij
   ansible.builtin.copy:
     src: "zellij.toml"

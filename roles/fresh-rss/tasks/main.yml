@@ -1,3 +1,4 @@
+---
 - name: Deploy FreshRSS
   community.docker.docker_container:
     name: fresh-rss

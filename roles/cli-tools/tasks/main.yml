@@ -1,3 +1,4 @@
+---
 - name: cli tools common
   ansible.builtin.include_tasks: cli-tools-common.yml
 

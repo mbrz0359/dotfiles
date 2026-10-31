@@ -1,3 +1,4 @@
+---
 - name: Copy templates
   ansible.builtin.copy:
     src: "Templates/"

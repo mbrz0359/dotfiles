@@ -1,3 +1,4 @@
+---
 - name: Disable dynamic workspaces
   community.general.dconf:
     key: "/org/gnome/mutter/dynamic-workspaces"

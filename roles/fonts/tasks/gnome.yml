@@ -1,3 +1,4 @@
+---
 - name: Set font antialiasing
   community.general.dconf:
     key: "/org/gnome/desktop/interface/font-antialiasing"

@@ -1,3 +1,4 @@
+---
 - name: git config
   ansible.builtin.include_tasks: git.yml
 - name: git allowed signers

@@ -1,3 +1,4 @@
+---
 - name: Install - Linux
   ansible.builtin.include_tasks: install-linux-package.yml
   when: "'desktop' in group_names"

@@ -1,3 +1,4 @@
+---
 - name: Install work cli tools mise
   ansible.builtin.copy:
     src: "cli-tools-work.toml"

@@ -1,3 +1,4 @@
+---
 - name: Deploy Cloudflared
   community.docker.docker_container:
     name: cloudflared

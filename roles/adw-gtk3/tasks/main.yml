@@ -1,3 +1,4 @@
+---
 - name: Install adw-gtk3-theme
   ansible.builtin.package:
     name:

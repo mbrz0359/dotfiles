@@ -1,3 +1,4 @@
+---
 - name: Install wl-clipboard
   ansible.builtin.package:
     name:

@@ -1,3 +1,4 @@
+---
 - name: Create JetBrains Mono directory
   file:
     path: "{{ ansible_workspace_dir }}/JetBrainsMonoNF"
@@ -8,7 +9,7 @@
   ansible.builtin.unarchive:
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
     dest: "{{ ansible_workspace_dir }}/JetBrainsMonoNF"
-    remote_src: yes
+    remote_src: true
   when: create_dir_result.changed
 
 - name: Copy font

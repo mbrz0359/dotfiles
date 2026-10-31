@@ -1,3 +1,4 @@
+---
 - name: Create audiobooks directory
   file:
     path: "{{ ansible_docker_dir }}/audiobookshelf/audiobooks"
