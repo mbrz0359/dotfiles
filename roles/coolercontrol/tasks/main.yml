@@ -1,4 +1,7 @@
 ---
+# The CoolerControl copr has no aarch64 builds
 - name: Install - Fedora
   ansible.builtin.include_tasks: install-fedora.yml
-  when: ansible_facts['distribution'] == "Fedora"
+  when:
+    - ansible_facts['distribution'] == "Fedora"
+    - ansible_facts['architecture'] == "x86_64"
