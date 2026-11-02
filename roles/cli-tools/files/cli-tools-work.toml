@@ -1,5 +1,6 @@
 [tools]
 act = 'latest'
+'aqua:dependabot/cli' = 'latest'
 'aqua:kyverno/chainsaw' = '0.2.15'
 copilot = 'latest'
 crane = 'latest'
