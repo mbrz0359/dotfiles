@@ -22,6 +22,18 @@
         "digest"
       ],
       "automerge": true
+    },
+    {
+      "description": "Pinned CLI tools get a PR to review, never an automerge",
+      "matchManagers": [
+        "mise"
+      ],
+      "automerge": false
     }
-  ]
+  ],
+  "mise": {
+    "managerFilePatterns": [
+      "/(^|/)roles/cli-tools/files/cli-tools-[^/]+\\.toml$/"
+    ]
+  }
 }
