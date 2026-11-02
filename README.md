@@ -36,3 +36,10 @@ journalctl -u ansible-pull.service
 
 To add another vault ID, store it with `vault-id <id>` and append
 `,<id>@$HOME/Workspace/dotfiles/vault-keyring-client.sh` to `ANSIBLE_VAULT_IDENTITY_LIST`.
+
+## Pre-push checks
+
+`.githooks/pre-push` runs the CI checks (syntax check, `ansible-lint`, Renovate config
+validator) with the versions CI pins, installing them into `.venv-ci/` on first use.
+The `git` role enables it by setting `core.hooksPath` to `.githooks` globally (not on work
+hosts). Elsewhere, run `git config core.hooksPath .githooks` in the clone.

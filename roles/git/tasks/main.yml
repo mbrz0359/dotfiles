@@ -8,3 +8,7 @@
 
 - name: Git commit signing
   ansible.builtin.include_tasks: signing.yml
+
+- name: Git hooks
+  ansible.builtin.include_tasks: hooks.yml
+  when: "'work' not in group_names"

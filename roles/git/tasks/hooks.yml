@@ -1,0 +1,7 @@
+---
+# Repos with a .githooks directory use it, e.g. dotfiles runs the CI checks before pushing.
+- name: Use the hooks in each repo's .githooks directory
+  community.general.git_config:
+    name: core.hooksPath
+    scope: global
+    value: .githooks
