@@ -1,6 +1,7 @@
 ---
 - name: Git config
   ansible.builtin.include_tasks: git.yml
+
 - name: Git allowed signers
   ansible.builtin.include_tasks: allowed-signers.yml
   when: "'work' not in group_names"

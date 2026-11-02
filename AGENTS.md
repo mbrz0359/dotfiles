@@ -52,6 +52,7 @@ export ANSIBLE_VAULT_IDENTITY_LIST="default@$PWD/vault-keyring-client.sh"
 
 ## Conventions
 
+- Follow [CODE_STYLE.md](CODE_STYLE.md) for formatting.
 - Containers: `community.docker.docker_container`, `become: true`, data under
   `{{ ansible_docker_dir }}/<app>`, `PUID`/`PGID` `1000`, `TZ: "{{ timezone }}"`,
   `restart_policy: unless-stopped`.
