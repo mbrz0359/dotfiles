@@ -1,0 +1,22 @@
+---
+- name: Install Claude Code
+  ansible.builtin.copy:
+    src: "claude.toml"
+    dest: "{{ ansible_facts['user_dir'] }}/.config/mise/conf.d/"
+    mode: "0644"
+  notify: Mise upgrade
+
+- name: Install Claude Code before installing plugins
+  ansible.builtin.meta: flush_handlers
+
+- name: List installed Claude plugins
+  ansible.builtin.command: mise exec -- claude plugin list --json
+  register: claude_plugin_list
+  check_mode: false
+  changed_when: false
+
+- name: Install Claude plugins
+  ansible.builtin.command: "mise exec -- claude plugin install {{ item }} --scope user"
+  loop: "{{ claude_plugins }}"
+  when: item not in (claude_plugin_list.stdout | from_json | map(attribute='id'))
+  changed_when: true

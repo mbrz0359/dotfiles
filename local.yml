@@ -7,6 +7,7 @@
     - adw-gtk3
     - apps
     - backup
+    - claude
     - cli-tools
     - coolercontrol
     - etc-hosts
@@ -26,6 +27,7 @@
   roles:
     - adw-gtk3
     - apps
+    - claude
     - cli-tools
     - docker
     - fonts
