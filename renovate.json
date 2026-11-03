@@ -29,6 +29,16 @@
         "mise"
       ],
       "automerge": false
+    },
+    {
+      "description": "Java is pinned to the LTS majors I need side by side, not to a version to keep current",
+      "matchManagers": [
+        "mise"
+      ],
+      "matchPackageNames": [
+        "java"
+      ],
+      "enabled": false
     }
   ],
   "mise": {
