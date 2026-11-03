@@ -39,6 +39,16 @@
         "java"
       ],
       "enabled": false
+    },
+    {
+      "description": "flux2 stays on 2.6, which mise resolves to the latest patch",
+      "matchManagers": [
+        "mise"
+      ],
+      "matchPackageNames": [
+        "flux2"
+      ],
+      "allowedVersions": "<2.7"
     }
   ],
   "mise": {
