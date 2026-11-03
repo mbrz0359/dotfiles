@@ -30,5 +30,5 @@
   changed_when: false
 
 - name: Add minimum release age excludes
-  ansible.builtin.command: mise settings minimum_release_age_excludes=claude-code
+  ansible.builtin.command: mise settings minimum_release_age_excludes=claude
   changed_when: false
