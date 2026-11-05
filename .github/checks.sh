@@ -24,12 +24,11 @@ if [[ -n ${CI:-} ]]; then
   ansible-galaxy collection install -r requirements.yml
 fi
 
-# Vault values are only decrypted at runtime, so no vault password is needed here.
-echo "checks: syntax check"
-ansible-playbook --syntax-check local.yml > /dev/null
-
+# ansible-lint also runs the playbook syntax check. Vault values are only decrypted at runtime,
+# so no vault password is needed. --offline skips installing requirements.yml (handled above) and
+# refreshing schemas over the network.
 echo "checks: ansible-lint"
-ansible-lint
+ansible-lint --offline
 
 echo "checks: Renovate config validator"
 npx --yes --package renovate@44.198.3 -- renovate-config-validator --strict renovate.json

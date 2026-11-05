@@ -26,8 +26,8 @@ export ANSIBLE_VAULT_IDENTITY_LIST="default@$PWD/vault-keyring-client.sh"
 - ayem (over SSH, passwordless sudo): `ansible-playbook local.yml -l ayem [--check]`
 - Local desktop: `ansible-playbook local.yml -l maciej-pc -K` needs my sudo password
   (`hosts` sets a local connection for it). Ask me to run it.
-- CI (`.github/workflows/ci.yml`) runs `--syntax-check`, `ansible-lint` (profile `production`,
-  see `.ansible-lint`) and the Renovate config validator. The `.githooks/pre-push` hook runs the
+- CI (`.github/workflows/ci.yml`) runs `ansible-lint` (profile `production`, see
+  `.ansible-lint`; it includes the syntax check) and the Renovate config validator. The `.githooks/pre-push` hook runs the
   same checks with the same versions, so a push that gets through it passes CI; don't wait for
   the CI run. Do a `--check` run against ayem for changes to the `pi` play.
 
