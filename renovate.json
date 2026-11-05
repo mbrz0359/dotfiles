@@ -35,7 +35,7 @@
       "matchManagers": [
         "mise"
       ],
-      "matchPackageNames": [
+      "matchDepNames": [
         "java"
       ],
       "enabled": false
@@ -45,7 +45,7 @@
       "matchManagers": [
         "mise"
       ],
-      "matchPackageNames": [
+      "matchDepNames": [
         "flux2"
       ],
       "allowedVersions": "<2.7"
