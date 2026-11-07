@@ -28,4 +28,4 @@ jobs:
       - name: ansible-lint
         run: ansible-lint --offline
       - name: Renovate config validator
-        run: npx --yes --package renovate@44.198.3 -- renovate-config-validator --strict renovate.json
+        run: npx --yes --package renovate -- renovate-config-validator --strict renovate.json
