@@ -1,4 +1,11 @@
 ---
+# Fedora's package, so it runs on the system Python and ansible-core
+- name: Install ansible-lint
+  ansible.builtin.package:
+    name:
+      - python3-ansible-lint
+  become: true
+
 - name: Install desktop cli tools mise
   ansible.builtin.copy:
     src: "cli-tools-desktop.toml"
