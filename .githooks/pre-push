@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# Run the CI checks before pushing.
-set -o pipefail
-
-# git push shares stderr with ssh, which makes it non-blocking, and Ansible refuses to run
-# then. Give the checks fresh pipes instead.
-"$(git rev-parse --show-toplevel)/.github/checks.sh" < /dev/null 2>&1 | cat

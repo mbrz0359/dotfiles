@@ -1,7 +1,7 @@
----
-# Repos with a .githooks directory use it, e.g. dotfiles runs the CI checks before pushing.
-- name: Use the hooks in each repo's .githooks directory
+# core.hooksPath used to point every repo at its .githooks directory. No repo has one anymore, and while it's
+# set git ignores the repos' own .git/hooks, so remove it.
+- name: Remove the global git hooks path
   community.general.git_config:
     name: core.hooksPath
     scope: global
-    value: .githooks
+    state: absent

@@ -13,10 +13,19 @@ jobs:
   checks:
     name: Syntax check, ansible-lint and Renovate config
     runs-on: ubuntu-latest
+    # Fedora's ansible-core and ansible-lint packages, the same ones the desktops install with dnf
+    container: fedora:45
     steps:
+      # git first, so checkout clones the repository instead of downloading an archive without .git
+      - name: Install tools
+        run: dnf install -y git ansible-core python3-ansible-lint nodejs-npm
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
-        with:
-          python-version: "3.15"
-      - name: Run checks
-        run: .github/checks.sh
+      - name: Install collections
+        run: ansible-galaxy collection install -r requirements.yml
+      # ansible-lint also runs the playbook syntax check. Vault values are only decrypted at runtime,
+      # so no vault password is needed. --offline skips installing requirements.yml (done above) and
+      # refreshing schemas over the network.
+      - name: ansible-lint
+        run: ansible-lint --offline
+      - name: Renovate config validator
+        run: npx --yes --package renovate@44.198.3 -- renovate-config-validator --strict renovate.json

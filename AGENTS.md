@@ -27,9 +27,10 @@ export ANSIBLE_VAULT_IDENTITY_LIST="default@$PWD/vault-keyring-client.sh"
 - Local desktop: `ansible-playbook local.yml -l maciej-pc -K` needs my sudo password
   (`hosts` sets a local connection for it). Ask me to run it.
 - CI (`.github/workflows/ci.yml`) runs `ansible-lint` (profile `production`, see
-  `.ansible-lint`; it includes the syntax check) and the Renovate config validator. The `.githooks/pre-push` hook runs the
-  same checks with the same versions, so a push that gets through it passes CI; don't wait for
-  the CI run. Do a `--check` run against ayem for changes to the `pi` play.
+  `.ansible-lint`; it includes the syntax check) and the Renovate config validator, in a
+  `fedora:45` container with Fedora's `ansible-core` and `python3-ansible-lint`. Run
+  `ansible-lint --offline` before committing; it uses the same packages, installed by dnf.
+  Do a `--check` run against ayem for changes to the `pi` play.
 
 ## Secrets
 
