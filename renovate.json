@@ -41,6 +41,16 @@
       "enabled": false
     },
     {
+      "description": "CI's Fedora image follows the desktops' Fedora release, which I upgrade by hand",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchDepNames": [
+        "fedora"
+      ],
+      "enabled": false
+    },
+    {
       "description": "flux2 stays on 2.6, which mise resolves to the latest patch",
       "matchManagers": [
         "mise"
