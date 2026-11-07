@@ -14,7 +14,7 @@ jobs:
     name: Syntax check, ansible-lint and Renovate config
     runs-on: ubuntu-latest
     # Fedora's ansible-core and ansible-lint packages, the same ones the desktops install with dnf
-    container: fedora:45
+    container: fedora:46
     steps:
       # git first, so checkout clones the repository instead of downloading an archive without .git
       - name: Install tools
