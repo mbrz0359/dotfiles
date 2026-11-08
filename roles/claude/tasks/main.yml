@@ -9,6 +9,18 @@
 - name: Install Claude Code before installing plugins
   ansible.builtin.meta: flush_handlers
 
+- name: List Claude plugin marketplaces
+  ansible.builtin.command: mise exec -- claude plugin marketplace list --json
+  register: claude_marketplace_list
+  check_mode: false
+  changed_when: false
+
+# A fresh config only has the built-in directory until the first interactive start.
+- name: Add the official Claude plugin marketplace
+  ansible.builtin.command: mise exec -- claude plugin marketplace add anthropics/claude-plugins-official
+  when: "'claude-plugins-official' not in (claude_marketplace_list.stdout | from_json | map(attribute='name'))"
+  changed_when: true
+
 - name: List installed Claude plugins
   ansible.builtin.command: mise exec -- claude plugin list --json
   register: claude_plugin_list
