@@ -1,7 +1,7 @@
 [desktop]
 # the playbook runs on maciej-pc itself, so no SSH
 maciej-pc ansible_connection=local
-seht
+seht ansible_connection=local
 
 [work]
 maciej-work-dell
