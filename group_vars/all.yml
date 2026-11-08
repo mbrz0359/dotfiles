@@ -37,3 +37,4 @@ timezone: !vault |
 # Public SSH keys trusted to sign commits (gpg.ssh.allowedSignersFile)
 git_allowed_signers:
   - 'maciej-pc namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN1Wn7CL2351PDmubZAkhPXtMbd4hcmQfurpitqIYmw9'
+  - 'seht namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmVQmXpyqXGvLLSCPII61EcDS3CvSP2CMVB/8neDuwX'
