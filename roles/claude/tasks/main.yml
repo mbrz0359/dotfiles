@@ -32,3 +32,11 @@
   loop: "{{ claude_plugins }}"
   when: item not in (claude_plugin_list.stdout | from_json | map(attribute='id'))
   changed_when: true
+
+# Claude Code merges every file in managed-settings.d into its settings
+- name: Turn off Claude commit attribution
+  ansible.builtin.copy:
+    src: attribution.json
+    dest: /etc/claude-code/managed-settings.d/
+    mode: "0644"
+  become: true
