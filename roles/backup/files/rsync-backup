@@ -28,9 +28,10 @@ if_due=false
 
 # Records a failure without stopping, so the remaining rsyncs still run.
 # rsync exits 24 when source files vanish mid-transfer, which is fine.
+# --mkpath creates missing destination parents, e.g. for a new host's first backup.
 rsync_failed=false
 run_rsync() {
-  rsync "$@"
+  rsync --mkpath "$@"
   local rc=$?
   ((rc == 0 || rc == 24)) || rsync_failed=true
 }
