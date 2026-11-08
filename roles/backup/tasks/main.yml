@@ -4,6 +4,12 @@
     name: backup
     state: absent
 
+- name: Create local bin directory
+  ansible.builtin.file:
+    path: "{{ ansible_facts['user_dir'] }}/.local/bin"
+    state: directory
+    mode: "0755"
+
 - name: Copy backup script
   ansible.builtin.copy:
     src: rsync-backup
@@ -21,26 +27,55 @@
     src: "{{ inventory_hostname }}/config.sh"
     dest: "{{ ansible_facts['user_dir'] }}/.config/rsync-backup/config.sh"
     mode: "0600"
+  diff: false
 
-- name: Create systemd user unit directory
-  ansible.builtin.file:
-    path: "{{ ansible_facts['user_dir'] }}/.config/systemd/user"
-    state: directory
-    mode: "0755"
+# Desktops use a user timer
+- name: Back up with a user timer
+  when: "'desktop' in group_names"
+  block:
+    - name: Create systemd user unit directory
+      ansible.builtin.file:
+        path: "{{ ansible_facts['user_dir'] }}/.config/systemd/user"
+        state: directory
+        mode: "0755"
 
-- name: Install backup units
-  ansible.builtin.copy:
-    src: "{{ item }}"
-    dest: "{{ ansible_facts['user_dir'] }}/.config/systemd/user/{{ item }}"
-    mode: "0644"
-  loop:
-    - rsync-backup.service
-    - rsync-backup.timer
+    - name: Install backup user units
+      ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: "{{ ansible_facts['user_dir'] }}/.config/systemd/user/{{ item }}"
+        mode: "0644"
+      loop:
+        - rsync-backup.service
+        - rsync-backup.timer
 
-- name: Enable backup timer
-  ansible.builtin.systemd_service:
-    name: rsync-backup.timer
-    enabled: true
-    state: started
-    daemon_reload: true
-    scope: user
+    - name: Enable backup user timer
+      ansible.builtin.systemd_service:
+        name: rsync-backup.timer
+        enabled: true
+        state: started
+        daemon_reload: true
+        scope: user
+
+# The Pi uses a system timer, so failures notify through unit-status
+- name: Back up with a system timer
+  when: "'pi' in group_names"
+  become: true
+  block:
+    - name: Install backup system service
+      ansible.builtin.template:
+        src: rsync-backup.service.j2
+        dest: /etc/systemd/system/rsync-backup.service
+        mode: "0644"
+
+    - name: Install backup system timer
+      ansible.builtin.copy:
+        src: rsync-backup.timer
+        dest: /etc/systemd/system/rsync-backup.timer
+        mode: "0644"
+
+    - name: Enable backup system timer
+      ansible.builtin.systemd_service:
+        name: rsync-backup.timer
+        enabled: true
+        state: started
+        daemon_reload: true

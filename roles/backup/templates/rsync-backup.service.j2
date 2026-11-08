@@ -1,0 +1,12 @@
+[Unit]
+Description=Back up files with rsync
+Wants=network-online.target
+After=network-online.target
+OnFailure=unit-status@%n.service
+
+[Service]
+Type=oneshot
+User={{ ansible_facts['user_id'] }}
+ExecStart={{ ansible_facts['user_dir'] }}/.local/bin/rsync-backup --if-due
+Nice=10
+IOSchedulingClass=idle
