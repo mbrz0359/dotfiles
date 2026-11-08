@@ -9,9 +9,15 @@
       - "{{ ansible_docker_dir }}/fresh-rss/data:/var/www/FreshRSS/data"
       - "{{ ansible_docker_dir }}/fresh-rss/extensions:/var/www/FreshRSS/extensions"
     env:
-      PUID: "1000"
-      PGID: "1000"
       TZ: "{{ timezone }}"
       CRON_MIN: "1,31"
     restart_policy: unless-stopped
+  become: true
+
+# Only www-data can read some data directories; rsync-backup needs them
+- name: Let me read FreshRSS data
+  ansible.builtin.user:
+    name: "{{ ansible_facts['user_id'] }}"
+    groups: www-data
+    append: true
   become: true
