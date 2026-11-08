@@ -33,6 +33,12 @@
   when: item not in (claude_plugin_list.stdout | from_json | map(attribute='id'))
   changed_when: true
 
+- name: Install Claude user instructions
+  ansible.builtin.copy:
+    src: CLAUDE.md
+    dest: "{{ ansible_facts['user_dir'] }}/.claude/CLAUDE.md"
+    mode: "0644"
+
 # Claude Code merges every file in managed-settings.d into its settings
 - name: Turn off Claude commit attribution
   ansible.builtin.copy:
