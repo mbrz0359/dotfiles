@@ -24,6 +24,16 @@
       "automerge": true
     },
     {
+      "description": "Merge patch collection updates once CI passes; ayem installs them via ansible-pull",
+      "matchManagers": [
+        "ansible-galaxy"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "automerge": true
+    },
+    {
       "description": "Pinned CLI tools get a PR to review, never an automerge",
       "matchManagers": [
         "mise"
