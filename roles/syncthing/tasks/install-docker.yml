@@ -1,4 +1,15 @@
 ---
+- name: Create data directories
+  ansible.builtin.file:
+    path: "{{ ansible_docker_dir }}/syncthing/{{ item }}"
+    state: directory
+    mode: "0700"
+    owner: "{{ ansible_facts['user_id'] }}"
+  loop:
+    - data1
+    - data2
+  become: true
+
 - name: Deploy Syncthing
   community.docker.docker_container:
     name: syncthing
