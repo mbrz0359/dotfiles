@@ -2,7 +2,7 @@
 - name: Deploy Pi-hole
   community.docker.docker_container:
     name: pihole
-    image: pihole/pihole:2026.10.1
+    image: pihole/pihole:2026.11.0
     ports:
       - "53:53/tcp"
       - "53:53/udp"
