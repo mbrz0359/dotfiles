@@ -11,6 +11,7 @@ plugins=(
     colored-man-pages
     copyfile
     docker
+    encode64
     git
     gh
     helm
