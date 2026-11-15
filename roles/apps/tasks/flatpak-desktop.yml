@@ -8,7 +8,9 @@
     - dev.qwery.AddWater
     - io.gitlab.librewolf-community
     - io.gitlab.news_flash.NewsFlash
+    - md.obsidian.Obsidian
     - me.proton.Mail
+    - net.donnybeelo.Convey
     - org.musicbrainz.Picard
     - org.nickvision.tubeconverter
     - tv.plex.PlexDesktop
