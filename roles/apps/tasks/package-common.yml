@@ -3,6 +3,7 @@
   ansible.builtin.package:
     name:
       - baobab
+      - decibels
       - evince
       - gnome-boxes
       - gnome-calculator
