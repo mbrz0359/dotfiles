@@ -1,35 +1,15 @@
 ---
-- name: Disable hot corner
+- name: Set GNOME preferences
   community.general.dconf:
-    key: "/org/gnome/desktop/interface/enable-hot-corners"
-    value: "false"
-
-- name: Set app switcher to current workspace only
-  community.general.dconf:
-    key: "/org/gnome/shell/app-switcher/current-workspace-only"
-    value: "true"
-
-- name: Set dark style preference
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface/color-scheme"
-    value: "'prefer-dark'"
-
-- name: Set accent color
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface/accent-color"
-    value: "'purple'"
-
-- name: Disable event sounds
-  community.general.dconf:
-    key: "/org/gnome/desktop/sound/event-sounds"
-    value: "false"
-
-- name: Set week start day to Monday
-  community.general.dconf:
-    key: "/org/gnome/desktop/calendar/week-start-day"
-    value: "'monday'"
-
-- name: Disable donation reminders
-  community.general.dconf:
-    key: "/org/gnome/settings-daemon/plugins/housekeeping/donation-reminder-enabled"
-    value: "false"
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  loop_control:
+    label: "{{ item.key }}"
+  loop:
+    - { key: /org/gnome/desktop/interface/enable-hot-corners, value: "false" }
+    - { key: /org/gnome/shell/app-switcher/current-workspace-only, value: "true" }
+    - { key: /org/gnome/desktop/interface/color-scheme, value: "'prefer-dark'" }
+    - { key: /org/gnome/desktop/interface/accent-color, value: "'purple'" }
+    - { key: /org/gnome/desktop/sound/event-sounds, value: "false" }
+    - { key: /org/gnome/desktop/calendar/week-start-day, value: "'monday'" }
+    - { key: /org/gnome/settings-daemon/plugins/housekeeping/donation-reminder-enabled, value: "false" }

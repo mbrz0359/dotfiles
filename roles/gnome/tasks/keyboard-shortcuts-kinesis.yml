@@ -5,35 +5,19 @@
     value: "['<Super>{{ item }}']"
   with_sequence: start=1 end=9
 
-- name: Disable switch to workspace up shortcut
+- name: Set keyboard shortcuts for moving between workspaces
   community.general.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-up"
-    value: "['']"
-
-- name: Disable switch to workspace down shortcut
-  community.general.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-down"
-    value: "['']"
-
-- name: Set keyboard shortcut for switching to left workspace
-  community.general.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-left"
-    value: "['<Control><Alt>Up']"
-
-- name: Set keyboard shortcut for switching to right workspace
-  community.general.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-right"
-    value: "['<Control><Alt>Down']"
-
-- name: Set keyboard shortcut for moving window one workspace to the left
-  community.general.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-left"
-    value: "['<Super>Page_Up']"
-
-- name: Set keyboard shortcut for moving window one workspace to the right
-  community.general.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-right"
-    value: "['<Super>Page_Down']"
+    key: "/org/gnome/desktop/wm/keybindings/{{ item.key }}"
+    value: "{{ item.value }}"
+  loop_control:
+    label: "{{ item.key }}"
+  loop:
+    - { key: switch-to-workspace-up, value: "['']" }
+    - { key: switch-to-workspace-down, value: "['']" }
+    - { key: switch-to-workspace-left, value: "['<Control><Alt>Up']" }
+    - { key: switch-to-workspace-right, value: "['<Control><Alt>Down']" }
+    - { key: move-to-workspace-left, value: "['<Super>Page_Up']" }
+    - { key: move-to-workspace-right, value: "['<Super>Page_Down']" }
 
 - name: Disable keyboard shortcuts for switching applications
   community.general.dconf:

@@ -1,20 +1,12 @@
 ---
-- name: Set font antialiasing
+- name: Set GNOME font settings
   community.general.dconf:
-    key: "/org/gnome/desktop/interface/font-antialiasing"
-    value: "'rgba'"
-
-- name: Set font hinting
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface/font-hinting"
-    value: "'full'"
-
-- name: Set interface font to Adwaita Sans
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface/font-name"
-    value: "'Adwaita Sans 12'"
-
-- name: Set monospace font to JetBrains Mono NF
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface/monospace-font-name"
-    value: "'JetBrainsMonoNL Nerd Font 14'"
+    key: "/org/gnome/desktop/interface/{{ item.key }}"
+    value: "{{ item.value }}"
+  loop_control:
+    label: "{{ item.key }}"
+  loop:
+    - { key: font-antialiasing, value: "'rgba'" }
+    - { key: font-hinting, value: "'full'" }
+    - { key: font-name, value: "'Adwaita Sans 12'" }
+    - { key: monospace-font-name, value: "'JetBrainsMonoNL Nerd Font 14'" }
