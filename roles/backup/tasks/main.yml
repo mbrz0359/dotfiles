@@ -1,9 +1,4 @@
 ---
-- name: Remove backup cron job
-  ansible.builtin.cron:
-    name: backup
-    state: absent
-
 - name: Create local bin directory
   ansible.builtin.file:
     path: "{{ ansible_facts['user_dir'] }}/.local/bin"
