@@ -1,25 +1,17 @@
 ---
-- name: Create JetBrains Mono directory
+- name: Create fonts directory
   ansible.builtin.file:
-    path: "{{ ansible_workspace_dir }}/JetBrainsMonoNF"
+    path: "{{ ansible_facts['user_dir'] }}/.local/share/fonts"
     state: directory
     mode: "0755"
 
-- name: Download and extract JetBrains Mono Nerd Font
+- name: Install JetBrains Mono Nerd Font
   ansible.builtin.unarchive:
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
-    dest: "{{ ansible_workspace_dir }}/JetBrainsMonoNF"
+    dest: "{{ ansible_facts['user_dir'] }}/.local/share/fonts"
+    include: JetBrainsMonoNLNerdFont-Regular.ttf
     remote_src: true
-    creates: "{{ ansible_workspace_dir }}/JetBrainsMonoNF/JetBrainsMonoNLNerdFont-Regular.ttf"
-
-- name: Copy font
-  ansible.builtin.copy:
-    src: "{{ ansible_workspace_dir }}/JetBrainsMonoNF/JetBrainsMonoNLNerdFont-Regular.ttf"
-    dest: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/"
-    remote_src: true
-    mode: "0644"
-    owner: "{{ ansible_facts['user_id'] }}"
-  become: true
+    creates: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/JetBrainsMonoNLNerdFont-Regular.ttf"
 
 - name: Set GNOME font settings
   community.general.dconf:
