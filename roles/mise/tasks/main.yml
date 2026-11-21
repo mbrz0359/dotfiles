@@ -1,29 +1,22 @@
 ---
-- name: Check if mise is installed
-  ansible.builtin.command: mise --version
-  register: result
-  ignore_errors: true
-  changed_when: false
+- name: Create mise directory
+  ansible.builtin.file:
+    path: "{{ ansible_workspace_dir }}/mise"
+    state: directory
+    mode: "0755"
 
+- name: Download mise install script
+  ansible.builtin.get_url:
+    url: https://mise.run
+    dest: "{{ ansible_workspace_dir }}/mise/install.sh"
+    mode: "+x"
+    owner: "{{ ansible_facts['user_id'] }}"
+
+# The script installs mise to ~/.local/bin; mise updates itself after that
 - name: Install mise
-  when: result is failed
-  block:
-    - name: Create mise directory
-      ansible.builtin.file:
-        path: "{{ ansible_workspace_dir }}/mise"
-        state: directory
-        mode: "0755"
-
-    - name: Download mise install script
-      ansible.builtin.get_url:
-        url: https://mise.run
-        dest: "{{ ansible_workspace_dir }}/mise/install.sh"
-        mode: "+x"
-        owner: "{{ ansible_facts['user_id'] }}"
-
-    - name: Run mise install script
-      ansible.builtin.command: "{{ ansible_workspace_dir }}/mise/install.sh"
-      changed_when: true
+  ansible.builtin.command: "{{ ansible_workspace_dir }}/mise/install.sh"
+  args:
+    creates: "{{ ansible_facts['user_dir'] }}/.local/bin/mise"
 
 - name: Enable automatic updates
   ansible.builtin.command: mise settings self_update.auto=true
