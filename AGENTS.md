@@ -22,7 +22,6 @@ password source first:
 export ANSIBLE_VAULT_IDENTITY_LIST="default@$PWD/vault-keyring-client.sh"
 ```
 
-- Syntax check: `ansible-playbook --syntax-check local.yml`
 - ayem (over SSH, passwordless sudo): `ansible-playbook local.yml -l ayem [--check]`
 - Local desktop: `ansible-playbook local.yml -l maciej-pc -K` needs my sudo password
   (`hosts` sets a local connection for it). Ask me to run it.
@@ -65,5 +64,5 @@ export ANSIBLE_VAULT_IDENTITY_LIST="default@$PWD/vault-keyring-client.sh"
 
 ## Git
 
-- Ask before committing or pushing. Commits go to `main`.
+- Ask before committing. Commits go to `main`.
 - Imperative subject line, short body explaining why.
