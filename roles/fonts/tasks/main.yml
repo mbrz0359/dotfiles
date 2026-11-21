@@ -1,6 +1,34 @@
 ---
-- name: Jetbrains-mono
-  ansible.builtin.include_tasks: jetbrains-mono.yml
+- name: Create JetBrains Mono directory
+  ansible.builtin.file:
+    path: "{{ ansible_workspace_dir }}/JetBrainsMonoNF"
+    state: directory
+    mode: "0755"
 
-- name: Gnome
-  ansible.builtin.include_tasks: gnome.yml
+- name: Download and extract JetBrains Mono Nerd Font
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
+    dest: "{{ ansible_workspace_dir }}/JetBrainsMonoNF"
+    remote_src: true
+    creates: "{{ ansible_workspace_dir }}/JetBrainsMonoNF/JetBrainsMonoNLNerdFont-Regular.ttf"
+
+- name: Copy font
+  ansible.builtin.copy:
+    src: "{{ ansible_workspace_dir }}/JetBrainsMonoNF/JetBrainsMonoNLNerdFont-Regular.ttf"
+    dest: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/"
+    remote_src: true
+    mode: "0644"
+    owner: "{{ ansible_facts['user_id'] }}"
+  become: true
+
+- name: Set GNOME font settings
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/{{ item.key }}"
+    value: "{{ item.value }}"
+  loop_control:
+    label: "{{ item.key }}"
+  loop:
+    - { key: font-antialiasing, value: "'rgba'" }
+    - { key: font-hinting, value: "'full'" }
+    - { key: font-name, value: "'Adwaita Sans 12'" }
+    - { key: monospace-font-name, value: "'JetBrainsMonoNL Nerd Font 14'" }

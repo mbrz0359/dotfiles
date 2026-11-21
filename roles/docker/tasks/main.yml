@@ -3,5 +3,9 @@
   ansible.builtin.include_tasks: install-fedora.yml
   when: ansible_facts['distribution'] == "Fedora"
 
-- name: User
-  ansible.builtin.include_tasks: user.yml
+- name: Add user to docker group
+  ansible.builtin.user:
+    append: true
+    groups: docker
+    name: "{{ ansible_facts['user_id'] }}"
+  become: true
