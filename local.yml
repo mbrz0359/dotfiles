@@ -1,41 +1,36 @@
 ---
-- name: Desktop
-  hosts: desktop
+- name: Fedora
+  hosts: fedora
   roles:
     - adw-gtk3
     - apps
-    - backup
     - claude
     - cli-tools
-    - coolercontrol
-    - etc-hosts
     - fonts
     - git
     - gnome
     - k8s-cli-tools
     - morewaita
-    - syncthing
-    - unit-status
     - vim
     - zellij
     - zsh
 
+# The Fedora play already gathered facts for these hosts
+- name: Desktop
+  hosts: desktop
+  gather_facts: false
+  roles:
+    - backup
+    - coolercontrol
+    - etc-hosts
+    - syncthing
+    - unit-status
+
 - name: Work
   hosts: work
+  gather_facts: false
   roles:
-    - adw-gtk3
-    - apps
-    - claude
-    - cli-tools
     - docker
-    - fonts
-    - git
-    - gnome
-    - k8s-cli-tools
-    - morewaita
-    - vim
-    - zellij
-    - zsh
 
 - name: Raspberry Pi
   hosts: pi

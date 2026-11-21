@@ -6,5 +6,9 @@ seht ansible_connection=local
 [work]
 maciej-work-dell
 
+[fedora:children]
+desktop
+work
+
 [pi]
 ayem

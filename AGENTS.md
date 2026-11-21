@@ -5,8 +5,9 @@ everything committed as published.
 
 ## Layout
 
-- `local.yml`: one play per inventory group (`desktop`, `work`, `pi`). Keep role
-  lists alphabetical.
+- `local.yml`: one play per inventory group. `fedora` (parent of `desktop` and
+  `work`) has the shared roles, then `desktop` and `work` add their own, then `pi`.
+  Keep role lists alphabetical.
 - `hosts`: inventory. `ayem` is the Raspberry Pi. Hostnames match inventory names.
 - `group_vars/{all,desktop,work,pi}.yml`: variables, including inline vault-encrypted secrets.
 - `roles/<name>/tasks/main.yml`: one role per app or tool. Group differences are
