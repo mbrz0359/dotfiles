@@ -1,0 +1,26 @@
+---
+apps_flatpaks:
+  - ca.desrt.dconf-editor
+  - com.cassidyjames.butler
+  - com.github.tchx84.Flatseal
+  - com.mattjakeman.ExtensionManager
+  - com.plexamp.Plexamp
+  - net.nokyan.Resources
+  - org.gnome.baobab
+  - org.gnome.Boxes
+  - org.gnome.Calculator
+  - org.gnome.Calendar
+  - org.gnome.clocks
+  - org.gnome.Decibels
+  - org.gnome.font-viewer
+  - org.gnome.Loupe
+  - org.gnome.Papers
+  - org.gnome.Showtime
+  - org.gnome.Snapshot
+  - org.gnome.TextEditor
+  - org.gnome.Weather
+  - org.keepassxc.KeePassXC
+  - org.libreoffice.LibreOffice
+
+# Extra flatpaks for a group, set in group_vars/<group>.yml
+apps_group_flatpaks: []

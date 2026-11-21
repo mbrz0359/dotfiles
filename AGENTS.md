@@ -8,10 +8,12 @@ everything committed as published.
 - `local.yml`: one play per inventory group (`desktop`, `work`, `pi`). Keep role
   lists alphabetical.
 - `hosts`: inventory. `ayem` is the Raspberry Pi. Hostnames match inventory names.
-- `group_vars/{all,pi}.yml`: variables, including inline vault-encrypted secrets.
-- `roles/<name>/tasks/main.yml`: one role per app or tool. Host-specific files go
-  in `files/<inventory_hostname>/`, group-specific tasks use
-  `when: "'<group>' in group_names"`.
+- `group_vars/{all,desktop,work,pi}.yml`: variables, including inline vault-encrypted secrets.
+- `roles/<name>/tasks/main.yml`: one role per app or tool. Group differences are
+  data, not task files: a role keeps the common list in `defaults/` (e.g.
+  `apps_flatpaks`) and an empty `<role>_group_<list>` that `group_vars/<group>.yml`
+  fills. Files for one group or host are named after it (`files/zsh/<group|host>/`,
+  `cli-tools-<group>.toml`), and a loop over `group_names` copies the ones that exist.
 
 ## Running
 

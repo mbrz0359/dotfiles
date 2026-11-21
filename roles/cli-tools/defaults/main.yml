@@ -1,0 +1,7 @@
+---
+cli_tools_packages:
+  - htop
+  - moreutils # for vidir
+
+# Extra packages for a group, set in group_vars/<group>.yml
+cli_tools_group_packages: []

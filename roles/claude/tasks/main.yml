@@ -39,13 +39,15 @@
     dest: "{{ ansible_facts['user_dir'] }}/.claude/CLAUDE.md"
     mode: "0644"
 
-- name: Install work Claude skills
+# skills/<group>/ applies to the hosts in that group
+- name: Install Claude skills
   ansible.builtin.copy:
-    src: skills/work/
+    src: "skills/{{ item }}/"
     dest: "{{ ansible_facts['user_dir'] }}/.claude/skills/"
     mode: "0644"
     directory_mode: "0755"
-  when: "'work' in group_names"
+  loop: "{{ group_names }}"
+  when: (role_path ~ '/files/skills/' ~ item) is directory
 
 # Claude Code merges every file in managed-settings.d into its settings
 - name: Turn off Claude commit attribution

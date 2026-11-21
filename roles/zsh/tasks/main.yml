@@ -17,25 +17,14 @@
     dest: "{{ ansible_facts['user_dir'] }}/.zshrc"
     mode: "0644"
 
-- name: Copy custom common config
+# zsh/<group>/ and zsh/<host>/ apply to that group or host
+- name: Copy custom config
   ansible.builtin.copy:
-    src: "zsh/common/"
+    src: "zsh/{{ item }}/"
     dest: "{{ ansible_facts['user_dir'] }}/.config/zsh/"
     mode: "0644"
-
-- name: Copy custom work config
-  ansible.builtin.copy:
-    src: "zsh/work/"
-    dest: "{{ ansible_facts['user_dir'] }}/.config/zsh/"
-    mode: "0644"
-  when: "'work' in group_names"
-
-- name: Copy custom maciej-pc config
-  ansible.builtin.copy:
-    src: "zsh/maciej-pc/"
-    dest: "{{ ansible_facts['user_dir'] }}/.config/zsh/"
-    mode: "0644"
-  when: inventory_hostname == 'maciej-pc'
+  loop: "{{ ['common'] + group_names + [inventory_hostname] }}"
+  when: (role_path ~ '/files/zsh/' ~ item) is directory
 
 - name: Install oh-my-zsh
   ansible.builtin.git:

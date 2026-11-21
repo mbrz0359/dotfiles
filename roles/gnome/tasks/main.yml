@@ -2,10 +2,6 @@
 - name: Preferences
   ansible.builtin.include_tasks: preferences.yml
 
-- name: Preferences-work
-  ansible.builtin.include_tasks: preferences-work.yml
-  when: "'work' in group_names"
-
 - name: Kinesis 360 keyboard shortcuts
   ansible.builtin.include_tasks: keyboard-shortcuts-kinesis.yml
 

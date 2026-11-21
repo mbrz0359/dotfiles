@@ -1,0 +1,10 @@
+---
+apps_group_flatpaks:
+  - com.getpostman.Postman
+  - com.mongodb.Compass
+  - me.iepure.devtoolbox
+  - org.mozilla.thunderbird_esr
+
+gnome_group_preferences:
+  - { key: /org/gnome/mutter/dynamic-workspaces, value: "false" }
+  - { key: /org/gnome/desktop/wm/preferences/num-workspaces, value: "9" }

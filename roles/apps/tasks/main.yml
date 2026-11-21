@@ -1,17 +1,46 @@
 ---
-- name: Package-common
-  ansible.builtin.include_tasks: package-common.yml
+- name: Remove unneeded packages
+  ansible.builtin.package:
+    name:
+      - baobab
+      - decibels
+      - evince
+      - gnome-boxes
+      - gnome-calculator
+      - gnome-calendar
+      - gnome-clocks
+      - gnome-connections
+      - gnome-contacts
+      - gnome-font-viewer
+      - gnome-logs
+      - gnome-maps
+      - gnome-system-monitor
+      - gnome-text-editor
+      - gnome-weather
+      - libreoffice-core
+      - loupe
+      - mediawriter
+      - papers
+      - rhythmbox
+      - snapshot
+    state: absent
+  become: true
 
-- name: Flathub
-  ansible.builtin.include_tasks: flathub.yml
+- name: Install packages
+  ansible.builtin.package:
+    name:
+      - ptyxis
+  become: true
 
-- name: Flatpak-common
-  ansible.builtin.include_tasks: flatpak-common.yml
+- name: Add the flathub flatpak repository remote
+  community.general.flatpak_remote:
+    name: flathub
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
 
-- name: Flatpak-desktop
-  ansible.builtin.include_tasks: flatpak-desktop.yml
-  when: "'desktop' in group_names"
-
-- name: Flatpak-work
-  ansible.builtin.include_tasks: flatpak-work.yml
-  when: "'work' in group_names"
+- name: Install flatpaks
+  community.general.flatpak:
+    name: "{{ item }}"
+  loop: "{{ apps_flatpaks + apps_group_flatpaks }}"
+  register: flatpak_result # ansible-lint allows ignore_errors only with a register
+  ignore_errors: true # Not every flatpak is available on aarch64
+  become: true

@@ -1,11 +1,15 @@
 ---
-- name: Cli tools common
-  ansible.builtin.include_tasks: cli-tools-common.yml
+- name: Install cli tools
+  ansible.builtin.package:
+    name: "{{ cli_tools_packages + cli_tools_group_packages }}"
+  become: true
 
-- name: Cli tools desktop
-  ansible.builtin.include_tasks: cli-tools-desktop.yml
-  when: "'desktop' in group_names"
-
-- name: Cli tools work
-  ansible.builtin.include_tasks: cli-tools-work.yml
-  when: "'work' in group_names"
+# cli-tools-<group>.toml applies to the hosts in that group
+- name: Install cli tools with mise
+  ansible.builtin.copy:
+    src: "cli-tools-{{ item }}.toml"
+    dest: "{{ ansible_facts['user_dir'] }}/.config/mise/conf.d/"
+    mode: "0644"
+  loop: "{{ ['common'] + group_names }}"
+  when: (role_path ~ '/files/cli-tools-' ~ item ~ '.toml') is file
+  notify: Mise upgrade

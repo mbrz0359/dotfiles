@@ -5,11 +5,4 @@
     value: "{{ item.value }}"
   loop_control:
     label: "{{ item.key }}"
-  loop:
-    - { key: /org/gnome/desktop/interface/enable-hot-corners, value: "false" }
-    - { key: /org/gnome/shell/app-switcher/current-workspace-only, value: "true" }
-    - { key: /org/gnome/desktop/interface/color-scheme, value: "'prefer-dark'" }
-    - { key: /org/gnome/desktop/interface/accent-color, value: "'purple'" }
-    - { key: /org/gnome/desktop/sound/event-sounds, value: "false" }
-    - { key: /org/gnome/desktop/calendar/week-start-day, value: "'monday'" }
-    - { key: /org/gnome/settings-daemon/plugins/housekeeping/donation-reminder-enabled, value: "false" }
+  loop: "{{ gnome_preferences + gnome_group_preferences }}"
