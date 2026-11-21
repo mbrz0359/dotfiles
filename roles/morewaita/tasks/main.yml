@@ -6,7 +6,6 @@
     dest: "{{ ansible_workspace_dir }}/MoreWaita"
   notify: Install MoreWaita
 
-
 - name: Set MoreWaita as current icon theme
   community.general.dconf:
     key: "/org/gnome/desktop/interface/icon-theme"
