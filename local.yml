@@ -1,8 +1,6 @@
 ---
 - name: Desktop
   hosts: desktop
-  vars_files:
-    - git-desktop.yml
   roles:
     - adw-gtk3
     - apps
