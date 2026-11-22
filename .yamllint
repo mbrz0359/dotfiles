@@ -5,10 +5,6 @@ rules:
   # CODE_STYLE.md: one blank line between tasks
   empty-lines:
     max: 1
-  document-start:
-    # Encrypted vault files can't start with ---
-    ignore: |
-      roles/git/vars/
   line-length: disable
   # Settings ansible-lint requires
   comments:

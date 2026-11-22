@@ -9,7 +9,7 @@ everything committed as published.
   `work`) has the shared roles, then `desktop` and `work` add their own, then `pi`.
   Keep role lists alphabetical.
 - `hosts`: inventory. `ayem` is the Raspberry Pi. Hostnames match inventory names.
-- `group_vars/{all,desktop,work,pi}.yml`: variables, including inline vault-encrypted secrets.
+- `group_vars/{all,fedora,desktop,work,pi}.yml`: variables, including inline vault-encrypted secrets.
 - `roles/<name>/tasks/main.yml`: one role per app or tool. Group differences are
   data, not task files: a role keeps the common list in `defaults/` (e.g.
   `apps_flatpaks`) and an empty `<role>_group_<list>` that `group_vars/<group>.yml`

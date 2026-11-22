@@ -1,16 +1,11 @@
 ---
-- name: Include git config vars
-  ansible.builtin.include_vars:
-    file: "{{ inventory_hostname }}/git-config.yml"
-
-- name: Set git user name
+- name: Set git user
   community.general.git_config:
-    name: user.name
+    name: "{{ item.name }}"
     scope: global
-    value: "{{ git.username }}"
-
-- name: Set git email
-  community.general.git_config:
-    name: user.email
-    scope: global
-    value: "{{ git.email }}"
+    value: "{{ item.value }}"
+  loop_control:
+    label: "{{ item.name }}"
+  loop:
+    - { name: user.name, value: "{{ git_user_name }}" }
+    - { name: user.email, value: "{{ git_user_email }}" }
