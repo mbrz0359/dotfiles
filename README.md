@@ -49,8 +49,10 @@ restored by hand:
 
 CI runs `ansible-lint --offline` (it includes the syntax check) and the Renovate config
 validator in a Fedora container, with the `ansible-core` and `python3-ansible-lint`
-packages the `cli-tools` role installs on desktops. To run the lint locally:
+packages the `cli-tools` role installs on desktops. The pre-commit hook in
+[`.githooks/`](.githooks) runs the same lint before each commit, or by hand with
+`.githooks/pre-commit`. Enable it once per clone:
 
 ```sh
-ansible-lint --offline
+git config core.hooksPath .githooks
 ```

@@ -32,10 +32,11 @@ export ANSIBLE_VAULT_IDENTITY_LIST="default@$PWD/vault-keyring-client.sh"
   `!` can't read the password.
 - CI (`.github/workflows/ci.yml`) runs `ansible-lint` (profile `production`, see
   `.ansible-lint`; it includes the syntax check) and the Renovate config validator, in a
-  `fedora:45` container with Fedora's `ansible-core` and `python3-ansible-lint`. Run
-  `env -u ANSIBLE_VAULT_IDENTITY_LIST ansible-lint --offline` before committing; it uses
-  the same packages, installed by dnf. Like CI, it runs without the vault password: with
-  it, the parallel syntax checks query the keyring and fail at random.
+  `fedora:45` container with Fedora's `ansible-core` and `python3-ansible-lint`.
+  `.githooks/pre-commit` runs the same lint before each commit (enabled by
+  `git config core.hooksPath .githooks`), with the same packages, installed by dnf.
+  Like CI, it runs without the vault password: with it, the parallel syntax checks
+  query the keyring and fail at random.
   Do a `--check` run against ayem for changes to the `pi` play.
 
 ## Secrets

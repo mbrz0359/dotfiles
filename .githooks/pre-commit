@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Lint like CI before each commit, without the vault password (see AGENTS.md)
+exec env -u ANSIBLE_VAULT_IDENTITY_LIST ansible-lint --offline
