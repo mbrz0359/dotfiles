@@ -32,7 +32,6 @@
   loop:
     - timer
     - service
-  register: apt_daily_upgrade_dropins
   become: true
 
 - name: Enable apt-daily-upgrade timer
@@ -40,5 +39,5 @@
     name: apt-daily-upgrade.timer
     enabled: true
     state: started
-    daemon_reload: "{{ apt_daily_upgrade_dropins is changed }}"
+    daemon_reload: true
   become: true
