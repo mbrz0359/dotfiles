@@ -5,12 +5,6 @@
       - neovim
   become: true
 
-- name: Create ideavim directory
-  ansible.builtin.file:
-    path: "{{ ansible_facts['user_dir'] }}/.config/ideavim"
-    state: directory
-    mode: "0755"
-
 - name: Copy ideavimrc
   ansible.builtin.copy:
     src: "ideavimrc"

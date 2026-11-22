@@ -1,14 +1,8 @@
 ---
-- name: Create local bin directory
-  ansible.builtin.file:
-    path: "{{ ansible_facts['user_dir'] }}/.local/bin"
-    state: directory
-    mode: "0755"
-
 - name: Copy backup script
   ansible.builtin.copy:
     src: rsync-backup
-    dest: "{{ ansible_facts['user_dir'] }}/.local/bin/rsync-backup"
+    dest: "{{ ansible_facts['user_dir'] }}/.local/bin/"
     mode: "0755"
 
 - name: Create backup config directory
