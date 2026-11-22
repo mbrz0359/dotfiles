@@ -1,8 +1,3 @@
 ---
-- name: Install - Linux
-  ansible.builtin.include_tasks: install-linux-package.yml
-  when: "'desktop' in group_names"
-
-- name: Install - Docker
-  ansible.builtin.include_tasks: install-docker.yml
-  when: "'pi' in group_names"
+- name: Install with {{ syncthing_install }}
+  ansible.builtin.include_tasks: "install-{{ syncthing_install }}.yml"

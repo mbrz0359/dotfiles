@@ -1,6 +1,8 @@
 ---
 ansible_docker_dir: "/docker"
 
+syncthing_install: docker
+
 cloudflared_token: !vault |
   $ANSIBLE_VAULT;1.1;AES256
   61643932343135633638623834656330623231303464396163666638613638373261646365353665

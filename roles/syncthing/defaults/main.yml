@@ -1,0 +1,3 @@
+---
+# package or docker: install-<method>.yml in tasks/
+syncthing_install: package
