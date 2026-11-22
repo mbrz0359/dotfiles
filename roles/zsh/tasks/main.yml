@@ -29,16 +29,16 @@
 - name: Install oh-my-zsh
   ansible.builtin.git:
     repo: https://github.com/ohmyzsh/ohmyzsh.git
-    dest: ~/.local/share/oh-my-zsh
+    dest: "{{ zsh_omz_dir }}"
     depth: 1
 
 - name: Install zsh plugins
   ansible.builtin.git:
-    repo: "{{ item }}"
+    repo: "https://github.com/{{ item }}.git"
     depth: 1
-    dest: "{{ zsh_plugin_path }}/{{ item | basename | regex_replace('\\.git$', '') }}"
+    dest: "{{ zsh_omz_dir }}/custom/plugins/{{ item | basename }}"
   loop:
-    - https://github.com/zsh-users/zsh-autosuggestions.git
-    - https://github.com/zsh-users/zsh-syntax-highlighting.git
-    - https://github.com/devopstales/zsh-kubecolor.git
-    - https://github.com/jeffreytse/zsh-vi-mode
+    - zsh-users/zsh-autosuggestions
+    - zsh-users/zsh-syntax-highlighting
+    - devopstales/zsh-kubecolor
+    - jeffreytse/zsh-vi-mode
