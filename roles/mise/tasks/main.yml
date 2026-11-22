@@ -19,7 +19,6 @@
         url: https://mise.run
         dest: "{{ ansible_workspace_dir }}/mise/install.sh"
         mode: "+x"
-        owner: "{{ ansible_facts['user_id'] }}"
 
     - name: Run mise install script
       ansible.builtin.command: "{{ ansible_workspace_dir }}/mise/install.sh"

@@ -36,6 +36,7 @@
   community.general.flatpak_remote:
     name: flathub
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  become: true
 
 - name: Install flatpaks
   community.general.flatpak:
