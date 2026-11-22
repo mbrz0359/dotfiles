@@ -1,9 +1,9 @@
 ---
 - name: Preferences
-  ansible.builtin.include_tasks: preferences.yml
+  ansible.builtin.import_tasks: preferences.yml
 
 - name: Kinesis 360 keyboard shortcuts
-  ansible.builtin.include_tasks: keyboard-shortcuts-kinesis.yml
+  ansible.builtin.import_tasks: keyboard-shortcuts-kinesis.yml
 
 - name: Templates
-  ansible.builtin.include_tasks: templates.yml
+  ansible.builtin.import_tasks: templates.yml
