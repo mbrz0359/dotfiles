@@ -1,14 +1,14 @@
 [desktop]
 # the playbook runs on maciej-pc itself, so no SSH
-maciej-pc ansible_connection=local
-seht ansible_connection=local
+maciej-pc ansible_connection=local # x86_64
+seht ansible_connection=local # aarch64
 
 [work]
-maciej-work-dell
+maciej-work-dell # x86_64
 
 [fedora:children]
 desktop
 work
 
 [pi]
-ayem
+ayem # aarch64
