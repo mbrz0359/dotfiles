@@ -62,8 +62,8 @@ export ANSIBLE_VAULT_IDENTITY_LIST="default@$PWD/vault-keyring-client.sh"
 
 - Follow [CODE_STYLE.md](CODE_STYLE.md) for formatting.
 - Containers: `community.docker.docker_container`, `become: true`, data under
-  `{{ ansible_docker_dir }}/<app>`, `PUID`/`PGID` `1000`, `TZ: "{{ timezone }}"`,
-  `restart_policy: unless-stopped`.
+  `{{ ansible_docker_dir }}/<app>`, `restart_policy: unless-stopped`. Set
+  `PUID`/`PGID` `1000` and `TZ: "{{ timezone }}"` only for images that use them.
 - Pin image tags (not `latest`) so Renovate can update them. Renovate automerges
   minor/patch updates; majors get a PR.
 - systemd services I should hear about when they fail get
