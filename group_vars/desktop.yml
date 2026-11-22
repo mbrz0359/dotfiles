@@ -12,6 +12,10 @@ apps_group_flatpaks:
   - org.nickvision.tubeconverter
   - tv.plex.PlexDesktop
 
+# The SSH key needs the session's GNOME keyring agent, which a system unit can't
+# reach. A user unit can't notify through unit-status.
+backup_scope: user
+
 # Fedora's package, so it runs on the system Python and ansible-core
 cli_tools_group_packages:
   - python3-ansible-lint

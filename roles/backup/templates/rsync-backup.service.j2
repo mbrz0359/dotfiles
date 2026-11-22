@@ -1,12 +1,17 @@
 [Unit]
 Description=Back up files with rsync
+{% if backup_scope == 'system' %}
 Wants=network-online.target
 After=network-online.target
+{# A user unit can't start the system unit-status@ unit #}
 OnFailure=unit-status@%n.service
+{% endif %}
 
 [Service]
 Type=oneshot
+{% if backup_scope == 'system' %}
 User={{ ansible_facts['user_id'] }}
+{% endif %}
 ExecStart={{ ansible_facts['user_dir'] }}/.local/bin/rsync-backup --if-due
 Nice=10
 IOSchedulingClass=idle

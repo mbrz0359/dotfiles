@@ -24,53 +24,33 @@
     mode: "0600"
   diff: false
 
-# Desktops use a user timer
-- name: Back up with a user timer
-  when: "'desktop' in group_names"
+- name: Back up with a systemd timer
+  become: "{{ backup_scope == 'system' }}"
+  vars:
+    backup_unit_dir: "{{ '/etc/systemd/system' if backup_scope == 'system' else ansible_facts['user_dir'] ~ '/.config/systemd/user' }}"
   block:
-    - name: Create systemd user unit directory
+    - name: Create systemd unit directory
       ansible.builtin.file:
-        path: "{{ ansible_facts['user_dir'] }}/.config/systemd/user"
+        path: "{{ backup_unit_dir }}"
         state: directory
         mode: "0755"
 
-    - name: Install backup user units
-      ansible.builtin.copy:
-        src: "{{ item }}"
-        dest: "{{ ansible_facts['user_dir'] }}/.config/systemd/user/{{ item }}"
-        mode: "0644"
-      loop:
-        - rsync-backup.service
-        - rsync-backup.timer
-
-    - name: Enable backup user timer
-      ansible.builtin.systemd_service:
-        name: rsync-backup.timer
-        enabled: true
-        state: started
-        daemon_reload: true
-        scope: user
-
-# The Pi uses a system timer, so failures notify through unit-status
-- name: Back up with a system timer
-  when: "'pi' in group_names"
-  become: true
-  block:
-    - name: Install backup system service
+    - name: Install backup service
       ansible.builtin.template:
         src: rsync-backup.service.j2
-        dest: /etc/systemd/system/rsync-backup.service
+        dest: "{{ backup_unit_dir }}/rsync-backup.service"
         mode: "0644"
 
-    - name: Install backup system timer
+    - name: Install backup timer
       ansible.builtin.copy:
         src: rsync-backup.timer
-        dest: /etc/systemd/system/rsync-backup.timer
+        dest: "{{ backup_unit_dir }}/rsync-backup.timer"
         mode: "0644"
 
-    - name: Enable backup system timer
+    - name: Enable backup timer
       ansible.builtin.systemd_service:
         name: rsync-backup.timer
         enabled: true
         state: started
         daemon_reload: true
+        scope: "{{ backup_scope }}"
