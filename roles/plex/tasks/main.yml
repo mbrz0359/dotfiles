@@ -23,5 +23,5 @@
       TZ: "{{ timezone }}"
       VERSION: "docker"
     restart_policy: unless-stopped
-    pull: always
+    pull: always # linuxserver rebuilds this tag with security fixes
   become: true
