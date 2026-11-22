@@ -1,7 +1,20 @@
 ---
-- name: Install - Fedora
-  ansible.builtin.include_tasks: install-fedora.yml
-  when: ansible_facts['distribution'] == "Fedora"
+- name: Add docker repository
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/fedora/docker-ce.repo
+    dest: "/etc/yum.repos.d/docker-ce.repo"
+    mode: "0644"
+  become: true
+
+- name: Install docker
+  ansible.builtin.package:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+  become: true
 
 - name: Add user to docker group
   ansible.builtin.user:

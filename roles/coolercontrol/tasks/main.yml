@@ -1,7 +1,25 @@
 ---
 # The CoolerControl copr has no aarch64 builds
-- name: Install - Fedora
-  ansible.builtin.include_tasks: install-fedora.yml
-  when:
-    - ansible_facts['distribution'] == "Fedora"
-    - ansible_facts['architecture'] == "x86_64"
+- name: Install CoolerControl
+  when: ansible_facts['architecture'] == "x86_64"
+  become: true
+  block:
+    - name: Install dnf-plugins-core
+      ansible.builtin.package:
+        name:
+          - dnf-plugins-core
+
+    - name: Add CoolerControl repository
+      community.general.copr:
+        name: codifryed/CoolerControl
+
+    - name: Install CoolerControl package
+      ansible.builtin.package:
+        name:
+          - coolercontrol
+
+    - name: Enable CoolerControl service
+      ansible.builtin.systemd_service:
+        name: coolercontrold
+        state: started
+        enabled: true
