@@ -25,10 +25,9 @@
       args:
         creates: "{{ ansible_facts['user_dir'] }}/.local/bin/mise"
 
-- name: Enable automatic updates
-  ansible.builtin.command: mise settings self_update.auto=true
-  changed_when: false
-
-- name: Add minimum release age excludes
-  ansible.builtin.command: mise settings minimum_release_age_excludes=claude
-  changed_when: false
+# In conf.d, so `mise use -g` can still write tools to config.toml
+- name: Configure mise settings
+  ansible.builtin.copy:
+    src: settings.toml
+    dest: "{{ mise_conf_dir }}/"
+    mode: "0644"

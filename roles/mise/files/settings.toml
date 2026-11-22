@@ -1,0 +1,6 @@
+[settings]
+# Matches the configured tool name, which the claude role sets to "claude"
+minimum_release_age_excludes = ["claude"]
+
+[settings.self_update]
+auto = true

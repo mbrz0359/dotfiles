@@ -8,7 +8,7 @@
 - name: Install cli tools with mise
   ansible.builtin.copy:
     src: "cli-tools-{{ item }}.toml"
-    dest: "{{ ansible_facts['user_dir'] }}/.config/mise/conf.d/"
+    dest: "{{ mise_conf_dir }}/"
     mode: "0644"
   loop: "{{ ['common'] + group_names }}"
   when: (role_path ~ '/files/cli-tools-' ~ item ~ '.toml') is file

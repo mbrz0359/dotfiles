@@ -8,7 +8,7 @@
 - name: Install zellij
   ansible.builtin.copy:
     src: "zellij.toml"
-    dest: "{{ ansible_facts['user_dir'] }}/.config/mise/conf.d/"
+    dest: "{{ mise_conf_dir }}/"
     mode: "0644"
   notify: Mise upgrade
 
