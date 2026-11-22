@@ -1,6 +1,8 @@
 ---
+# Roles read only user, platform and pkg_mgr facts
 - name: Fedora
   hosts: fedora
+  gather_subset: [min]
   roles:
     - adw-gtk3
     - apps
@@ -34,6 +36,7 @@
 
 - name: Raspberry Pi
   hosts: pi
+  gather_subset: [min]
   roles:
     - ansible-pull
     - audiobookshelf
