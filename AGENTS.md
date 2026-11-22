@@ -10,6 +10,7 @@ everything committed as published.
   Keep role lists alphabetical.
 - `hosts`: inventory. `ayem` is the Raspberry Pi. Hostnames match inventory names.
 - `group_vars/{all,fedora,desktop,work,pi}.yml`: variables, including inline vault-encrypted secrets.
+- `backups/`: settings the playbook can't apply (see README.md). No role uses them.
 - `roles/<name>/tasks/main.yml`: one role per app or tool. Group differences are
   data, not task files: a role keeps the common list in `defaults/` (e.g.
   `apps_flatpaks`) and an empty `<role>_group_<list>` that `group_vars/<group>.yml`

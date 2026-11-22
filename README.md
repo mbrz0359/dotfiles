@@ -37,6 +37,14 @@ journalctl -u ansible-pull.service
 To add another vault ID, store it with `vault-id <id>` and append
 `,<id>@$HOME/Workspace/dotfiles/vault-keyring-client.sh` to `ANSIBLE_VAULT_IDENTITY_LIST`.
 
+## Backups
+
+[`backups/`](backups) holds settings the playbook can't apply, kept so they can be
+restored by hand:
+
+- `vimium-options.json`: Vimium options in LibreWolf (Flatpak). Restore it from the
+  Backup and Restore section of Vimium's options page.
+
 ## Checks
 
 CI runs `ansible-lint --offline` (it includes the syntax check) and the Renovate config
