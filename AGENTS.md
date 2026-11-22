@@ -54,7 +54,8 @@ export ANSIBLE_VAULT_IDENTITY_LIST="default@$PWD/vault-keyring-client.sh"
   ayem from a local checkout are reverted that night unless they're pushed.
 - Pi-hole provides LAN DNS. Recreating its container or rebooting ayem (the
   `raspberry-pi` role reboots on cmdline changes) briefly takes DNS down.
-- Collections come from Galaxy (`ansible-pull.service` upgrades them), not Debian.
+- Collections come from Galaxy (`ansible-pull.service` installs the versions pinned
+  in `requirements.yml`), not Debian.
 
 ## Conventions
 

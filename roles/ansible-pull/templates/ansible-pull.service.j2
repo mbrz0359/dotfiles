@@ -11,7 +11,7 @@ LoadCredentialEncrypted=ansible-vault
 # Install the collection versions pinned in requirements.yml (Debian's lag behind).
 # Update the checkout first so a version bump applies in the same run.
 ExecStartPre=-/usr/bin/git -C {{ ansible_pull_dir }} pull --quiet --ff-only
-ExecStartPre=-/usr/bin/ansible-galaxy collection install --upgrade -r {{ ansible_pull_dir }}/requirements.yml
+ExecStartPre=-/usr/bin/ansible-galaxy collection install -r {{ ansible_pull_dir }}/requirements.yml
 ExecStart=/usr/bin/ansible-pull \
     --url https://github.com/mbrz0359/dotfiles.git \
     --checkout main \
