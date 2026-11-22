@@ -12,4 +12,4 @@
     mode: "0644"
   loop: "{{ ['common'] + group_names }}"
   when: (role_path ~ '/files/cli-tools-' ~ item ~ '.toml') is file
-  notify: Mise upgrade
+  notify: Mise install

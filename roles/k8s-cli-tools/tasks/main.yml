@@ -4,4 +4,4 @@
     src: "k8s.toml"
     dest: "{{ mise_conf_dir }}/"
     mode: "0644"
-  notify: Mise upgrade
+  notify: Mise install

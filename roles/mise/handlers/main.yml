@@ -1,4 +1,6 @@
 ---
-- name: Mise upgrade
-  ansible.builtin.command: mise upgrade -y
+# Installs only missing tools, e.g. a new one or a bumped pin; it doesn't
+# upgrade the others
+- name: Mise install
+  ansible.builtin.command: mise install -y
   changed_when: true

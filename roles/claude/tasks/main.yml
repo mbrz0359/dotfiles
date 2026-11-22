@@ -4,7 +4,7 @@
     src: "claude.toml"
     dest: "{{ mise_conf_dir }}/"
     mode: "0644"
-  notify: Mise upgrade
+  notify: Mise install
 
 - name: Install Claude Code before installing plugins
   ansible.builtin.meta: flush_handlers
