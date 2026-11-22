@@ -41,6 +41,9 @@ export ANSIBLE_VAULT_IDENTITY_LIST="default@$PWD/vault-keyring-client.sh"
 
 - Secrets are inline `!vault` values in `group_vars`. LAN IP addresses count as
   secrets (see `lan_hosts`).
+- Network exposure is private too: which services the tunnel or the internet can
+  reach, and how. Comments and commit messages give reasons in generic terms
+  ("the image gets security rebuilds").
 - Never print decrypted values. Don't run `--diff` over tasks that template secrets
   (docker `env`/`command`, `/etc/unit-status.env`). Verify with
   `length` or `hash('sha256')` instead.
