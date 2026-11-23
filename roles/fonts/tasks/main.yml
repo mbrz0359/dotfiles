@@ -1,17 +1,37 @@
 ---
-- name: Create fonts directory
+# One directory per release, so a version bump downloads the new release
+- name: Create Nerd Fonts directory
   ansible.builtin.file:
-    path: "{{ ansible_facts['user_dir'] }}/.local/share/fonts"
+    path: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/nerd-fonts-{{ fonts_nerd_fonts_version }}"
     state: directory
     mode: "0755"
 
 - name: Install JetBrains Mono Nerd Font
   ansible.builtin.unarchive:
-    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
-    dest: "{{ ansible_facts['user_dir'] }}/.local/share/fonts"
+    src: "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ fonts_nerd_fonts_version }}/JetBrainsMono.zip"
+    dest: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/nerd-fonts-{{ fonts_nerd_fonts_version }}"
     include: JetBrainsMonoNLNerdFont-Regular.ttf
     remote_src: true
-    creates: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/JetBrainsMonoNLNerdFont-Regular.ttf"
+    creates: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/nerd-fonts-{{ fonts_nerd_fonts_version }}/JetBrainsMonoNLNerdFont-Regular.ttf"
+
+# Includes the font file that earlier versions of this role put in the top-level directory
+- name: Find other Nerd Fonts versions
+  ansible.builtin.find:
+    paths: "{{ ansible_facts['user_dir'] }}/.local/share/fonts"
+    patterns:
+      - nerd-fonts-*
+      - JetBrainsMonoNLNerdFont-*.ttf
+    excludes: nerd-fonts-{{ fonts_nerd_fonts_version }}
+    file_type: any
+  register: fonts_old_nerd_fonts
+
+- name: Remove other Nerd Fonts versions
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: absent
+  loop: "{{ fonts_old_nerd_fonts.files }}"
+  loop_control:
+    label: "{{ item.path | basename }}"
 
 - name: Set GNOME font settings
   community.general.dconf:

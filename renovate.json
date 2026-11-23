@@ -75,5 +75,17 @@
     "managerFilePatterns": [
       "/(^|/)roles/cli-tools/files/cli-tools-[^/]+\\.toml$/"
     ]
-  }
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Versions in role defaults that carry a renovate comment",
+      "managerFilePatterns": [
+        "/(^|/)roles/[^/]+/defaults/main\\.yml$/"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n[^:\\n]+: (?<currentValue>\\S+)"
+      ]
+    }
+  ]
 }
