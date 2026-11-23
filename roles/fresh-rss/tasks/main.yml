@@ -2,7 +2,7 @@
 - name: Deploy FreshRSS
   community.docker.docker_container:
     name: fresh-rss
-    image: freshrss/freshrss:1.30.4
+    image: freshrss/freshrss:1.31.0
     ports:
       - "8112:80"
     volumes:
