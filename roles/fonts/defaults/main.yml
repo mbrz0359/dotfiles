@@ -1,3 +1,5 @@
 ---
+fonts_dir: "{{ ansible_facts['user_dir'] }}/.local/share/fonts"
+
 # renovate: datasource=github-releases depName=ryanoasis/nerd-fonts
 fonts_nerd_fonts_version: v3.5.1

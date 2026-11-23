@@ -1,37 +1,31 @@
 ---
-# One directory per release, so a version bump downloads the new release
-- name: Create Nerd Fonts directory
+- name: Create fonts directory
   ansible.builtin.file:
-    path: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/nerd-fonts-{{ fonts_nerd_fonts_version }}"
+    path: "{{ fonts_dir }}"
     state: directory
     mode: "0755"
 
+# The file doesn't exist before the first install
+- name: Read installed Nerd Fonts version
+  ansible.builtin.slurp:
+    src: "{{ fonts_dir }}/.nerd-fonts-version"
+  register: fonts_nerd_fonts_installed
+  failed_when: false
+
+# A fixed path, so apps that loaded the old font keep working after an update
 - name: Install JetBrains Mono Nerd Font
   ansible.builtin.unarchive:
     src: "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ fonts_nerd_fonts_version }}/JetBrainsMono.zip"
-    dest: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/nerd-fonts-{{ fonts_nerd_fonts_version }}"
+    dest: "{{ fonts_dir }}"
     include: JetBrainsMonoNLNerdFont-Regular.ttf
     remote_src: true
-    creates: "{{ ansible_facts['user_dir'] }}/.local/share/fonts/nerd-fonts-{{ fonts_nerd_fonts_version }}/JetBrainsMonoNLNerdFont-Regular.ttf"
+  when: (fonts_nerd_fonts_installed.content | default('') | b64decode) != fonts_nerd_fonts_version
 
-# Includes the font file that earlier versions of this role put in the top-level directory
-- name: Find other Nerd Fonts versions
-  ansible.builtin.find:
-    paths: "{{ ansible_facts['user_dir'] }}/.local/share/fonts"
-    patterns:
-      - nerd-fonts-*
-      - JetBrainsMonoNLNerdFont-*.ttf
-    excludes: nerd-fonts-{{ fonts_nerd_fonts_version }}
-    file_type: any
-  register: fonts_old_nerd_fonts
-
-- name: Remove other Nerd Fonts versions
-  ansible.builtin.file:
-    path: "{{ item.path }}"
-    state: absent
-  loop: "{{ fonts_old_nerd_fonts.files }}"
-  loop_control:
-    label: "{{ item.path | basename }}"
+- name: Record installed Nerd Fonts version
+  ansible.builtin.copy:
+    content: "{{ fonts_nerd_fonts_version }}"
+    dest: "{{ fonts_dir }}/.nerd-fonts-version"
+    mode: "0644"
 
 - name: Set GNOME font settings
   community.general.dconf:
