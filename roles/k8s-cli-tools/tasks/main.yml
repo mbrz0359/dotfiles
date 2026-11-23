@@ -1,7 +1,16 @@
 ---
-- name: Install k8s cli tools
+# Earlier versions of this role installed every tool from one file
+- name: Remove old k8s cli tools config
+  ansible.builtin.file:
+    path: "{{ mise_conf_dir }}/k8s.toml"
+    state: absent
+
+# k8s-cli-tools-<group>.toml applies to the hosts in that group
+- name: Install k8s cli tools with mise
   ansible.builtin.copy:
-    src: "k8s.toml"
+    src: "k8s-cli-tools-{{ item }}.toml"
     dest: "{{ mise_conf_dir }}/"
     mode: "0644"
+  loop: "{{ ['common'] + group_names }}"
+  when: (role_path ~ '/files/k8s-cli-tools-' ~ item ~ '.toml') is file
   notify: Mise install

@@ -73,7 +73,7 @@
   ],
   "mise": {
     "managerFilePatterns": [
-      "/(^|/)roles/cli-tools/files/cli-tools-[^/]+\\.toml$/"
+      "/(^|/)roles/(k8s-)?cli-tools/files/(k8s-)?cli-tools-[^/]+\\.toml$/"
     ]
   },
   "customManagers": [
