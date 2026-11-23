@@ -1,2 +1,4 @@
 [tools]
+'aqua:kyverno/chainsaw' = '0.2.15'
+flux2 = '2.6'
 helm-ct = 'latest'
